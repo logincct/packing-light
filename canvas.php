@@ -1,8 +1,6 @@
 <?php session_start(); ?>
 
-	<script src="script.js"></script>  <!-- Chama função de script.js -->
-
-	<canvas id="OriginalCanvas" width=" <?php echo $_SESSION['l_palt']; ?> " height=" <?php echo $_SESSION['c_palt']; ?> " style="border:1px solid #000000;"></canvas>
+<canvas id="OriginalCanvas" width=" <?php echo $_SESSION['l_palt']; ?> " height=" <?php echo $_SESSION['c_palt']; ?> " style="border:1px solid #000000;"></canvas>
 
 		<script type="text/javascript">
 			colors = ["#502d89", "#2d897e", "#71892d", "#892d42", "#89392d", "#61892d"]
@@ -55,7 +53,6 @@
 
 			}
 
-<<<<<<< HEAD
 			x = <?php echo $_SESSION['l_palt'] - $_SESSION['lag_rest']; ?>;
 			y = <?php echo $_SESSION['c_palt'] - $_SESSION['comp_rest']; ?>;
 
@@ -65,16 +62,6 @@
 			yy = xx;
 			xx = temp;
 
-=======
-		</script>
-
-		<div>
-			<button onclick="mostraInformacoes('OriginalCanvas', 'info-original')">Original</button>
-			<p id="info-original"></p>
-		</div>
-
-		<canvas id="PreviousCanvas" width=" <?php echo $_SESSION['lag_rest']; ?> " height=" <?php echo $_SESSION['comp_rest']; ?> " style="border:1px solid #000000;"></canvas>
->>>>>>> 1f29509b77efd2c41260c3ff6f4568a4a67f38a8
 
 
 			while ( cont < <?php echo $_SESSION['qtd_obj']; ?>  ) {
@@ -107,12 +94,11 @@
 
 		</script>
 
-		<div>  <!-- Puxa informações do canvas menor. -->
-			<button onclick="mostraInformacoes('PreviousCanvas', 'info-previous')">Partição</button>
-			<p id="info-previous"></p>
+		<div>
+			<button onclick="myFunction()">Informações</button>
+			<p id="demo"></p>
 		</div>
 
-<<<<<<< HEAD
 			<script>
 
 		// Printa o tamanho do pallet abaixo do OriginalCanvas
@@ -126,10 +112,3 @@
 			document.getElementById("demo").innerHTML = txt;
 		}
 		</script>
-=======
-		<script type="text/javascript">
-			ctx1.drawImage(canvasDiv, <?php echo $_SESSION['l_palt'] - $_SESSION['lag_rest'] ?>, 0);
-		</script>
-
-
->>>>>>> 1f29509b77efd2c41260c3ff6f4568a4a67f38a8

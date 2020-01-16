@@ -16,6 +16,8 @@
 
 		// 1ª chamada da função
 
+		$_SESSION['alter'] = 0;
+
 		$c_niv = array(); // Array com o comprimento dos nives respectivamente
 
 		$cont_c_niv = 0; //Variável para contar em que comprimento o for chegou para não ultrapassar a largura do pallet (soma de todos os itens em $c_niv[]);
