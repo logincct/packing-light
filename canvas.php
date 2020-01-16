@@ -5,8 +5,8 @@
 		<script type="text/javascript">
 			colors = ["#502d89", "#2d897e", "#71892d", "#892d42", "#89392d", "#61892d"]
 
-			var canvas = document.getElementById("OriginalCanvas");  //Select canvas element in the page
-			var ctx = canvas.getContext("2d");  //Built-in object
+			var canvasOriginal = document.getElementById("OriginalCanvas");  //Select canvas element in the page
+			var ctx1 = canvasOriginal.getContext("2d");  //Built-in object
 
 			var x = 0;
 			var y = 0;
@@ -25,23 +25,23 @@
 			while ( cont < <?php echo $_SESSION['res']; ?>) {
 
 				//Desenhar as caixas
-				ctx.fillStyle = colors[  Math.floor((Math.random() * 6) + 1) ];  //Fill the color 
-				ctx.fillRect(x, y, xx , yy);  //Create box
-				ctx.beginPath();
-				ctx.lineWidth = "1";
-				ctx.rect(x, y, xx , yy);
-				ctx.stroke();
+				ctx1.fillStyle = colors[  Math.floor((Math.random() * 6) + 1) ];  //Fill the color 
+				ctx1.fillRect(x, y, xx , yy);  //Create box
+				ctx1.beginPath();
+				ctx1.lineWidth = "1";
+				ctx1.rect(x, y, xx , yy);
+				ctx1.stroke();
 
 				//Verifica se a caixa cabe e muda o X e o Y que não as coordenadas para as próximas caixas
-				if ( ((x + xx) <= canvas.attributes[1].value) && (y + yy <= canvas.attributes[2].value )) {
+				if ( ((x + xx) <= canvasOriginal.attributes[1].value) && (y + yy <= canvasOriginal.attributes[2].value )) {
 					x += xx;
 				}
 
-				if ( (x + xx) > canvas.attributes[1].value && (y + yy) <= canvas.attributes[2].value ) {
+				if ( (x + xx) > canvasOriginal.attributes[1].value && (y + yy) <= canvasOriginal.attributes[2].value ) {
 					
 					y += yy;
 
-					if( (y + yy) <= canvas.attributes[2].value ) x = 0;					
+					if( (y + yy) <= canvasOriginal.attributes[2].value ) x = 0;					
 				}
 
 				cont = cont + 1;
@@ -76,8 +76,8 @@
 		<script type="text/javascript">
 			colors = ["#502d89", "#2d897e", "#71892d", "#892d42", "#89392d", "#61892d"]
 
-			var canvas = document.getElementById("PreviousCanvas");  //Select canvas element in the page
-			var ctx = canvas.getContext("2d");  //Built-in object
+			var canvasDiv = document.getElementById("PreviousCanvas");  //Select canvas element in the page
+			var ctx2 = canvasDiv.getContext("2d");  //Built-in object
 
 			var x = 0;
 			var y = 0;
@@ -96,23 +96,23 @@
 			while ( cont < <?php echo $_SESSION['res']; ?>) {
 
 				//Desenhar as caixas
-				 ctx.fillStyle = colors[  Math.floor((Math.random() * 6) + 1) ];  //Fill the color 
-				 ctx.fillRect(x, y, xx , yy);  //Create box
-				 ctx.beginPath();
-				 ctx.lineWidth = "1";
-				 ctx.rect(x, y, xx , yy);
-				 ctx.stroke();
+				 ctx2.fillStyle = colors[  Math.floor((Math.random() * 6) + 1) ];  //Fill the color 
+				 ctx2.fillRect(x, y, xx , yy);  //Create box
+				 ctx2.beginPath();
+				 ctx2.lineWidth = "1";
+				 ctx2.rect(x, y, xx , yy);
+				 ctx2.stroke();
 
 				//Verifica se a caixa cabe e muda o X e o Y que são as coordenadas para as próximas caixas
-				if ( ((x + xx) <= canvas.attributes[1].value) && (y + yy <= canvas.attributes[2].value )) {
+				if ( ((x + xx) <= canvasDiv.attributes[1].value) && (y + yy <= canvasDiv.attributes[2].value )) {
 					x += xx;
 				}
 
-				if ( (x + xx) > canvas.attributes[1].value && (y + yy) <= canvas.attributes[2].value ) {
+				if ( (x + xx) > canvasDiv.attributes[1].value && (y + yy) <= canvasDiv.attributes[2].value ) {
 					
 					y += yy;
 
-					if( (y + yy) <= canvas.attributes[2].value ) x = 0;					
+					if( (y + yy) <= canvasDiv.attributes[2].value ) x = 0;					
 				}
 
 				cont = cont + 1;
@@ -126,11 +126,10 @@
 			<p id="demo"></p>
 		</div>
 
-			<script>
-
-		// Printa o tamanho do pallet abaixo do PreviousCanvas
+		<script>
+			// Printa o tamanho do pallet abaixo do OriginalCanvas
 		function myFunction() {
-			var x = document.getElementById("PreviousCanvas");
+			var x = document.getElementById("OriginalCanvas");
 			var txt = "";
 			var i;
 			for (i = 0; i < x.attributes.length; i++) {
@@ -138,4 +137,11 @@
 			}
 			document.getElementById("demo").innerHTML = txt;
 		}
+			
 		</script>
+
+		<script type="text/javascript">
+			ctx1.drawImage(canvasDiv, <?php echo $_SESSION['l_palt'] - $_SESSION['lag_rest'] ?>, 0);
+		</script>
+
+
