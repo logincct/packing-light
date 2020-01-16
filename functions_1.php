@@ -86,6 +86,8 @@
 			for( $i=0; $i < sizeof($objetos) ; $i++ ){
 
 				$objetos[$i]->giraObjeto();
+				$_SESSION['lag'] = $objetos[$i]->largura;
+				$_SESSION['comp'] = $objetos[$i]->comprimento;
 				$_SESSION['alter'] = 1;
 			}
 

@@ -50,6 +50,8 @@
 
 	$lag_rest = $_SESSION['l_palt'] - ( $obj_Lnivel * $_SESSION['lag'] ); // Largura restante no pallet.
 
+	//echo $lag_rest;
+
 	$comp_rest = $_SESSION['c_palt'] - ( $obj_Cnivel * $_SESSION['comp'] ); // Largura restante no pallet.
 
 	//Verificando se cabe alguma caixa girada na largura. (Ex: Se $lag_rest = 30, $lag = 50 e $comp = 30, o objeto cabe, mas girado)
@@ -64,9 +66,16 @@
 
 		}
 
+
+
 		$_SESSION['spaceL_left'] = True;// Então há espaço para alguma caixa.
 		$_SESSION['lag_rest'] = $lag_rest; // Aramzeno na $_SESSION.
 		$_SESSION['comp_rest'] = $_SESSION['c_palt'];// Comprimento é o comprimento do pallet.
+
+		$qtd_obj;
+
+		$qtd_obj = intdiv( $_SESSION['comp_rest'] , $_SESSION['lag'] );
+
 	}
 	elseif( $comp_rest >= $lag ){ // Se o comprimento restante for maior ou igual à largura do objeto...
 
@@ -83,10 +92,15 @@
 		$_SESSION['comp_rest'] = $comp_rest; // Aramzeno na $_SESSION.
 		$_SESSION['lag_rest'] = $_SESSION['l_palt'];// Largura é a largura do pallet.
 
+		$qtd_obj = intdiv( $_SESSION['lag_rest'] , $_SESSION['comp'] );
+
 	}
 	else{// Se nem uma for satisfeita...
 		$_SESSION['space_left'] = False;// Então não há espaço para mais caixas no pallet.
 	}
+
+	$_SESSION['qtd_obj'];
+	$_SESSION['qtd_obj'] = $qtd_obj;
 
 	header('Location: canvas.php');//Cria a Canvas
 

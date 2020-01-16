@@ -13,9 +13,9 @@
 			<label for ="c_palt" >Comprimento do pallet</label>
 			<input id = "c_palt" type = "text" name = "c_palt" value = "130"></br>
 
-			<label for ="n_obj" >Número de objetos</label>
+<!-- 			<label for ="n_obj" >Número de objetos</label>
 			<input id = "n_obj" type = "text" name = "n_obj" value = "15"></br>
-
+ -->
 			<label for ="lag_obj" >Largura do objeto</label>
 			<input id = "lag_obj" type = "text" name = "lag_obj"
 			value = "50" ><br>
