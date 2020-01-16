@@ -1,6 +1,8 @@
 <?php session_start(); ?>
 
-<canvas id="OriginalCanvas" width=" <?php echo $_SESSION['l_palt']; ?> " height=" <?php echo $_SESSION['c_palt']; ?> " style="border:1px solid #000000;"></canvas>
+	<script src="script.js"></script>  <!-- Chama função de script.js -->
+
+	<canvas id="OriginalCanvas" width=" <?php echo $_SESSION['l_palt']; ?> " height=" <?php echo $_SESSION['c_palt']; ?> " style="border:1px solid #000000;"></canvas>
 
 		<script type="text/javascript">
 			colors = ["#502d89", "#2d897e", "#71892d", "#892d42", "#89392d", "#61892d"]
@@ -51,27 +53,11 @@
 		</script>
 
 		<div>
-			<button onclick="myFunction()">Informações</button>
-			<p id="demo"></p>
+			<button onclick="mostraInformacoes('OriginalCanvas', 'info-original')">Original</button>
+			<p id="info-original"></p>
 		</div>
 
-			<script>
-
-		// Printa o tamanho do pallet abaixo do OriginalCanvas
-		function myFunction() {
-			var x = document.getElementById("OriginalCanvas");
-			var txt = "";
-			var i;
-			for (i = 0; i < x.attributes.length; i++) {
-				txt = txt + x.attributes[i].name + " = " + x.attributes[i].value + "<br>";
-			}
-			document.getElementById("demo").innerHTML = txt;
-		}
-		</script>
-
-
-
-<canvas id="PreviousCanvas" width=" <?php echo $_SESSION['lag_rest']; ?> " height=" <?php echo $_SESSION['comp_rest']; ?> " style="border:1px solid #000000;"></canvas>
+		<canvas id="PreviousCanvas" width=" <?php echo $_SESSION['lag_rest']; ?> " height=" <?php echo $_SESSION['comp_rest']; ?> " style="border:1px solid #000000;"></canvas>
 
 		<script type="text/javascript">
 			colors = ["#502d89", "#2d897e", "#71892d", "#892d42", "#89392d", "#61892d"]
@@ -121,24 +107,10 @@
 
 		</script>
 
-		<div>
-			<button onclick="myFunction()">Informações</button>
-			<p id="demo"></p>
+		<div>  <!-- Puxa informações do canvas menor. -->
+			<button onclick="mostraInformacoes('PreviousCanvas', 'info-previous')">Partição</button>
+			<p id="info-previous"></p>
 		</div>
-
-		<script>
-			// Printa o tamanho do pallet abaixo do OriginalCanvas
-		function myFunction() {
-			var x = document.getElementById("OriginalCanvas");
-			var txt = "";
-			var i;
-			for (i = 0; i < x.attributes.length; i++) {
-				txt = txt + x.attributes[i].name + " = " + x.attributes[i].value + "<br>";
-			}
-			document.getElementById("demo").innerHTML = txt;
-		}
-			
-		</script>
 
 		<script type="text/javascript">
 			ctx1.drawImage(canvasDiv, <?php echo $_SESSION['l_palt'] - $_SESSION['lag_rest'] ?>, 0);
