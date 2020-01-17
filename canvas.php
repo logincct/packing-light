@@ -10,6 +10,7 @@
 			var myCanvas = document.getElementById("Pallet");  //Select canvas element in the page
 			var ctx1 = myCanvas.getContext("2d");  //Built-in object
 
+			var num_obj = <?php echo $_SESSION['n_obj']?>;
 			var x = 0;
 			var y = 0;
 			var xx = 0;
@@ -27,7 +28,7 @@
 			}
 
 			//Enquanto o número de caixas colocadas for menor que o número de objetos
-			while ( cont < <?php echo $_SESSION['res']; ?>) {
+			while ( cont < <?php echo $_SESSION['res']; ?> && cont < <?php echo $_SESSION['n_obj']; ?> ) {
 
 				//Desenhar as caixas
 				ctx1.fillStyle = colors[  Math.floor( (Math.random() * 3) + 1) ];  //Fill the color 
@@ -52,21 +53,23 @@
 
 
 				cont = cont + 1;
+				num_obj -= 1;
 
 			}
 
+			document.write(cont);
+			
 			x = <?php echo $_SESSION['l_palt'] - $_SESSION['lag_rest']; ?>;
 			y = <?php echo $_SESSION['c_palt'] - $_SESSION['comp_rest']; ?>;
-
-			cont = 0;
 
 			temp = yy;
 			yy = xx;
 			xx = temp;
 
 
+			while ( cont < <?php echo $_SESSION['qtd_obj'] + $_SESSION['res']; ?> && cont < <?php echo $_SESSION['n_obj']; ?> ) {
 
-			while ( cont < <?php echo $_SESSION['qtd_obj']; ?>  ) {
+				//document.write(cont);
 
 				//Desenhar as caixas
 				ctx1.fillStyle = colors[  Math.floor((Math.random() * 3) + 1) ];  //Fill the color 
