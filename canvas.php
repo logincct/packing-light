@@ -27,7 +27,7 @@
 			}
 
 			//Enquanto o número de caixas colocadas for menor que o número de objetos
-			while ( cont < <?php echo $_SESSION['res']; ?>) {
+			while ( cont < <?php echo $_SESSION['res']; ?> && cont < <?php echo $_SESSION['n_obj']; ?> ) {
 
 				//Desenhar as caixas
 				ctx1.fillStyle = colors[  Math.floor( (Math.random() * 3) + 1) ];  //Fill the color 
