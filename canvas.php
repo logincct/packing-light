@@ -15,20 +15,16 @@
 			var y = 0;
 			var xx = 0;
 			var yy = 0;
-			var cont = 0; //Contador para quantidade de caixas colocadas do pallet
+			var cont = 1; //Contador para quantidade de caixas colocadas do pallet
 			var temp;
+			var contador = 1;
 
-			
-			if(<?php echo $_SESSION['alter'] ?> == 1){
 				xx = <?php echo $_SESSION['lag']; ?>;  //xx é a largura do objeto
 				yy = <?php echo $_SESSION['comp']; ?>;  //yy é o comprimento do objeto
-			}else{  //Gira objeto
-				xx = <?php echo $_SESSION['comp']; ?>;
-				yy = <?php echo $_SESSION['lag']; ?>;
-			}
+
 
 			//Enquanto o número de caixas colocadas for menor que o número de objetos
-			while ( cont < <?php echo $_SESSION['res']; ?> && cont < <?php echo $_SESSION['n_obj']; ?> ) {
+			while ( cont <= <?php echo $_SESSION['res']; ?> && cont <= <?php echo $_SESSION['n_obj']; ?> ) {
 
 				//Desenhar as caixas
 				ctx1.fillStyle = colors[  Math.floor( (Math.random() * 3) + 1) ];  //Fill the color 
@@ -57,20 +53,28 @@
 
 			}
 
-			document.write(cont);
-			
-			x = <?php echo $_SESSION['l_palt'] - $_SESSION['lag_rest']; ?>;
-			y = <?php echo $_SESSION['c_palt'] - $_SESSION['comp_rest']; ?>;
+			//document.write(cont);
+			if(<?php echo $_SESSION['spaceL_left'];?> == 1){
+
+				x = <?php echo $_SESSION['l_palt'] - $_SESSION['lag_rest']; ?>;
+				y = 0;
+				//document.write("AA");
+			}else if(<?php echo $_SESSION['spaceC_left'];?> == 1){
+				//document.write("AA");
+				x = 0;
+				y = <?php echo $_SESSION['c_palt'] - $_SESSION['comp_rest']; ?>;
+
+			}
 
 			temp = yy;
 			yy = xx;
 			xx = temp;
-
-
-			while ( cont < <?php echo $_SESSION['qtd_obj'] + $_SESSION['res']; ?> && cont < <?php echo $_SESSION['n_obj']; ?> ) {
-
+			
+			
 				//document.write(cont);
-
+			while (((cont+1) <= (contador + <?php echo $_SESSION['res']; ?>) && ((cont+1) <= <?php echo $_SESSION['n_obj']; ?>))) {
+				//while(){
+				//document.write(contador);
 				//Desenhar as caixas
 				ctx1.fillStyle = colors[  Math.floor((Math.random() * 3) + 1) ];  //Fill the color 
 				ctx1.fillRect(x, y, xx , yy);  //Create box
@@ -91,11 +95,12 @@
 				if( (y + yy) > myCanvas.attributes[2].value ){
 					break;
 				}
-
-
 				cont = cont + 1;
+				contador = contador + 1;
 
-			}
+			//}
+			//cont = cont + 1;
+		}
 		
 		</script>
 
