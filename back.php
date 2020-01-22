@@ -2,9 +2,10 @@
 
 	session_start();
 
-	include('functions_1.php');
+	include('FirstFit.php');
 	include('classes.php');
 
+	$_SESSION['alter'] = 1;
 	$l_palt = $_POST["l_palt"];
 	$c_palt = $_POST["c_palt"];
 	$n_obj = $_POST["n_obj"];
@@ -26,15 +27,55 @@
 	$c_niv = array(); // Array de comprimetos de nives
 	
 	$n = sizeof( $objetos );  //Numero de objetos
+
+	// Primeira chamada da função -----------------------------------------------
 		
-	$ff = firstFit( $espaco_rest ,$objetos, $n, $c_niv, $l_palt, $c_palt);
+	$frst_call = firstFit( $espaco_rest ,$objetos, $n, $c_niv, $l_palt, $c_palt);
+
+	// Gira o objeto ------------------------------------------------------------
+
+	for( $i = 0; $i < sizeof($objetos) ; $i++ ){
+
+		$objetos[$i]->giraObjeto();
+
+		$_SESSION['lag'] = $objetos[$i]->largura;
+		$_SESSION['comp'] = $objetos[$i]->comprimento;
+		$_SESSION['alter'] = 0;
+
+	}
+
+	// Segunda chamada da função --------------------------------------------------
+
+	$scnd_call = firstFit( $espaco_rest ,$objetos, $n, $c_niv, $l_palt, $c_palt );
+
+	//----------------------------------------------------------------------------
+	// Verifica a melhor
+
+	if( $scnd_call > $frst_call ){
+
+		$_SESSION['res'] = $scnd_call;        //Resposta do FirstFit
+
+	}else{//Se não, retorna $frst_call, mas gira os objetos de novo (para printar a canva certa)
+
+		for( $i=0; $i < sizeof($objetos) ; $i++ ){
+
+			$objetos[$i]->giraObjeto();
+			$_SESSION['lag'] = $objetos[$i]->largura;
+			$_SESSION['comp'] = $objetos[$i]->comprimento;
+			$_SESSION['alter'] = 1; // Significa que a primeira chamada foi a melhor
+		}
+
+		$_SESSION['res'] = $frst_call;
+
+	}
+
+	// Atualizando $_SESSION e definindo novas variáveis-------------------
 
 	$n_niv = sizeof($c_niv); //Número de níveis
 
 	$temp = 0;
 	$qtd_obj = 0;
 
-	$_SESSION['res'] = $ff;        //Resposta do FirstFit
 	$_SESSION['l_palt'] = $l_palt; //Largura do Pallet
 	$_SESSION['c_palt'] = $c_palt; //Comprimento do Pallet
 	$_SESSION['n_obj'] = $n_obj;   //Quantidade de objetos
@@ -47,6 +88,8 @@
 	$_SESSION['spaceC_left'] = 0;
 	$_SESSION['spaceL_left'] = 0;
 	$_SESSION['space_left'] = 0;
+
+	// ---------------------------------------------------------------------
 
 	if( $_SESSION['alter'] == 0){
 		$temp = $_SESSION['lag'];
@@ -82,6 +125,7 @@
 
 
 		$_SESSION['spaceL_left'] = 1;// Então há espaço para alguma caixa.
+		$_SESSION['space_left'] = 1;
 		$_SESSION['lag_rest'] = $lag_rest; // Aramzeno na $_SESSION.
 		$_SESSION['comp_rest'] = $_SESSION['c_palt'];// Comprimento é o comprimento do pallet.
 
@@ -101,6 +145,7 @@
 		}
 
 		$_SESSION['spaceC_left'] = 1;// Então há espaço para alguma caixa.
+		$_SESSION['space_left'] = 1;
 		$_SESSION['comp_rest'] = $comp_rest; // Aramzeno na $_SESSION.
 		$_SESSION['lag_rest'] = $_SESSION['l_palt'];// Largura é a largura do pallet.
 
