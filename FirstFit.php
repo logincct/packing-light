@@ -1,6 +1,6 @@
 <?php
 
-	function scndFit ( &$espaco_rest, &$objetos, $n_obj, &$c_niv, $l_palt, $c_palt) {
+	function firstFit ( &$espaco_rest, &$objetos, $n_obj, &$c_niv, $l_palt, $c_palt) {
 
 		$c_niv = array(); // Array com o comprimento dos nives respectivamente
 

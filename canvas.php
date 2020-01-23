@@ -10,89 +10,99 @@
 			var myCanvas = document.getElementById("Pallet");  //Select canvas element in the page
 			var ctx1 = myCanvas.getContext("2d");  //Built-in object
 
+			var num_obj = <?php echo $_SESSION['n_obj']?>;
 			var x = 0;
 			var y = 0;
-			var xx = 0;
-			var yy = 0;
-			var cont = 0; //Contador para quantidade de caixas colocadas do pallet
+			var lag_obj = 0;
+			var comp_obj = 0;
+			var cont = 1; //Contador para quantidade de caixas colocadas do pallet
 			var temp;
+			var contador = 1;
 
-			
-			if(<?php echo $_SESSION['alter'] ?> == 1){
-				xx = <?php echo $_SESSION['lag']; ?>;  //xx é a largura do objeto
-				yy = <?php echo $_SESSION['comp']; ?>;  //yy é o comprimento do objeto
-			}else{  //Gira objeto
-				xx = <?php echo $_SESSION['comp']; ?>;
-				yy = <?php echo $_SESSION['lag']; ?>;
-			}
+				lag_obj = <?php echo $_SESSION['lag']; ?>;  //lag_obj é a largura do objeto
+				comp_obj = <?php echo $_SESSION['comp']; ?>;  //comp_obj é o comprimento do objeto
+
 
 			//Enquanto o número de caixas colocadas for menor que o número de objetos
-			while ( cont < <?php echo $_SESSION['res']; ?>) {
+			while ( cont <= <?php echo $_SESSION['res']; ?> && cont <= <?php echo $_SESSION['n_obj']; ?> ) {
 
 				//Desenhar as caixas
 				ctx1.fillStyle = colors[  Math.floor( (Math.random() * 3) + 1) ];  //Fill the color 
-				ctx1.fillRect(x, y, xx , yy);  //Create box
+				ctx1.fillRect(x, y, lag_obj , comp_obj);  //Create box
 				ctx1.beginPath();
 				ctx1.lineWidth = "1";
-				ctx1.rect(x, y, xx , yy);
+				ctx1.rect(x, y, lag_obj , comp_obj);
 				ctx1.stroke();
 
 				//Verifica se a caixa cabe e muda o X e o Y que não as coordenadas para as próximas caixas
-				if ( ((x + xx) <= myCanvas.attributes[1].value) && (y + yy <= myCanvas.attributes[2].value )) {
-					x += xx;
+				if ( ((x + lag_obj) <= myCanvas.attributes[1].value) && (y + comp_obj <= myCanvas.attributes[2].value )) {
+					x += lag_obj;
 				}
 
-				if ( (x + xx) > myCanvas.attributes[1].value && (y + yy) <= myCanvas.attributes[2].value ) {
+				if ( (x + lag_obj) > myCanvas.attributes[1].value && (y + comp_obj) <= myCanvas.attributes[2].value ) {
 					x = 0;
-					y += yy;				
+					y += comp_obj;				
 				}
-				if( (y + yy) > myCanvas.attributes[2].value ){
+				if( (y + comp_obj) > myCanvas.attributes[2].value ){
 					break;
 				}
 
 
 				cont = cont + 1;
+				num_obj -= 1;
 
 			}
 
-			x = <?php echo $_SESSION['l_palt'] - $_SESSION['lag_rest']; ?>;
-			y = <?php echo $_SESSION['c_palt'] - $_SESSION['comp_rest']; ?>;
+			//document.write(cont);
+			if(<?php echo $_SESSION['spaceL_left'];?> == 1){
 
-			cont = 0;
+				x = <?php echo $_SESSION['l_palt'] - $_SESSION['lag_rest']; ?>;
+				y = 0;
+				//document.write("AA");
+			}else if(<?php echo $_SESSION['spaceC_left'];?> == 1){
+				//document.write("AA");
+				x = 0;
+				y = <?php echo $_SESSION['c_palt'] - $_SESSION['comp_rest']; ?>;
 
-			temp = yy;
-			yy = xx;
-			xx = temp;
+			}else{
 
+			}
 
-
-			while ( cont < <?php echo $_SESSION['qtd_obj']; ?>  ) {
-
+			temp = comp_obj;
+			comp_obj = lag_obj;
+			lag_obj = temp;
+			
+			
+				//document.write(cont);
+			while (<?php echo $_SESSION['space_left']; ?> ==1 && ((cont+1) <= (contador + <?php echo $_SESSION['res']; ?>) && ((cont+1) <= <?php echo $_SESSION['n_obj']; ?>))) {
+				//while(){
+				//document.write(contador);
 				//Desenhar as caixas
 				ctx1.fillStyle = colors[  Math.floor((Math.random() * 3) + 1) ];  //Fill the color 
-				ctx1.fillRect(x, y, xx , yy);  //Create box
+				ctx1.fillRect(x, y, lag_obj , comp_obj);  //Create box
 				ctx1.beginPath();
 				ctx1.lineWidth = "1";
-				ctx1.rect(x, y, xx , yy);
+				ctx1.rect(x, y, lag_obj , comp_obj);
 				ctx1.stroke();
 
 				//Verifica se a caixa cabe e muda o X e o Y que não as coordenadas para as próximas caixas
-				if ( ((x + xx) <= myCanvas.attributes[1].value) && (y + yy <= myCanvas.attributes[2].value )) {
-					x += xx;
+				if ( ((x + lag_obj) <= myCanvas.attributes[1].value) && (y + comp_obj <= myCanvas.attributes[2].value )) {
+					x += lag_obj;
 				}
 
-				if ( (x + xx) > myCanvas.attributes[1].value && (y + yy) <= myCanvas.attributes[2].value ) {
+				if ( (x + lag_obj) > myCanvas.attributes[1].value && (y + comp_obj) <= myCanvas.attributes[2].value ) {
 					x = <?php echo $_SESSION['l_palt'] - $_SESSION['lag_rest'] ?>;
-					y += yy;				
+					y += comp_obj;				
 				}
-				if( (y + yy) > myCanvas.attributes[2].value ){
+				if( (y + comp_obj) > myCanvas.attributes[2].value ){
 					break;
 				}
-
-
 				cont = cont + 1;
+				contador = contador + 1;
 
-			}
+			//}
+			//cont = cont + 1;
+		}
 		
 		</script>
 
