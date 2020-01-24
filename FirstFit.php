@@ -1,49 +1,53 @@
 <?php
 
-	function firstFit ( &$espaco_rest, &$objetos, $n_obj, &$c_niv, $l_palt, $c_palt) {
+	function firstFit ( &$espaco_rest, &$objetos, $numeroItens, &$comprimentoNivel, $larguraPallet, $comprimentoPallet) {
 
-		$c_niv = array(); // Array com o comprimento dos nives respectivamente
+		$comprimentoNivel = array(); // Array com o comprimento dos niveis respectivamente
 
-		$cont_c_niv = 0; //Variável para contar em que comprimento o for chegou para não ultrapassar a largura do pallet (soma de todos os itens em $c_niv[]);
+		$cont_c_niv = 0; //Variável para contar em que comprimento o for chegou para não ultrapassar a largura do pallet (soma de todos os itens em $comprimentoNivel[]);
 
-		$frst_res = 0; 
+		$itensEncaixados = 0; 
 
 		//Array armazenando a quantidade restante de espaço em cada compartimento
 		$espaco_rest = array();
 
 		//Colocar item por item
-		for ( $i = 0; $i < $n_obj; $i++ ) {
+		for ( $i = 0; $i < $numeroItens; $i++ ) { // i é o objeto que to colocando
 
 			//Encontrar o primeiro nível que caiba
-			for ( $j = 0; $j < $frst_res; $j++ ) {
+			for ( $j = 0; $j < $itensEncaixados; $j++ ) { //j é o nível que eu to
 
 				//Por objetos caso largura do nível ( $espaco_rest[ $j ] ) seja maior ou igual a largura do objeto
-				if ( isset($espaco_rest[ $j ]) && $espaco_rest[ $j ] >= $objetos[ $i ]-> largura && $c_niv >= $objetos[ $i ]-> comprimento ) {
+				if ( isset($espaco_rest[ $j ]) && $espaco_rest[ $j ] >= $objetos[ $i ]-> largura && $comprimentoNivel >= $objetos[ $i ]-> comprimento ) {
 
 					$espaco_rest[ $j ] -= $objetos[ $i ]-> largura;
 
 					//echo "Espaço restante no nível $j: $espaco_rest[$i]</br>";
 
-					if( $c_niv <= $objetos[ $i ]-> comprimento ){
-						$c_niv[ $j ] = $objetos[ $i ]-> comprimento;
+					if( $comprimentoNivel <= $objetos[ $i ]-> comprimento ){
+						$comprimentoNivel[ $j ] = $objetos[ $i ]-> comprimento;
 
 					}
-					$frst_res++;
+					$itensEncaixados++;
 					break;
 
 				}
 
-			}
-			//Criar novos niveis
-			if ( $j == $frst_res && $c_palt >= $cont_c_niv + $objetos[ $i ]->comprimento ) {
-				if( $l_palt >= $objetos[ $i ]->largura ) {
-					$espaco_rest[] = $l_palt - $objetos[ $i ]->largura;
-					$c_niv[] = $objetos[ $i ]-> comprimento;
+			} // Verifiquei todos os níveis já criados
+
+			//Se há espaço para um novo nível, Criar novo nivel
+			if ( $j == $itensEncaixados && $comprimentoPallet >= $cont_c_niv + $objetos[ $i ]->comprimento ) {
+				
+                if( $larguraPallet >= $objetos[ $i ]->largura ) {
+
+				    $espaco_rest[] = $larguraPallet - $objetos[ $i ]->largura;
+					$comprimentoNivel[] = $objetos[ $i ]-> comprimento;
 					$cont_c_niv += $objetos[ $i ]-> comprimento;
-					$frst_res++;
+					$itensEncaixados++;
+
 				}
 			}
 		}
-		return $frst_res;
+		return $itensEncaixados;
 	}
 	?>
