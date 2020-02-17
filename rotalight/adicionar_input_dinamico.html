@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <div class="container-fluid">
+        <!-- Informando Quantidade -->
+        <form id="formQuantidade" action="newEmptyPHP.php" method="post"> 
+            <label for="quantidade">Informe a quantidade</label>
+            <div class="inputs">
+            <input type="text" name="campo1"  class="form-control" placeholder="Seu texto">
+            <br>
+            </div>
+            <a href="javascript:void(0)" id="adicionarcampo" class="btn btn-sm btn-success">Adicionar Campo</a>
+            <input type="hidden" name="ola" id="ola">
+            <input type="submit" value="Enviar">
+        </form>
+        </div>
+
+        <script>
+            var max_fields = 10;
+            var wrapper = $(".inputs");
+            var add_button = $("#adicionarcampo");
+            var tamanho = 1;
+            var x = 1;
+            $(add_button).click(function(e) {
+                e.preventDefault();
+                var length = wrapper.find("input:text.textAdded").length;
+
+                if (x < max_fields) {
+                    x++;
+                    tamanho++;
+                    //$(wrapper).append('<div><input type="text" name="campo' + (length+1) + '"class="form-control" placeholder="Seu texto" /><a href="#" class="remove_field">Remover</a></div>');
+                    $(wrapper).append('<div><input type="text" name="campo' + (length+x) + '"class="form-control" placeholder="Seu texto" /><a href="#" class="remove_field">Remover</a></div>');
+                }
+                document.getElementById('ola').value = tamanho;
+            });
+
+
+            $(wrapper).on("click", ".remove_field", function(e) {
+                e.preventDefault();
+                $(this).parent('div').remove();
+                x--;
+                tamanho--;
+            })
+        </script>
+    </body>
+</html>

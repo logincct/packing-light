@@ -1,30 +1,96 @@
-<!DOCTYPE>
+<?php require_once("login/lib/index.php"); ?>
+
+<!DOCTYPE html>
 <html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>RotaLight | Login</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="login/painel/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="login/painel/bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="login/painel/bower_components/Ionicons/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="login/painel/dist/css/AdminLTE.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="login/painel/plugins/iCheck/square/blue.css">
 
-	<body>
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
 
-		<form action="back.php" method="POST">
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+<body class="hold-transition login-page">
+<div class="login-box">
+  <div class="login-logo">
+    <!--<img src="painel/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">-->
+    <a href="#"><b>LOGIN</b></a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="login-box-body">
+    <p class="login-box-msg">Entre para iniciar sua sessão</p>
 
-			<label for ="l_palt" >Largura do pallet</label>
-			<input id = "l_palt" type = "number" name = "l_palt" value = "130" required ></br>
+    <form method="post">
+      <div class="form-group has-feedback">
+        <input type="email" class="form-control" placeholder="Email" name="email">
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="password" class="form-control" placeholder="Senha" name="senha">
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+      <div class="row">
+        <div class="col-xs-8">
+          <!-- <div class="checkbox icheck">
+           <div class="radio"   style="display: inline">
+                    <label>
+                      <input type="radio" name="nivel" id="escolha" value="1">
+                      Você é administrador?
+                    </label>
+            </div>
+          </div> -->
+        </div>
+        <!-- /.col -->
+        <div class="col-xs-4">
+          <button type="submit" class="btn btn-primary btn-block btn-flat">Entrar</button>
+        </div>
+        <!-- /.col -->
+      </div>
+    </form>
 
-			<label for ="c_palt" >Comprimento do pallet</label>
-			<input id = "c_palt" type = "number" name = "c_palt" value = "130" required></br>
+    <!-- /.social-auth-links -->
 
- 			<label for ="n_obj" >Número de objetos</label>
-			<input id = "n_obj" type = "number" name = "n_obj" value = "15" required></br>
+    <!--<a href="#">Esqueci a minha senha</a><br>-->
+    
 
-			<label for ="lag_obj" >Largura do objeto</label>
-			<input id = "lag_obj" type = "number" name = "lag_obj"
-			value = "50" required ><br>
+  </div>
+  <!-- /.login-box-body -->
+</div>
+<!-- /.login-box -->
 
-			<label for ="comp_obj" >Comprimento do objeto</label>
-			<input id = "comp_obj" type = "number" name = "comp_obj" value = "30" required><br>
-			
-			<input type = "submit" value = "Calcular">
-
-		</form>
-
-	</body>
-
+<!-- jQuery 3 -->
+<script src="../../login/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="../../login/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- iCheck -->
+<script src="../../login/plugins/iCheck/icheck.min.js"></script>
+<script>
+  $(function () {
+    $('input').iCheck({
+      checkboxClass: 'icheckbox_square-blue',
+      radioClass: 'iradio_square-blue',
+      increaseArea: '20%' /* optional */
+    });
+  });
+</script>
+</body>
 </html>

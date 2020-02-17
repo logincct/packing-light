@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+
+
+<script type="text/javascript"> 
+ 
+contador=0;
+function addCampos() 
+{
+	var qtdeCampos = document.getElementById("campo").value;
+	contador++;
+		
+	if(contador==1)
+	{
+		for(i=1; i<=qtdeCampos; i++)
+		{
+			var objPai = document.getElementById("campoPai");
+			//Criando o elemento DIV;
+			var objFilho = document.createElement("div");
+			//Definindo atributos ao objFilho1:
+			objFilho.setAttribute("id","filho"+i);
+			//Inserindo o elemento no pai:
+			objPai.appendChild(objFilho);
+			//Escrevendo algo no filho recém-criado:
+			document.getElementById("filho"+i).innerHTML = "<table border='0' cellpadding='1' cellspacing='0'><tr><td> <select name='socio"+i+"' id='socio"+i+"'><option value=''></option>	<option value='1'> Alexandre </option>	</select></td><td><input type='text' name='capital' /></td><td><select name='cargo"+i+"' id='cargo"+i+"'><option value=''></option></select></td></tr></table>";
+		}
+	}
+	else
+	{
+		for(y=i; y<=qtdeCampos; y++)
+		{
+			var objPai = document.getElementById("campoPai");
+			//Criando o elemento DIV;
+			var objFilho = document.createElement("div");
+			//Definindo atributos ao objFilho1:
+			objFilho.setAttribute("id","filho"+y);
+			//Inserindo o elemento no pai:
+			objPai.appendChild(objFilho);
+			//Escrevendo algo no filho recém-criado:
+			document.getElementById("filho"+y).innerHTML = "<table border='0' cellpadding='1' cellspacing='0'><tr><td> <select name='socio"+y+"' id='socio"+i+"'><option value=''></option><option value='1'> Alexandre </option> </select> </td><td><input type='text' name='capital' /></td><td><select name='cargo"+i+"' id='cargo"+i+"'><option value=''></option></select></td></tr></table>";
+		}		
+	}
+}
+</script>
+</head>
+ 
+<body>
+    
+<input type="text" name="num_campos" id="campo" size="1" maxlength="2" />
+<input type="button" value="Adicionar campos" onclick="addCampos()">
+ 
+<table border="0" cellpadding="1" cellspacing="0">
+	<tr>
+		<td>
+			<select name="socio">
+				<option value=""></option>
+				<option value='1'> Alexandre </option>			</select>
+		</td>
+		<td><input type="text" name="capital" /></td>
+		<td>
+			<select name="cargo" id="cargo">
+				<option value=""></option>
+			</select>
+		</td>
+	</tr>
+</table>
+<div id="campoPai"></div>
+ 
+</body>
+</html>
