@@ -126,9 +126,13 @@
       <!-- Small boxes (Stat box) -->
       
       <!-- /.row -->
-      <form method="post">
+      <form action="../../../lib/admin/main.php" method="post">
         <input type="hidden" name="sistema" value="0">
         <button type="submit" name="submit" class="btn-main" style=""><img src="../../dist/img/logo01.png" class="img-square" alt="System Image"></button>
+      </form>
+      <form action="../../../lib/admin/main.php" method="post">
+        <input type="hidden" name="sistema" value="0">
+        <button style=" height: 143px; " type="submit" name="submit_pack" class="btn-main"><img src="../../dist/img/PackingLight.png" class="img-square" alt="System Image"></button>
       </form>
       <!-- Main row -->
       

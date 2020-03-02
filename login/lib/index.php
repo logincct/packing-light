@@ -49,6 +49,7 @@
                                                      $resultado['nivel']);
                             echo "<script>javascript:window.location.replace('login/painel/pages/admin/main.php');</script>";
                         }
+                        
                         else{
                             $_SESSION["admin"] = array($resultado['nome'],
                                                      $resultado['email'],
