@@ -1,6 +1,5 @@
 <?php 
   require_once("lib/back.php");
-  session_start(); 
 ?>
 
 
@@ -59,7 +58,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>L</b>in</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>LOGIN</b></span>
+      <span class="logo-lg"><b>PackingLight</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -76,7 +75,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!--<img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">-->
               <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-              <span class="hidden-xs"><?php echo $_SESSION["admin"][0]; ?></span>
+              <span class="hidden-xs"><?php echo $_SESSION["usuario"][0]; ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -116,16 +115,6 @@
   <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
-      <!-- Painel usuario - superior esquerdo -->
-      <div class="user-panel">
-        <div class="pull-left image">
-          <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-        </div>
-        <div class="pull-left info">
-          <p><?php echo $_SESSION["admin"][0]; ?></p>
-                    
-        </div>
-      </div>
       
       <!-- /.search form -->
       <!-- MENU DE NAVEGAÇÃO PRINCIPAL -->
@@ -157,13 +146,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Cadastro de usuários
+        PackingLight
         <small>Painel de controle</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-        <li><a href="#"><i class="fa fa-user"></i> Menu do usuário</a></li>
-        <li class="active">Cadastro de usuários</li>
       </ol>
     </section>
 
@@ -173,33 +160,35 @@
    
   <div class="register-box"  style="width: 700px">
     <!-- <div class="register-box">-->
-    <div class="register-logo">
-        <a href="#"><b>LOGIN</b></a>
-    </div>
     <div class="register-box-body">
-        <p class="login-box-msg" style="font-size: large">Digite as informações de carga</p>
+        <p class="login-box-msg" style="font-size: large">Digite as informações da carga</p>
 
         <!-- Formulário PackingLight. -->
-        <form method="post">
-            <div class="form-group has-feedback">
-                <input id = "l_palt" type = "number" name = "l_palt" value = "130" required ></br>
-                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+        <form action="lib/back.php" method="post">
+            <div class="form-group has-feedback" style="text-align: center;">
+              <label style="position: absolute;" for="l_palt">Largura do pallet</label>
+              <input style="position: relative; margin-left: 200px;" id = "l_palt" type = "number" name = "l_palt" value = "130" required ></br>
+              <!-- <span class="glyphicon glyphicon-user form-control-feedback"></span> ícones-->
             </div>
-            <div class="form-group has-feedback">
-                <input id = "c_palt" type = "number" name = "c_palt" value = "130" required></br>
-                <span class="glyphicon glyphicon-home form-control-feedback"></span>
+            <div class="form-group has-feedback" style="text-align: center;">
+              <label style="position: absolute;" for="c_palt">Comprimento do pallet</label>
+              <input style="position: relative; margin-left: 200px;" id = "c_palt" type = "number" name = "c_palt" value = "130" required></br>
+              <!-- <span class="glyphicon glyphicon-home form-control-feedback"></span> -->
             </div>
-            <div class="form-group has-feedback">
-                <input id = "n_obj" type = "number" name = "n_obj" value = "15" required></br>
-                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            <div class="form-group has-feedback" style="text-align: center;">
+              <label style="position: absolute;" for="n_obj">Número de objetos</label>
+              <input style="position: relative; margin-left: 200px;" id = "n_obj" type = "number" name = "n_obj" value = "15" required></br>
+              <!-- <span class="glyphicon glyphicon-envelope form-control-feedback"></span> -->
             </div>
-            <div class="form-group has-feedback">
-                <input id = "lag_obj" type = "number" name = "lag_obj" value = "50" required ><br>
-                <span class="glyphicon glyphicon-tag form-control-feedback"></span>
+            <div class="form-group has-feedback" style="text-align: center;">
+              <label style="position: absolute;" for="lag_obj">Largura dos objetos</label>
+              <input style="position: relative; margin-left: 200px;" id = "lag_obj" type = "number" name = "lag_obj" value = "50" required ><br>
+              <!-- <span class="glyphicon glyphicon-tag form-control-feedback"></span> -->
             </div>
-            <div class="form-group has-feedback">
-                <input id = "comp_obj" type = "number" name = "comp_obj" value = "30" required><br>
-                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            <div class="form-group has-feedback" style="text-align: center;">
+              <label style="position: absolute;" for="comp_obj">Comprimento dos objetos</label>
+              <input style="position: relative; margin-left: 200px;" id = "comp_obj" type = "number" name = "comp_obj" value = "30" required><br>
+              <!-- <span class="glyphicon glyphicon-lock form-control-feedback"></span> -->
             </div>
             
       <div class="row">
