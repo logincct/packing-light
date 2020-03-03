@@ -1,11 +1,37 @@
+<head>
+	<link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+	<link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../../bower_components/Ionicons/css/ionicons.min.css">
+	<link rel="stylesheet" href="../../bower_components/fullcalendar/dist/fullcalendar.min.css">
+  	<link rel="stylesheet" href="../../bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
+	<link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+	<title>Canvas</title>
+	<style type="text/css">
+		body { background: #ecf0f5; }
+		#canvas-field { text-align: center; margin-top: 20px; }
+		#button-field { margin-top: 20px; }
+	</style>
+</head>
+
 <?php session_start(); ?>
 
 	<script src="../script.js"></script>
 
-	<canvas id="Pallet" width=" <?php echo $_SESSION['larguraPallet']; ?> " height=" <?php echo $_SESSION['comprimentoPallet']; ?> " style="border:1px solid #000000;"></canvas>
+	<div id="canvas-field">
+		<h1>Seu <i>pallet</i> deve ficar assim...</h1>
+		<canvas id="Pallet" width=" <?php echo $_SESSION['larguraPallet']; ?> " height=" <?php echo $_SESSION['comprimentoPallet']; ?> " style="border:1px solid #000000;"></canvas>
+
+		<div id="button-field">
+			<button onclick="mostraInformacoes('Pallet', 'info-pallet')" class="btn btn-primary btn-flat">Dimensões</button>
+			<p id="info-pallet"></p>
+		</div>
+
+	</div>
 
 		<script>
-			colors = ["#023ff7", "#f70202", "#f7f302", "#0af702"]
+			//colors = ["#023ff7", "#f70202", "#f7f302", "#0af702"]
+			colors = ["#3c8dbc"]
 
 			var myCanvas = document.getElementById("Pallet");  //Select canvas element in the page
 			var ctx1 = myCanvas.getContext("2d");  //Built-in object
@@ -27,7 +53,7 @@
 			while ( cont <= <?php echo $_SESSION['res']; ?> && cont <= <?php echo $_SESSION['numeroItens']; ?> ) {
 
 				//Desenhar as caixas
-				ctx1.fillStyle = colors[  Math.floor( (Math.random() * 3) + 1) ];  //Fill the color 
+				ctx1.fillStyle = colors[  Math.floor( (Math.random() * 1) ) ];  //Fill the color 
 				ctx1.fillRect(x, y, lag_obj , comp_obj);  //Create box
 				ctx1.beginPath();
 				ctx1.lineWidth = "1";
@@ -73,7 +99,7 @@
 			lag_obj = temp;
 			
 			
-				//document.write(cont);
+			//document.write(cont);
 			while (<?php echo $_SESSION['espaçoRestante']; ?> ==1 && ((cont+1) <= (contador + <?php echo $_SESSION['res']; ?>) && ((cont+1) <= <?php echo $_SESSION['numeroItens']; ?>))) {
 				//while(){
 				//document.write(contador);
@@ -105,8 +131,3 @@
 		}
 		
 		</script>
-
-	<div>
-		<button onclick="mostraInformacoes('Pallet', 'info-pallet')">Dimensões</button>
-		<p id="info-pallet"></p>
-	</div>
