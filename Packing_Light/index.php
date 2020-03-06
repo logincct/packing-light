@@ -54,7 +54,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="painel.php" class="logo">
+    <a href="#" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>L</b>in</span>
       <!-- logo for regular state and mobile devices -->
@@ -147,7 +147,6 @@
     <section class="content-header">
       <h1>
         PackingLight
-        <small>Painel de controle</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-home"></i> Home</a></li>

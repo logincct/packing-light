@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>LOGIN</title>
+  <title>PackingLight</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -44,11 +44,11 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="#" class="logo">
+    <a href="../../../index.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>L</b>in</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>LOGIN</b></span>
+      <span class="logo-lg"><b>PackingLight</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -113,8 +113,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        LOGIN
-        <small>Painel de controle</small>
+        PackingLight
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
@@ -124,18 +123,30 @@
     <!-- Painel para COLOCAR O MAPA QUANDO ESTIVER PRONTO -->
     <section class="content">
       <!-- Small boxes (Stat box) -->
-      
+  <div class="register-box" style="width: 700px">
+    <div class="register-box-body" style="text-align: center;">
+
+      <div id="canvas-field">
+        <h2>Apresentando resultado dos cálculos:</h2>
+        <canvas id="Pallet" width=" <?php echo $_SESSION['larguraPallet']; ?> " height=" <?php echo $_SESSION['comprimentoPallet']; ?> " style="border:1px solid #000000;"></canvas>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-8">
+          <div class="checkbox icheck">
+            
+          </div>
+        </div>
+        <!-- /.col -->
+        <div class="col-xs-4" style="width: 20%;float:right">
+          <a href="../../../index.php"><button type="submit" class="btn btn-primary btn-block btn-flat">Voltar</button></a>
+        </div>
+        <!-- /.col -->
+        </div>
+      </form>    
+    </div>
+  </div>
       <!-- /.row -->
-    <div id="canvas-field">
-		<h1>Seu <i>pallet</i> deve ficar assim...</h1>
-		<canvas id="Pallet" width=" <?php echo $_SESSION['larguraPallet']; ?> " height=" <?php echo $_SESSION['comprimentoPallet']; ?> " style="border:1px solid #000000;"></canvas>
-
-		<div id="button-field">
-			<button onclick="mostraInformacoes('Pallet', 'info-pallet')" class="btn btn-primary btn-flat">Dimensões</button>
-			<p id="info-pallet"></p>
-		</div>
-
-	</div>
 
 		<script>
 			//colors = ["#023ff7", "#f70202", "#f7f302", "#0af702"]
@@ -239,9 +250,6 @@
 		}
 		
 		</script>
-      <!-- Main row -->
-      
-      <!-- /.row (main row) -->
 
     </section>
     <!-- /.content -->
@@ -251,7 +259,7 @@
     <div class="pull-right hidden-xs">
       <b>Versão</b> 1.0
     </div>
-    <strong>Copyright &copy; 2018.</strong> Todos Os Direitos Reservados
+    <strong>Copyright &copy; <?php echo date('Y'); ?>.</strong> Todos Os Direitos Reservados
   </footer>
 
   <!-- Control Sidebar -->
