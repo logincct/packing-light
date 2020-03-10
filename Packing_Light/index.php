@@ -1,11 +1,18 @@
 <?php 
+
+  session_start();
+
   require_once("lib/back.php");
   if($_SESSION["check"]==0){
       include_once("../login/lib/admin/check.php"); 
   }else{
       include_once("../login/lib/admin/check_admin.php"); 
   }
-?>
+
+  $connect = mysqli_connect("localhost", "root", '', 'objetos');
+  $listar = mysqli_query($connect, "SELECT nome FROM busca_objetos"); 
+
+  ?>
 
 
 <!DOCTYPE html>
@@ -170,47 +177,89 @@
   <div class="register-box"  style="width: 700px">
     <!-- <div class="register-box">-->
     <div class="register-box-body">
-        <p class="login-box-msg" style="font-size: large">Digite as informações da carga</p>
+      <p class="login-box-msg" style="font-size: large">Digite as informações da carga</p>
 
-        <!-- Formulário PackingLight. -->
-        <form action="lib/back.php" method="post">
-            <div class="form-group has-feedback" style="text-align: center;">
-              <label style="position: absolute;" for="l_palt">Largura do pallet</label>
-              <input style="position: relative; margin-left: 200px;" id = "l_palt" type = "number" name = "l_palt" value = "130" required ></br>
-              <!-- <span class="glyphicon glyphicon-user form-control-feedback"></span> ícones-->
-            </div>
-            <div class="form-group has-feedback" style="text-align: center;">
-              <label style="position: absolute;" for="c_palt">Comprimento do pallet</label>
-              <input style="position: relative; margin-left: 200px;" id = "c_palt" type = "number" name = "c_palt" value = "130" required></br>
-              <!-- <span class="glyphicon glyphicon-home form-control-feedback"></span> -->
-            </div>
+      <!-- Formulário PackingLight. -->
+      <form action="lib/back.php" method="post">
+        <div class="form-group has-feedback" style="text-align: center;">
+          <label style="position: absolute;" for="l_palt">Largura do pallet</label>
+          <input style="position: relative; margin-left: 200px;" id = "l_palt" type = "number" name = "l_palt" value = "130" required ></br>
+          <!-- <span class="glyphicon glyphicon-user form-control-feedback"></span> ícones-->
+        </div>
+        <div class="form-group has-feedback" style="text-align: center;">
+          <label style="position: absolute;" for="c_palt">Comprimento do pallet</label>
+          <input style="position: relative; margin-left: 200px;" id = "c_palt" type = "number" name = "c_palt" value = "130" required></br>
+          <!-- <span class="glyphicon glyphicon-home form-control-feedback"></span> -->
+        </div>
 
-              <input id = "n_obj" type = "hidden" name = "n_obj" value = "100">
+          <input id = "n_obj" type = "hidden" name = "n_obj" value = "100">
 
-            <div class="form-group has-feedback" style="text-align: center;">
-              <label style="position: absolute;" for="lag_obj">Largura dos objetos</label>
-              <input style="position: relative; margin-left: 200px;" id = "lag_obj" type = "number" name = "lag_obj" value = "50" required ><br>
-              <!-- <span class="glyphicon glyphicon-tag form-control-feedback"></span> -->
+        <div class="form-group has-feedback" style="text-align: center;">
+          <label style="position: absolute;" for="lag_obj">Largura dos objetos</label>
+          <input style="position: relative; margin-left: 200px;" id = "lag_obj" type = "number" name = "lag_obj" value = "50" required ><br>
+          <!-- <span class="glyphicon glyphicon-tag form-control-feedback"></span> -->
+        </div>
+        <div class="form-group has-feedback" style="text-align: center;">
+          <label style="position: absolute;" for="comp_obj">Comprimento dos objetos</label>
+          <input style="position: relative; margin-left: 200px;" id = "comp_obj" type = "number" name = "comp_obj" value = "30" required><br>
+          <!-- <span class="glyphicon glyphicon-lock form-control-feedback"></span> -->
+        </div>
+          
+        <div class="row">
+          <div class="col-xs-8">
+            <div class="checkbox icheck">
+              
             </div>
-            <div class="form-group has-feedback" style="text-align: center;">
-              <label style="position: absolute;" for="comp_obj">Comprimento dos objetos</label>
-              <input style="position: relative; margin-left: 200px;" id = "comp_obj" type = "number" name = "comp_obj" value = "30" required><br>
-              <!-- <span class="glyphicon glyphicon-lock form-control-feedback"></span> -->
-            </div>
-            
-      <div class="row">
-        <div class="col-xs-8">
-          <div class="checkbox icheck">
-            
           </div>
+          <!-- /.col -->
+          <div class="col-xs-4" style=" width: 20%;float:right;">
+            <button type="submit" name="calcula" class="btn btn-primary btn-block btn-flat">Calcular</button>
+          </div>
+          <!-- /.col -->
         </div>
-        <!-- /.col -->
-        <div class="col-xs-4" style="width: 20%;float:right">
-          <button type="submit" name="calcula" class="btn btn-primary btn-block btn-flat">Calcular</button>
+      </form>    
+    </div>
+    <div class="form-group has-feedback" style="text-align: center;">
+        <p style="font-size: large">ou</p>
+    </div>
+    <div class="register-box-body">
+      <p class="login-box-msg" style="font-size: large">Buscar carga já calculada</p>
+
+      <!-- Formulário PackingLight. -->
+      <form action="lib/buscaObjeto.php" method="post">
+
+        <div style="text-align: center;" class="form-group has-feedback">  
+        <label style="position: absolute;" for="l_palt">Largura do pallet</label>
+          <input style="position: relative; margin-left: 200px;" id = "l_palt" type = "number" name = "l_palt" value = "130" required ></br>
+          <!-- <span class="glyphicon glyphicon-user form-control-feedback"></span> ícones-->
         </div>
-        <!-- /.col -->
-      </div>
-    </form>    
+        <div class="form-group has-feedback" style="text-align: center;">
+          <label style="position: absolute;" for="c_palt">Comprimento do pallet</label>
+          <input style="position: relative; margin-left: 200px;" id = "c_palt" type = "number" name = "c_palt" value = "130" required></br>
+        </div></br>
+        <div class="form-group has-feedback" style="text-align: center;">
+          <label for = "setect_obj" style="position: absolute" >Selecione um produto</label>
+          <select required name = "nome_obj" id = "setect_obj" style="position: relative; margin-left: 180px;">
+            <option name ="nome_obj" value=''></option>
+            <?php while ($row = mysqli_fetch_assoc($listar)) { ?><option value='<?php echo $row['nome'];?>'><?php echo $row['nome']."    ";?></option><?php } ?>
+          </select>
+        </div>
+        <div class="row">
+          <div class="col-xs-8">
+            <div class="checkbox icheck">
+              
+            </div>
+          </div>
+          <!-- /.col -->
+          <div class="col-xs-4" style=" width: 20%;float:right;">
+            <button type="submit" name="calcula" class="btn btn-primary btn-block btn-flat">Calcular</button>
+          </div>
+          <!-- /.col -->
+        </div>
+
+      </form>    
+
+      
     </div>
   </div>
   <!-- /.form-box -->
