@@ -115,12 +115,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        LOGIN
-        <small>Painel de controle</small>
+        Bem-vindo!
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="main.php"><i class="fa fa-home"></i> Home</a></li>
-      </ol>
     </section>
 
     <!-- Painel para COLOCAR O MAPA QUANDO ESTIVER PRONTO -->

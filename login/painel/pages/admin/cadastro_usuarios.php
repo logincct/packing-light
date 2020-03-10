@@ -51,7 +51,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="painel.php" class="logo">
+    <a href="main_admin.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>L</b>in</span>
       <!-- logo for regular state and mobile devices -->
@@ -113,16 +113,6 @@
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Painel usuario - superior esquerdo -->
-      <div class="user-panel">
-        <div class="pull-left image">
-          <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-        </div>
-        <div class="pull-left info">
-          <p><?php echo $_SESSION["admin"][0]; ?></p>
-                    
-        </div>
-      </div>
-      
       <!-- /.search form -->
       <!-- MENU DE NAVEGAÇÃO PRINCIPAL -->
       <ul class="sidebar-menu" data-widget="tree">
@@ -151,29 +141,14 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Cadastro de usuários
-        <small>Painel de controle</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-        <li><a href="#"><i class="fa fa-user"></i> Menu do usuário</a></li>
-        <li class="active">Cadastro de usuários</li>
-      </ol>
-    </section>
-
     <!-- Main content -->
     <section class="content">
     
    
   <div class="register-box"  style="width: 700px">
     <!-- <div class="register-box">-->
-    <div class="register-logo">
-        <a href="#"><b>LOGIN</b></a>
-    </div>
     <div class="register-box-body">
-        <p class="login-box-msg" style="font-size: large">Cadastrar novo usuário</p>
+        <p class="login-box-msg" style="font-size: large"><b>Cadastrar novo usuário</b></p>
 
         <form method="post">
             <div class="form-group has-feedback">
@@ -249,7 +224,7 @@
     <div class="pull-right hidden-xs">
       <b>Versão</b> 1.0
     </div>
-    <strong>Copyright &copy; 2018.</strong> Todos Os Direitos Reservados
+    <strong>Copyright &copy; <?php echo date('Y'); ?>.</strong> Todos Os Direitos Reservados
   </footer>
 
   <!-- Control Sidebar -->

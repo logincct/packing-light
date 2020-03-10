@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>RotaLight | Redefinir senha</title>
+  <title>LOGIN | Redefinir senha</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -51,11 +51,11 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="painel.php" class="logo">
+    <a href="main_admin.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>R</b>LI</span>
+      <span class="logo-mini"><b>L</b>in</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>ROTA</b>Light</span>
+      <span class="logo-lg"><b>LOGIN</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -113,16 +113,6 @@
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Painel usuario - superior esquerdo -->
-      <div class="user-panel">
-        <div class="pull-left image">
-            <img src="../../dist/img/Pin_Map_Vector.svg.png" class="img-rectangle" alt="User Image">
-        </div>
-        <div class="pull-left info">
-          <p>Seja bem vindo</p>
-                    
-        </div>
-      </div>
-      
       <!-- /.search form -->
       <!-- MENU DE NAVEGAÇÃO PRINCIPAL -->
       <ul class="sidebar-menu" data-widget="tree">
@@ -149,16 +139,6 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Redefinição de senha
-        <small>Painel de controle</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-        <li><a href="#"><i class="fa fa-refresh"></i> Alterar dados do administrador</a></li>
-        <li class="active">Redefinir senha</li>
-      </ol>
     </section>
 
     <!-- Main content -->
@@ -167,11 +147,8 @@
    
   <div class="register-box"  style="width: 700px">
     <!-- <div class="register-box">-->
-    <div class="register-logo">
-        <a href="#"><b>ROTA</b>Light</a>
-    </div>
     <div class="register-box-body">
-        <p class="login-box-msg" style="font-size: large">Redefinir senha</p>
+        <p class="login-box-msg" style="font-size: large"><b>Redefinir senha</b></p>
 
         <form method="post">
             <div class="form-group has-feedback">
@@ -189,7 +166,7 @@
             <div class="row">
                 <div class="col-xs-8">
                     <div class="checkbox icheck">
-                        <a href="alterar_admin.php">Voltar</a>
+                        <a href="javascript:history.go(-1)">Voltar</a>
                     </div>
                 </div>
                 <!-- /.col -->
@@ -214,7 +191,7 @@
     <div class="pull-right hidden-xs">
       <b>Versão</b> 1.0
     </div>
-    <strong>Copyright &copy; 2018.</strong> Todos Os Direitos Reservados
+    <strong>Copyright &copy; <?php echo date('Y'); ?>.</strong> Todos Os Direitos Reservados
   </footer>
 
   <!-- Control Sidebar -->
