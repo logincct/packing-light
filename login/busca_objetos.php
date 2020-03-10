@@ -6,26 +6,26 @@
 <title>Untitled Document</title>
 <?php
 
-$query="SELECT nome FROM clientes";
-$listar = filterTable($query);
+	$query="SELECT largura FROM obejtos_calculados";
+	$listar = filterTable($query);
 
-function filterTable($query){
-         
-        $connect = mysqli_connect("localhost", "root", '', 'rotalight');
-        $filter_Result = mysqli_query($connect, $query);
-        return $filter_Result;
-    }
+	function filterTable($query){
+	         
+	        $connect = mysqli_connect("localhost", "root", '', 'packing_light');
+	        $filter_Result = mysqli_query($connect, $query);
+	        return $filter_Result;
+	    }
 
 ?>
 
 <script type="text/javascript"> 
  
 
-function addCampos() 
+function addOjetosCalculados() 
 {
         contador=0;
         var qtdeCampos = document.getElementById("campo").value;
-	contador++;
+		contador++;
 		
 		for(i=0; i<qtdeCampos; i++)
 		{
@@ -37,13 +37,13 @@ function addCampos()
 			//Inserindo o elemento no pai:
 			objPai.appendChild(objFilho);
 			//Escrevendo algo no filho recém-criado:
-			document.getElementById("campo"+i).innerHTML = "<div><select name='campo"+i+"' id='campo"+i+"'><option value=''></option><?php while ($row = mysqli_fetch_assoc($listar)) { ?><option value='<?php echo $row['nome'];?>'><?php echo $row['nome']."    ";?></option><?php } ?></select></div>";
+			document.getElementById("campo"+i).innerHTML = "<div><select name='campo"+i+"' id='campo"+i+"'><option value=''></option><?php while ($row = mysqli_fetch_assoc($listar)) { ?><option value='<?php echo $row['largura'];?>'><?php echo $row['largura']."    ";?></option><?php } ?></select></div>";
 		}
                  
                 
 	
 }
-function removeCampos() 
+function removeOjetosCalculados(() 
 {
         document.getElementById('selecao').innerHTML = '';
         document.getElementById('campo').value = '';
@@ -54,9 +54,9 @@ function removeCampos()
 <body>
     <form action ="newEmptyPHP.php" method="post">    
 <input type="text" name="num_campos" id="campo" size="1" maxlength="2" />
-<input type="button" value="Adicionar campos" onclick="addCampos()">
+<input type="button" value="Adicionar campos" onclick="addOjetosCalculados()">
 <br><br>
-<input type="button" value="Remover Campos" onclick="removeCampos()"> 
+<input type="button" value="Remover Campos" onclick="removeOjetosCalculados()"> 
 <!--<table border="0" cellpadding="1" cellspacing="0" class="inputs">
 	<tr>
 		<td>

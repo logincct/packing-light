@@ -1,0 +1,13 @@
+-Colocar % de área utilizada - ok
+
+-Possibilidade de eventualmente mudar o tamanho do pack
+
+- remover quantidade de itens - ok
+
+- adicionar botão para voltar pro painel - ok
+
+- adicionar o produto no banco de dados, já com a terceira dimensão - ok
+
+- organizar links do sidebar - ok
+
+- redimensionar imagem do PackingLight ao apertar no dropdown do menu para ver informações do usuario
