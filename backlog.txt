@@ -15,3 +15,5 @@
 - Home nos botões LOGIN (todo o sistema); (Campelo)
 
 - Mostrar quantidade de itens no pallet; (Jamille)
+
+- Criar logomarca LOGIN (Everybody);

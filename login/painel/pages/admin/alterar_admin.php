@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Login | Alterar dados</title>
+  <title>LOGIN | Alterar dados</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -51,7 +51,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="painel.php" class="logo">
+    <a href="main_admin.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>L</b>IN</span>
       <!-- logo for regular state and mobile devices -->
@@ -113,16 +113,7 @@
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Painel usuario - superior esquerdo -->
-      <div class="user-panel">
-        <div class="pull-left image">
-            <img src="../../dist/img/Pin_Map_Vector.svg.png" class="img-rectangle" alt="User Image">
-        </div>
-        <div class="pull-left info">
-          <p>Seja bem vindo</p>
-                    
-        </div>
-      </div>
-      
+    
       <!-- /.search form -->
       <!-- MENU DE NAVEGAÇÃO PRINCIPAL -->
       <ul class="sidebar-menu" data-widget="tree">
@@ -149,28 +140,14 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Alterar dados do administrador
-        <small>Painel de controle</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-        <li class="active">Alterar dados do administrador</li>
-      </ol>
-    </section>
-
     <!-- Main content -->
     <section class="content">
     
    
   <div class="register-box"  style="width: 700px">
     <!-- <div class="register-box">-->
-    <div class="register-logo">
-        <a href="#"><b>LOGIN</b></a>
-    </div>
     <div class="register-box-body">
-        <p class="login-box-msg" style="font-size: large">Alterar dados</p>
+        <p class="login-box-msg" style="font-size: large"><b>Alterar dados do administrador</b></p>
 
         <form method="post">
             <div class="form-group has-feedback">
@@ -234,7 +211,7 @@
     <div class="pull-right hidden-xs">
       <b>Versão</b> 1.0
     </div>
-    <strong>Copyright &copy; 2018.</strong> Todos Os Direitos Reservados
+    <strong>Copyright &copy; <?php echo date('Y'); ?>.</strong> Todos Os Direitos Reservados
   </footer>
 
   <!-- Control Sidebar -->

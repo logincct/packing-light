@@ -46,7 +46,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="painel.php" class="logo">
+    <a href="#" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>L</b>in</span>
       <!-- logo for regular state and mobile devices -->
@@ -138,12 +138,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        LOGIN
-        <small>Painel de controle</small>
+        Bem-vindo!
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="main_admin.php"><i class="fa fa-home"></i> Home</a></li>
-      </ol>
     </section>
 
     <!-- Painel para COLOCAR O MAPA QUANDO ESTIVER PRONTO -->
@@ -171,7 +167,7 @@
     <div class="pull-right hidden-xs">
       <b>Versão</b> 1.0
     </div>
-    <strong>Copyright &copy; 2018.</strong> Todos Os Direitos Reservados
+    <strong>Copyright &copy; <?php echo date('Y'); ?>.</strong> Todos Os Direitos Reservados
   </footer>
 
   <!-- Control Sidebar -->
