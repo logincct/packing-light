@@ -39,7 +39,7 @@
                 {
                     if($resultado['password'] == $senha){
                         $nivel = $resultado['nivel'];
-                        if($nivel == 0){
+                        if(($nivel == 0) || ($nivel == 10) || ($nivel == 11) || ($nivel == 12)){
                             $_SESSION["usuario"] = array($resultado['nome'],
                                                      $resultado['email'],
                                                      $resultado['endereco'],
@@ -50,7 +50,7 @@
                             echo "<script>javascript:window.location.replace('login/painel/pages/admin/main.php');</script>";
                         }
                         
-                        else{
+                        else if($nivel == 1){
                             $_SESSION["admin"] = array($resultado['nome'],
                                                      $resultado['email'],
                                                      $resultado['endereco'],

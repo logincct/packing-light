@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>RotaLight | Alterar dados</title>
+  <title>Login | Alterar dados</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -53,9 +53,9 @@
     <!-- Logo -->
     <a href="painel.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>R</b>LI</span>
+      <span class="logo-mini"><b>L</b>IN</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>ROTA</b>Light</span>
+      <span class="logo-lg"><b>LOGIN</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -167,7 +167,7 @@
   <div class="register-box"  style="width: 700px">
     <!-- <div class="register-box">-->
     <div class="register-logo">
-        <a href="#"><b>ROTA</b>Light</a>
+        <a href="#"><b>LOGIN</b></a>
     </div>
     <div class="register-box-body">
         <p class="login-box-msg" style="font-size: large">Alterar dados</p>

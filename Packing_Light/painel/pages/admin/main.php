@@ -65,7 +65,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!--<img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">-->
               <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-              <span class="hidden-xs"><?php echo $_SESSION["usuario"][0]; ?></span>
+              <span class="hidden-xs"><?php if($_SESSION["check"] == 0) {echo $_SESSION["usuario"][0]; }else{echo $_SESSION["admin"][0]; }?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -117,7 +117,7 @@
         <small>Painel de controle</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="main.php"><i class="fa fa-home"></i> Home</a></li>
       </ol>
     </section>
 

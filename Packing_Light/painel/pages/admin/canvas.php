@@ -46,9 +46,9 @@
     <!-- Logo -->
     <a href="../../../index.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>L</b>in</span>
+      <span class="logo-mini"><b>P</b>LI</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>PackingLight</b></span>
+      <span class="logo-lg"><b>Packing</b>Light</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -65,12 +65,12 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!--<img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">-->
               <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-              <span class="hidden-xs"><?php echo $_SESSION["usuario"][0]; ?></span>
+              <span class="hidden-xs"><?php if($_SESSION["check"] == 0) {echo $_SESSION["usuario"][0]; }else{echo $_SESSION["admin"][0]; }?></span>           
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="../../dist/img/logo01.png" class="img-square" alt="User Image">
+                <img src="../../../../login/painel/dist/img/logo01.png" class="img-square" alt="User Image">
                 
                 <p>
                     <?php
@@ -85,10 +85,14 @@
               <!-- Menu funcionalidades-->
               <li class="user-footer">
                 <div class="pull-left">
-                    <a href="alterar_usuario.php" class="btn btn-default btn-flat">Editar dados</a>
+                  <?php if($_SESSION["check"] == 0) { ?>
+                  <a href="../../../../login/painel/pages/admin/alterar_usuario.php" class="btn btn-default btn-flat">Editar dados</a>
+                  <?php }else{ ?>
+                  <a href="../../../../login/painel/pages/admin/alterar_admin.php" class="btn btn-default btn-flat">Editar dados</a>
+                  <?php } ?>                  
                 </div>
                 <div class="pull-right">
-                    <a href="../../../lib/logout.php" class="btn btn-default btn-flat">Sair</a>
+                    <a href="../../../../login/lib/logout.php" class="btn btn-default btn-flat">Sair</a>
                 </div>
               </li>
             </ul>

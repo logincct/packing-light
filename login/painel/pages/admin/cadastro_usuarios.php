@@ -208,7 +208,19 @@
                 <input type="hidden" class="form-control"  name="hora_cadastro" value="<?php date_default_timezone_set('America/Fortaleza'); echo date('H:i:s');?>" readonly required>
                <!-- <span class="glyphicon glyphicon-time form-control-feedback"></span> -->            
             </div>
-            
+            <div class="espacoradios" style="float: right; padding-right: 20%">
+                
+                <div class="checkbox"  style="display: inline">
+                    <label>
+                      <input type="checkbox" name="area[]" id="escolha" value="11">
+                      Permissão para RotaLight
+                    </label>
+                    <label>
+                      <input type="checkbox" name="area[]" id="escolha1" value="12">
+                      Permissão para PackingLight
+                    </label>
+                </div>
+            </div>
       <div class="row">
         <div class="col-xs-8">
           <div class="checkbox icheck">
