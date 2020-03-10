@@ -1,6 +1,8 @@
 <?php
 
-	session_start();
+	if(!isset($_SESSION)){
+		session_start();
+	}
 
 	include('FirstFit.php');
 	include('classes.php');
