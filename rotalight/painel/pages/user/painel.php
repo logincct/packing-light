@@ -67,7 +67,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!--<img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">-->
               <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-              <span class="hidden-xs"><?php echo $_SESSION["usuario"][0]; ?></span>
+              <span class="hidden-xs"><?php echo $_SESSION["admin"][0]; ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -90,7 +90,7 @@
                     <a href="alterar_usuario.php" class="btn btn-default btn-flat">Editar dados</a>
                 </div>
                 <div class="pull-right">
-                    <a href="../../../lib/logout.php" class="btn btn-default btn-flat">Sair</a>
+                    <a href="../../../../login/lib/logout.php" class="btn btn-default btn-flat">Sair</a>
                 </div>
               </li>
             </ul>
@@ -148,7 +148,7 @@
         <small>Painel de controle</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="../../../../login/painel/pages/admin/main_admin.php"><i class="fa fa-home"></i> Home</a></li>
       </ol>
     </section>
 

@@ -1,7 +1,7 @@
 <?php
 
     $nivel = "";
-    $session = $_SESSION["admin"];
+    $session = $_SESSION["check"];
     if (isset($session)) {
     
     $nivel = $_SESSION["admin"][6];

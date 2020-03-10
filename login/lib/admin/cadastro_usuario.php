@@ -14,6 +14,7 @@
     $hora_cadastro = "";
     $senha = "";
     $senha_confirm = "";
+    $nivel = "";
     
     if(isset($_POST["cpf"])){
         $cpf = $_POST["cpf"];
@@ -58,8 +59,24 @@
             if($senha != $senha_confirm){
                 echo "<script>javascript:window.alert('Senhas diferentes.');window.location='../../pages/admin/cadastro_usuarios.php';</script>";
             }else{
+                if(isset($_POST["area"])){
+                    foreach ($_POST["area"] as $check) {
+                        if($check == 11 && $check == 12){
+                            $nivel = 10;  
+                        }
+                        else if($check == 11){
+                            $nivel = 11;  
+                        }
+                        else if($check == 12){
+                            $nivel = 12;  
+                        }
+                    }
+                }else{
+                    $nivel = 0;
+                }
+            
                 $mysql = new MySQL();
-                $mysql->insert('usuario', array('cpf' => $cpf,'password' => md5($senha),'nome' => $nome, 'endereco' => $endereco,'email' => $email,'data_cadastro' => $data_cadastro,'hora_cadastro' => $hora_cadastro,'nivel' => 1));
+                $mysql->insert('usuario', array('cpf' => $cpf,'password' => md5($senha),'nome' => $nome, 'endereco' => $endereco,'email' => $email,'data_cadastro' => $data_cadastro,'hora_cadastro' => $hora_cadastro,'nivel' => $nivel));
                 //$mysql = mysqli_query($mysqli, "INSERT INTO usuario (codigo,cpf,password,nome,endereco,email,data_cadastro,hora_cadastro,nivel) VALUES ('$codigo','$cpf',md5('$senha'),'$nome','$endereco','$email','$data_cadastro','$hora_cadastro',1)");
                 echo "<script>javascript:window.alert('Cadastro de usuário realizado com sucesso.');</script>";
             }

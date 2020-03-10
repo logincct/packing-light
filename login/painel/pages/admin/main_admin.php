@@ -1,4 +1,5 @@
 <?php require_once("../../../lib/admin/main_admin.php"); ?>
+<?php require_once("../../../lib/admin/check_admin.php"); ?>
 
 <!DOCTYPE html>
 <html>
@@ -66,7 +67,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!--<img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">-->
               <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-              <span class="hidden-xs"><?php echo $_SESSION["admin"][0]; ?></span>
+              <span class="hidden-xs"><?php if($_SESSION["check"] == 0) {echo $_SESSION["usuario"][0]; }else{echo $_SESSION["admin"][0]; }?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -141,7 +142,7 @@
         <small>Painel de controle</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="main_admin.php"><i class="fa fa-home"></i> Home</a></li>
       </ol>
     </section>
 
@@ -150,12 +151,12 @@
       <!-- Small boxes (Stat box) -->
       
       <!-- /.row -->
-      <form style=" display: inline;" action="../../../lib/admin/main.php" method="post">
-          <input type="hidden" name="sistema" value="0">
+      <form style=" display: inline;" action="../../../lib/admin/main_admin.php" method="post">
+          <input type="hidden" name="sistema" value="11">
           <button style=" height: 143px; " type="submit" name="submit" class="btn-main" style=""><img src="../../dist/img/logo01.png" class="img-square" alt="System Image"></button>
         </form>
-        <form style=" display: inline;" action="../../../lib/admin/main.php" method="post">
-          <input type="hidden" name="sistema" value="0">
+        <form style=" display: inline;" action="../../../lib/admin/main_admin.php" method="post">
+          <input type="hidden" name="sistema" value="12">
           <button style=" height: 143px; " type="submit" name="submit_pack" class="btn-main"><img src="../../dist/img/PackingLight.png" class="img-square" alt="System Image"></button>
         </form>
       <!-- Main row -->

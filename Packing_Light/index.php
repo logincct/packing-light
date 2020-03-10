@@ -1,5 +1,10 @@
 <?php 
   require_once("lib/back.php");
+  if($_SESSION["check"]==0){
+      include_once("../login/lib/admin/check.php"); 
+  }else{
+      include_once("../login/lib/admin/check_admin.php"); 
+  }
 ?>
 
 
@@ -54,11 +59,11 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="#" class="logo">
+    <a href="index.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>L</b>in</span>
+      <span class="logo-mini"><b>P</b>LI</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>PackingLight</b></span>
+      <span class="logo-lg"><b>Packing</b>Light</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -75,7 +80,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!--<img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">-->
               <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-              <span class="hidden-xs"><?php echo $_SESSION["usuario"][0]; ?></span>
+              <span class="hidden-xs"><?php if($_SESSION["check"] == 0) {echo $_SESSION["usuario"][0]; }else{echo $_SESSION["admin"][0]; }?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -130,9 +135,6 @@
             </span>
           </a>
           <ul class="treeview-menu">
-              <li class="active"><a href="cadastro_usuarios.php"><i class="fa fa-plus-square-o"></i> Cadastrar usuário</a></li>
-              <li><a href="listar_usuarios.php"><i class="fa fa-search"></i> Listar usuários</a></li>
-
           </ul>
         </li>
 
@@ -145,11 +147,15 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>
-        PackingLight
-      </h1>
+
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+        <?php if($_SESSION["check"] == 0) { ?>
+        <li><a href="../login/painel/pages/admin/main.php"><i class="fa fa-home"></i> Home</a></li>
+        <?php }else{ ?>
+        <li><a href="../login/painel/pages/admin/main_admin.php"><i class="fa fa-home"></i> Home</a></li>
+        <?php } ?>
+
+
       </ol>
     </section>
 
