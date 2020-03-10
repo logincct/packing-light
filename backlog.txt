@@ -1,6 +1,4 @@
--Colocar % de área utilizada - ok
-
--Possibilidade de eventualmente mudar o tamanho do pack
+- Colocar % de área utilizada - ok
 
 - remover quantidade de itens - ok
 
@@ -10,4 +8,10 @@
 
 - organizar links do sidebar - ok
 
-- redimensionar imagem do PackingLight ao apertar no dropdown do menu para ver informações do usuario
+- redimensionar imagem do PackingLight ao apertar no dropdown do menu para ver informações do usuario (Campelo)
+
+- Alterar sidebar: cadastro de pallet/objetos e listagem de produtos; (Pedrette e Rebeca)
+
+- Home nos botões LOGIN (todo o sistema); (Campelo)
+
+- Mostrar quantidade de itens no pallet; (Jamille)
