@@ -1,12 +1,15 @@
 <?php
 
-	session_start();
+	if(!isset($_SESSION)){
+		session_start();
+	}
 
 	include('FirstFit.php');
 	include('classes.php');
 
-	if ( isset( $_POST["calcula"] ) ) 
+	if ( isset( $_POST["calcula"] ) or isset( $_POST["cadastrar"] ) ) 
 	{
+
 		$_SESSION['alter'] = 1;
 		$larguraPallet = $_POST["l_palt"];  //Largura do pallet
 		$comprimentoPallet = $_POST["c_palt"]; //Compriemnto do pallet
@@ -16,7 +19,9 @@
 		$espaco_rest = array(); // Array de espaços restantes em cada nível
 		$comprimentoNivel = array(); // Array de comprimetos de nives
 		
-		//Os objetos e palets estão quadrados por enquanto
+		$_SESSION['reg_largura'] = $larguraItem; // Em caso de ser necessário cadastrar o objeto.
+		$_SESSION['reg_comprimento'] = $comprimentoItem;
+
 		$objetos = array();  //array de tamanho de objetos
 
 		for( $i = 1; $i <= $numeroItens ; $i++) {
@@ -155,6 +160,8 @@
 		}
 		
 		$_SESSION['quantidadeObjetos'] = $quantidadeObjetos;
+
+		$_SESSION['reg_resultado'] = "100%"; // Guardar resultado em porcentagem para cadastrar objeto
 
 		header('Location: ../painel/pages/admin/canvas.php');  //Cria a Canvas	
 	}

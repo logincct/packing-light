@@ -62,7 +62,7 @@
                 if(isset($_POST["area"])){
                     foreach ($_POST["area"] as $check) {
                         if($check == 11 && $check == 12){
-                            $nivel = 10;  
+                            $nivel = 1;  
                         }
                         else if($check == 11){
                             $nivel = 11;  

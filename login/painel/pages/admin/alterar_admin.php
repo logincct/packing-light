@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>RotaLight | Alterar dados</title>
+  <title>LOGIN | Alterar dados</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -51,11 +51,11 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="painel.php" class="logo">
+    <a href="main_admin.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>R</b>LI</span>
+      <span class="logo-mini"><b>L</b>IN</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>ROTA</b>Light</span>
+      <span class="logo-lg"><b>LOGIN</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -72,7 +72,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!--<img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">-->
               <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-              <span class="hidden-xs"><?php echo $_SESSION["admin"][0]; ?></span>
+              <span class="hidden-xs"><?php if($_SESSION["check"] == 0) {echo $_SESSION["usuario"][0]; }else{echo $_SESSION["admin"][0]; }?></span>           
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -113,16 +113,7 @@
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Painel usuario - superior esquerdo -->
-      <div class="user-panel">
-        <div class="pull-left image">
-            <img src="../../dist/img/Pin_Map_Vector.svg.png" class="img-rectangle" alt="User Image">
-        </div>
-        <div class="pull-left info">
-          <p>Seja bem vindo</p>
-                    
-        </div>
-      </div>
-      
+    
       <!-- /.search form -->
       <!-- MENU DE NAVEGAÇÃO PRINCIPAL -->
       <ul class="sidebar-menu" data-widget="tree">
@@ -149,53 +140,39 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Alterar dados do administrador
-        <small>Painel de controle</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-        <li class="active">Alterar dados do administrador</li>
-      </ol>
-    </section>
-
     <!-- Main content -->
     <section class="content">
     
    
   <div class="register-box"  style="width: 700px">
     <!-- <div class="register-box">-->
-    <div class="register-logo">
-        <a href="#"><b>ROTA</b>Light</a>
-    </div>
     <div class="register-box-body">
-        <p class="login-box-msg" style="font-size: large">Alterar dados</p>
+        <p class="login-box-msg" style="font-size: large"><b>Alterar dados do administrador</b></p>
 
         <form method="post">
             <div class="form-group has-feedback">
               <label>Código</label>
-                <input type="text" class="form-control" placeholder="Código" name="cod_usu" value="<?php echo $_SESSION["admin"][3]; ?>" readonly="" required>
+                <input type="text" class="form-control" placeholder="Código" name="cod_usu" value="<?php if($_SESSION["check"] == 0) {echo $_SESSION["usuario"][3]; }else{echo $_SESSION["admin"][3]; }?>" readonly="" required>
                 <span class="glyphicon glyphicon-tag form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
               <label>Nome Completo</label>
-                <input type="text" class="form-control" placeholder="Nome Completo" name="nome1" value="<?php echo $_SESSION["admin"][0]; ?>" required>
+                <input type="text" class="form-control" placeholder="Nome Completo" name="nome1" value="<?php if($_SESSION["check"] == 0) {echo $_SESSION["usuario"][0]; }else{echo $_SESSION["admin"][0]; }?>" required>
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
               <label>Endereço</label>
-                <input type="text" class="form-control" placeholder="Endereço" name="endereco1" value="<?php echo $_SESSION["admin"][2]; ?>" required>
+                <input type="text" class="form-control" placeholder="Endereço" name="endereco1" value="<?php if($_SESSION["check"] == 0) {echo $_SESSION["usuario"][2]; }else{echo $_SESSION["admin"][2]; }?>" required>
                 <span class="glyphicon glyphicon-home form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
               <label>Email</label>
-                <input type="email" class="form-control" placeholder="Email" name="email1" value="<?php echo $_SESSION["admin"][1]; ?>" required>
+                <input type="email" class="form-control" placeholder="Email" name="email1" value="<?php if($_SESSION["check"] == 0) {echo $_SESSION["usuario"][1]; }else{echo $_SESSION["admin"][1]; }?>" required>
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
               <label>CPF sem pontos ou traços</label>
-                <input type="text" class="form-control" placeholder="CPF sem pontos ou traços" maxlength="14" OnKeyPress="formatar('###.###.###-##', this)" name="cpf1"  value="<?php echo $_SESSION["admin"][5]; ?>" required>
+                <input type="text" class="form-control" placeholder="CPF sem pontos ou traços" maxlength="14" OnKeyPress="formatar('###.###.###-##', this)" name="cpf1"  value="<?php if($_SESSION["check"] == 0) {echo $_SESSION["usuario"][5]; }else{echo $_SESSION["admin"][5]; }?>" required>
                 <span class="glyphicon glyphicon-tag form-control-feedback"></span>
             </div>
            <!--  <div class="form-group has-feedback">
@@ -234,7 +211,7 @@
     <div class="pull-right hidden-xs">
       <b>Versão</b> 1.0
     </div>
-    <strong>Copyright &copy; 2018.</strong> Todos Os Direitos Reservados
+    <strong>Copyright &copy; <?php echo date('Y'); ?>.</strong> Todos Os Direitos Reservados
   </footer>
 
   <!-- Control Sidebar -->

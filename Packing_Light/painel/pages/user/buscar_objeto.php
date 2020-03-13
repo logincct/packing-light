@@ -2,11 +2,11 @@
 
   session_start();
 
-  require_once("lib/back.php");
+  require_once("../../../lib/back.php");
   if($_SESSION["check"]==0){
-      include_once("../login/lib/admin/check.php"); 
+      include_once("../../../../login/lib/admin/check.php"); 
   }else{
-      include_once("../login/lib/admin/check_admin.php"); 
+      include_once("../../../../login/lib/admin/check_admin.php"); 
   }
 
   $connect = mysqli_connect("localhost", "root", '', 'objetos');
@@ -24,19 +24,19 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="painel/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../rotalight/painel/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="painel/bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../rotalight/painel/bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="painel/bower_components/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="../../../../rotalight/painel/bower_components/Ionicons/css/ionicons.min.css">
   <!-- fullCalendar -->
-  <link rel="stylesheet" href="painel/bower_components/fullcalendar/dist/fullcalendar.min.css">
-  <link rel="stylesheet" href="painel/bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
+  <link rel="stylesheet" href="../../../../rotalight/painel/bower_components/fullcalendar/dist/fullcalendar.min.css">
+  <link rel="stylesheet" href="../../../../rotalight/painel/bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
   <!-- Theme style -->
-  <link rel="stylesheet" href="painel/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="../../../../rotalight/painel/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="painel/dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="../../../../rotalight/painel/dist/css/skins/_all-skins.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -66,7 +66,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="#" class="logo">
+    <a href="../../../index.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>P</b>LI</span>
       <!-- logo for regular state and mobile devices -->
@@ -149,14 +149,14 @@
           </ul>
         </li>
         <li>
-          <a href="painel/pages/user/buscar_objeto.php">
+          <a href="#">
               <i class="fa fa-map-maker">
               </i>
             <span>Buscar Objeto</span>
           </a>
         </li>
         <li>
-          <a href="painel/pages/user/cadastrar_objeto.php">
+          <a href="cadastrar_objeto.php">
               <i class="fa fa-map-maker">
               </i>
             <span>Cadastrar Objeto</span>
@@ -191,34 +191,27 @@
   <div class="register-box"  style="width: 700px">
     <!-- <div class="register-box">-->
     <div class="register-box-body">
-      <p class="login-box-msg" style="font-size: large">Digite as informações da carga</p>
+      <p class="login-box-msg" style="font-size: large">Buscar carga já calculada</p>
 
       <!-- Formulário PackingLight. -->
-      <form action="lib/back.php" method="post">
-        <div class="form-group has-feedback" style="text-align: center;">
-          <label style="position: absolute;" for="l_palt">Largura do pallet</label>
+      <form action="../../../lib/buscaObjeto.php" method="post">
+
+        <div style="text-align: center;" class="form-group has-feedback">  
+        <label style="position: absolute;" for="l_palt">Largura do pallet</label>
           <input style="position: relative; margin-left: 200px;" id = "l_palt" type = "number" name = "l_palt" value = "130" required ></br>
           <!-- <span class="glyphicon glyphicon-user form-control-feedback"></span> ícones-->
         </div>
         <div class="form-group has-feedback" style="text-align: center;">
           <label style="position: absolute;" for="c_palt">Comprimento do pallet</label>
           <input style="position: relative; margin-left: 200px;" id = "c_palt" type = "number" name = "c_palt" value = "130" required></br>
-          <!-- <span class="glyphicon glyphicon-home form-control-feedback"></span> -->
-        </div>
-
-          <input id = "n_obj" type = "hidden" name = "n_obj" value = "100">
-
+        </div></br>
         <div class="form-group has-feedback" style="text-align: center;">
-          <label style="position: absolute;" for="lag_obj">Largura dos objetos</label>
-          <input style="position: relative; margin-left: 200px;" id = "lag_obj" type = "number" name = "lag_obj" value = "50" required ><br>
-          <!-- <span class="glyphicon glyphicon-tag form-control-feedback"></span> -->
+          <label for = "setect_obj" style="position: absolute" >Selecione um produto</label>
+          <select required name = "nome_obj" id = "setect_obj" style="position: relative; margin-left: 180px;">
+            <option name ="nome_obj" value=''></option>
+            <?php while ($row = mysqli_fetch_assoc($listar)) { ?><option value='<?php echo $row['nome'];?>'><?php echo $row['nome']."    ";?></option><?php } ?>
+          </select>
         </div>
-        <div class="form-group has-feedback" style="text-align: center;">
-          <label style="position: absolute;" for="comp_obj">Comprimento dos objetos</label>
-          <input style="position: relative; margin-left: 200px;" id = "comp_obj" type = "number" name = "comp_obj" value = "30" required><br>
-          <!-- <span class="glyphicon glyphicon-lock form-control-feedback"></span> -->
-        </div>
-          
         <div class="row">
           <div class="col-xs-8">
             <div class="checkbox icheck">
@@ -231,7 +224,10 @@
           </div>
           <!-- /.col -->
         </div>
+
       </form>    
+
+      
     </div>
   </div>
   <!-- /.form-box -->

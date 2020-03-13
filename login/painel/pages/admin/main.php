@@ -1,6 +1,10 @@
-<?php require_once("../../../lib/admin/main.php"); ?>
-<?php require_once("../../../lib/admin/check.php"); ?>
-
+<?php require_once("../../../lib/admin/main.php"); 
+  if($_SESSION["check"]==0){
+      include_once("../../../lib/admin/check.php"); 
+  }else{
+      include_once("../../../lib/admin/check_admin.php"); 
+  }
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -115,12 +119,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        LOGIN
-        <small>Painel de controle</small>
+        Bem-vindo!
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="main.php"><i class="fa fa-home"></i> Home</a></li>
-      </ol>
     </section>
 
     <!-- Painel para COLOCAR O MAPA QUANDO ESTIVER PRONTO -->

@@ -141,6 +141,7 @@
                //$query = mysqli_query($mysqli, "UPDATE usuario SET cpf='$cpf1', nome='$nome1', email='$email1', endereco='$endereco1', data_cadastro='$data_cadastro1', hora_cadastro='$hora_cadastro1' WHERE codigo=$cod_usu");
                // mysqli_close($mysqli);
             echo "<script>javascript:window.alert('Alteração de dados realizada com sucesso.\\nOs dados serão atualizados quando entrar com nova sessão.');</script>";
+            echo "<script>window.location.replace('main_admin.php');</script>";
         // mysqli_close($mysqli);
         // }catch(Exception $e){
         //     echo 'Caught exception: ', $e->getMessage();

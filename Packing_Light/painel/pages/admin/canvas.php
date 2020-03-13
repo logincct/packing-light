@@ -1,8 +1,14 @@
-<?php session_start(); ?>
-<!DOCTYPE html>
-<html>
+<?php 
+
+  if(!isset($_SESSION)){
+    session_start();  
+  }
+
+ ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>PackingLight</title>
   <!-- Tell the browser to be responsive to screen width -->
@@ -65,12 +71,12 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!--<img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">-->
               <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-              <span class="hidden-xs"><?php echo $_SESSION["admin"][0]; ?></span>
+              <span class="hidden-xs"><?php if($_SESSION["check"] == 0) {echo $_SESSION["usuario"][0]; }else{echo $_SESSION["admin"][0]; }?></span>           
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="../../dist/img/logo01.png" class="img-square" alt="User Image">
+                <img src="../../../../login/painel/dist/img/logo01.png" class="img-square" alt="User Image">
                 
                 <p>
                     <?php
@@ -85,7 +91,11 @@
               <!-- Menu funcionalidades-->
               <li class="user-footer">
                 <div class="pull-left">
-                    <a href="../../../../login/lib/admin/alterar_usuario.php" class="btn btn-default btn-flat">Editar dados</a>
+                  <?php if($_SESSION["check"] == 0) { ?>
+                  <a href="../../../../login/painel/pages/admin/alterar_usuario.php" class="btn btn-default btn-flat">Editar dados</a>
+                  <?php }else{ ?>
+                  <a href="../../../../login/painel/pages/admin/alterar_admin.php" class="btn btn-default btn-flat">Editar dados</a>
+                  <?php } ?>                  
                 </div>
                 <div class="pull-right">
                     <a href="../../../../login/lib/logout.php" class="btn btn-default btn-flat">Sair</a>
@@ -104,7 +114,41 @@
   <!-- Left side column. contains the logo and sidebar -->
   <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      
+      <!-- /.search form -->
+      <!-- MENU DE NAVEGAÇÃO PRINCIPAL -->
+      <ul class="sidebar-menu" data-widget="tree">
+<!--         <li class="header">NAVEGAÇÃO PRINCIPAL</li>
+ -->        
+        <!--FUNCIONALIDADES DO USUÁRIO-->        
+        <li class="active treeview">
+          <a href="#">
+            <i class="fa fa-user"></i> <span>Menu do usuário</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+          </ul>
+        </li>
+        <li>
+          <a href="../user/buscar_objeto.php">
+              <i class="fa fa-map-maker">
+              </i>
+            <span>Buscar Objeto</span>
+          </a>
+        </li>
+        <li>
+          <a href="../user/cadastrar_objeto.php">
+              <i class="fa fa-map-maker">
+              </i>
+            <span>Cadastrar Objeto</span>
+          </a>
+        </li>
 
+      </ul>
+    </section>
     <!-- /.sidebar -->
   </aside>
 
@@ -139,6 +183,7 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4" style="width: 20%;float:right">
+          <a href="../../../lib/cadastra_objetos.php" class="btn btn-primary btn-block btn-flat">Salvar objeto</a>
           <a href="../../../index.php"><button type="submit" class="btn btn-primary btn-block btn-flat">Voltar</button></a>
         </div>
         <!-- /.col -->

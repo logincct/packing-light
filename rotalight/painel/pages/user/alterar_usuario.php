@@ -72,7 +72,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!--<img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">-->
               <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-              <span class="hidden-xs"><?php echo $_SESSION["usuario"][0]; ?></span>
+              <span class="hidden-xs"><?php if($_SESSION["check"] == 0) {echo $_SESSION["usuario"][0]; }else{echo $_SESSION["admin"][0]; }?></span>           
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -95,7 +95,7 @@
                   <a href="alterar_usuario.php" class="btn btn-default btn-flat">Editar dados</a>
                 </div>
                 <div class="pull-right">
-                  <a href="../../../lib/logout.php" class="btn btn-default btn-flat">Sair</a>
+                  <a href="../../../../login/lib/logout.php" class="btn btn-default btn-flat">Sair</a>
                 </div>
               </li>
             </ul>
@@ -182,27 +182,27 @@
         <form method="post">
             <div class="form-group has-feedback">
               <label>Código</label>
-                <input type="text" class="form-control" placeholder="Código" name="cod_usu" value="<?php echo $_SESSION["usuario"][3]; ?>" readonly="" required>
+                <input type="text" class="form-control" placeholder="Código" name="cod_usu" value="<?php if($_SESSION["check"] == 0) {echo $_SESSION["usuario"][3]; }else{echo $_SESSION["admin"][3]; }?>" readonly="" required>
                 <span class="glyphicon glyphicon-tag form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
               <label>Nome Completo</label>
-                <input type="text" class="form-control" placeholder="Nome Completo" name="nome1" value="<?php echo $_SESSION["usuario"][0]; ?>" required>
+                <input type="text" class="form-control" placeholder="Nome Completo" name="nome1" value="<?php if($_SESSION["check"] == 0) {echo $_SESSION["usuario"][0]; }else{echo $_SESSION["admin"][0]; }?>" required>
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
               <label>Endereço</label>
-                <input type="text" class="form-control" placeholder="Endereço" name="endereco1" value="<?php echo $_SESSION["usuario"][2]; ?>" required>
+                <input type="text" class="form-control" placeholder="Endereço" name="endereco1" value="<?php if($_SESSION["check"] == 0) {echo $_SESSION["usuario"][2]; }else{echo $_SESSION["admin"][2]; }?>" required>
                 <span class="glyphicon glyphicon-home form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
               <label>Email</label>
-                <input type="email" class="form-control" placeholder="Email" name="email1" value="<?php echo $_SESSION["usuario"][1]; ?>" required>
+                <input type="email" class="form-control" placeholder="Email" name="email1" value="<?php if($_SESSION["check"] == 0) {echo $_SESSION["usuario"][1]; }else{echo $_SESSION["admin"][1]; }?>" required>
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
               <label>CPF sem pontos ou traços</label>
-                <input type="text" class="form-control" placeholder="CPF sem pontos ou traços" maxlength="14" OnKeyPress="formatar('###.###.###-##', this)" name="cpf1" value="<?php echo $_SESSION["usuario"][5]; ?>" required>
+                <input type="text" class="form-control" placeholder="CPF sem pontos ou traços" maxlength="14" OnKeyPress="formatar('###.###.###-##', this)" name="cpf1" value="<?php if($_SESSION["check"] == 0) {echo $_SESSION["usuario"][5]; }else{echo $_SESSION["admin"][5]; }?>" required>
                 <span class="glyphicon glyphicon-tag form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
