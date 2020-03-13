@@ -1,6 +1,10 @@
-<?php require_once("../../../lib/admin/main_admin.php"); ?>
-<?php require_once("../../../lib/admin/check_admin.php"); ?>
-
+<?php require_once("../../../lib/admin/main_admin.php"); 
+  if($_SESSION["check"]==0){
+      include_once("../../../lib/admin/check.php"); 
+  }else{
+      include_once("../../../lib/admin/check_admin.php"); 
+  }
+?>
 <!DOCTYPE html>
 <html>
 <head>
