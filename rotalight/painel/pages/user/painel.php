@@ -135,8 +135,8 @@
         <!--GERAR ROTAS-->
         <li>
             <a href="gerar_rota.php">
-            <i class="fa fa-map-marker"></i> <span>Gerar rota</span>
-          </a>
+              <i class="fa fa-map-marker"></i> <span>Gerar rota</span>
+            </a>
         </li>
       </ul>
     </section>
