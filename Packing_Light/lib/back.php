@@ -7,7 +7,7 @@
 	include('FirstFit.php');
 	include('classes.php');
 
-	if ( isset( $_POST["calcula"] ) ) 
+	if ( isset( $_POST["calcula"] ) or isset( $_POST["cadastrar"] ) ) 
 	{
 
 		$_SESSION['alter'] = 1;
