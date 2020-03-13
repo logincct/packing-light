@@ -8,6 +8,8 @@
 
 - organizar links do sidebar - ok
 
+- Manutenção no sistema RotaLight - ok
+
 - redimensionar imagem do PackingLight ao apertar no dropdown do menu para ver informações do usuario (Campelo)
 
 - Alterar sidebar: cadastro de pallet/objetos e listagem de produtos; (Pedrette e Rebeca)
