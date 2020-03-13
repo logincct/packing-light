@@ -3,11 +3,17 @@
 	if ( !isset( $_SESSION ) ){
 		session_start();
 	}
-
-	$largura = $_SESSION['reg_largura'];
-	$comprimento = $_SESSION['reg_comprimento'];
+	if ( isset( $_POST['cadastrar'] ) ){
+		$largura = $_POST['reg_largura'];
+		$comprimento = $_POST['reg_comprimento'];
+		$resultado = '';
+	}
+	else{		
+		$largura = $_SESSION['reg_largura'];
+		$comprimento = $_SESSION['reg_comprimento'];
+		$resultado = $_SESSION['reg_resultado'];
+	}
 	$altura = 0;
-	$resultado = $_SESSION['reg_resultado'];
 	$nome = $largura."x".$comprimento."x".$altura;
 
 	$connect = mysqli_connect('localhost','root','','objetos');
@@ -32,7 +38,11 @@
 	      alert('Não foi possível cadastrar esse usuário');</script>";
 	  	}
     }
-
-    header('Location: ../painel/pages/admin/canvas.php');;
+    if( isset($_POST['cadastrar']) ){
+    	header('Location: ../painel/pages/user/cadastrar_objeto.php');
+    }
+    else{
+    	header('Location: ../painel/pages/admin/canvas.php');
+    }
 
 ?>
