@@ -1,4 +1,4 @@
-<?php require_once("../../../lib/user/alterar_cliente.php"); ?>
+<?php require_once("../../../lib/user/alterar_usuario.php"); ?>
 
 <!DOCTYPE html>
 <html>

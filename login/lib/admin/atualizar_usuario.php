@@ -5,7 +5,7 @@
     include_once('mysql.php');
     header('Content-Type: text/html; charset=utf-8');
 
-    $codigo_usuario = "";
+    $codigo = "";
     $cpf = "";
     $nome = "";
     $email = "";
@@ -21,13 +21,13 @@
     $endereco1 = "";
     $data_cadastro1 = "";
     $hora_cadastro1 = "";
-
+    
     $cpf = "";
     $nova_senha = "";
     $nova_senha_confirm = "";
     
-    if(isset($_POST["codigo_usuario"])){
-        $codigo_usuario = $_POST["codigo_usuario"];
+    if(isset($_GET['codigo'])){
+        $codigo = $_GET['codigo'];
     }
     if(isset($_POST["cod_form2"])){
         $cod_form2 = $_POST["cod_form2"];
@@ -85,40 +85,72 @@
         $cpf = $_POST["cpf"];
     }
     if(isset($_POST["nova_senha"])){
-        $nova_senha = md5($_POST["nova_senha"]);
+        $nova_senha = $_POST["nova_senha"];
     }
     if(isset($_POST["nova_senha_confirm"])){
-        $nova_senha_confirm = md5($_POST["nova_senha_confirm"]);
+        $nova_senha_confirm = $_POST["nova_senha_confirm"];
     }
     
     
-    if($codigo_usuario != ""){
-        $mysql = new MySQL();
+    // if($cod_usu != ""){
+    //     // $mysql = new MySQL();
         
-        try{
-            $verifica = $mysql->where('codigo', $codigo_usuario)->get('usuarios');
-            //$verifica = mysqli_query($mysqli, "SELECT codigo,cpf,nome,email,endereco,data_cadastro,hora_cadastro FROM usuario where codigo like '%$codigo_usuario%'");
+    //     try{
+    //         //$verifica = $mysql->where('codigo', $codigo_usuario)->get('usuarios');
+    //         $verifica = mysqli_query($mysqli, "SELECT codigo,cpf,nome,email,endereco,data_cadastro,hora_cadastro FROM usuario where codigo like '%$codigo_usuario%'");
 
                 
-            $resultado1 = mysqli_fetch_assoc($verifica);
+    //         $resultado1 = mysqli_fetch_assoc($verifica);
 
-            // mysqli_close($mysqli);
-            if ($resultado1 == ""){
-                echo "<script>javascript:window.alert('Código não existe');</script>";
-            }
+    //         if ($resultado1 == ""){
+    //             echo "<script>javascript:window.alert('Código não existe');</script>";
+    //         }
                 
-        }catch(Exception $e){
-            echo 'Caught exception: ', $e->getMessage();
-        }
+    //     }catch(Exception $e){
+    //         echo 'Caught exception: ', $e->getMessage();
+    //     }
     
-    }
+    // }
     
+
+
+        
+        // if($codigo == $_SESSION["admin"][3]){
+        // $mysql = new MySQL();
+        // session_destroy();
+        // $result = $mysql->where('codigo', $codigo)->get('usuario');
+        //     while($resultado = mysqli_fetch_array($result)){
+        //     $_SESSION["admin"] = array($resultado['nome'],
+        //         $resultado['email'],
+        //         $resultado['endereco'],
+        //         $resultado['codigo'],
+        //         $resultado['password'],
+        //         $resultado['cpf'],
+        //         $resultado['nivel']);
+        //     }
+        // }
+    $mysql = new MySQL();
+    
+    if ($codigo != "") {
+         $result = $mysql->where('codigo', $codigo)->get('usuario');
+         while($resultado = mysqli_fetch_array($result)){
+         $_SESSION["usuario_admin"] = array($resultado['nome'],
+             $resultado['email'],
+             $resultado['endereco'],
+             $resultado['codigo'],
+             $resultado['cpf']);
+         }
+     }
+
     if($cpf != "" && $nome != "" && $endereco != "" && $email != ""){
+
         
         $mysql = new MySQL();
+
+
         
         try{
-                $mysql->where('codigo', $cod_form2)->update('usuario', array('cpf' => $cpf, 'nome' => $nome, 'email' => $email, 'endereco' => $endereco,'data_cadastro' => $data_cadastro,'hora_cadastro' => $hora_cadastro));
+                $mysql->where('codigo', $cod_form2)->update('usuario', array('cpf' => $cpf, 'nome' => $nome, 'email' => $email, 'endereco' => $endereco));
                 //$mysql = mysqli_query($mysqli, "UPDATE usuario SET cpf='$cpf, 'nome='$nome', email='$email', endereco='$endereco', data_cadastro='$data_cadastro', hora_cadastro='$hora_cadastro' WHERE codigo=$cod_form2");
         // mysqli_close($mysqli);
 		echo "<script>javascript:window.alert('Alteração de usuário realizada com sucesso.');</script>";
@@ -130,18 +162,18 @@
     if(isset($_POST["update1"])){
         if(empty($nome1) || empty($endereco1) || empty($email1)) {
             
-            // $mysql = new MySQL('localhost', 'root', '', 'rotalight');
+            // $mysql = new MySQL();
             echo "<script>javascript:window.alert('Preencha todos os campos.');</script>";
         // if($cpf1 != "" && $nome1 != "" && $email1 != "" && $endereco1 != "" && $data_cadastro1 != "" && $hora_cadastro1 != ""){
         
-        
         }else{
-               $mysql = new MySQL();
-               $mysql->where('codigo', $cod_usu)->update('usuario', array('cpf' => $cpf1,'nome' => $nome1, 'email' => $email1, 'endereco' => $endereco1));
-               //$query = mysqli_query($mysqli, "UPDATE usuario SET cpf='$cpf1', nome='$nome1', email='$email1', endereco='$endereco1', data_cadastro='$data_cadastro1', hora_cadastro='$hora_cadastro1' WHERE codigo=$cod_usu");
+            $mysql = new MySQL();
+
+            $mysql->where('codigo', $cod_usu)->update('usuario', array('cpf' => $cpf1,'nome' => $nome1, 'email' => $email1, 'endereco' => $endereco1));
+            //$query = mysqli_query($mysqli, "UPDATE usuario SET cpf='$cpf1', nome='$nome1', email='$email1', endereco='$endereco1', data_cadastro='$data_cadastro1', hora_cadastro='$hora_cadastro1' WHERE codigo=$cod_usu");
                // mysqli_close($mysqli);
-            echo "<script>javascript:window.alert('Alteração de dados realizada com sucesso.\\nOs dados serão atualizados quando entrar com nova sessão.');</script>";
-            echo "<script>window.location.replace('main_admin.php');</script>";
+            echo "<script>javascript:window.alert('Alteração de usuário realizada com sucesso.\\nOs dados serão atualizados quando entrar com nova sessão.');</script>";
+            echo "<script>window.location.replace('../../pages/admin/listar_usuarios.php');</script>";
         // mysqli_close($mysqli);
         // }catch(Exception $e){
         //     echo 'Caught exception: ', $e->getMessage();
@@ -152,7 +184,7 @@
     
     
     // if($codigo_usuario_excluir != ""){
-    //     // $mysql = new MySQL('localhost', 'root', '', 'rotalight');
+    //       $mysql = new MySQL();
         
     //     try{
     //         //$verifica2 = $mysql->where('codigo', $codigo_cliente_excluir)->get('clientes');
@@ -176,7 +208,7 @@
     // }
  //    if($codigo_excluir != ""){
         
- //        // $mysql = new MySQL('localhost', 'root', '', 'rotalight');
+ //        // $mysql = new MySQL();
         
  //        try{
  //            //$mysql->where('codigo', $_SESSION["cliente"][0])->delete('clientes');
@@ -194,19 +226,19 @@
     
     if($cpf != "" && $nova_senha != "" && $nova_senha_confirm != ""){
         
-        if($cpf != $_SESSION["admin"][5]){
-            echo "<script>javascript:window.alert('Cpf inválido.');window.location='../../painel/pages/admin/alterar_senha.php';</script>";
+        if($cpf != $_SESSION["usuario"][5]){
+            echo "<script>javascript:window.alert('Cpf inválido.');window.location='../../pages/admin/alterar_senha.php';</script>";
         }else{
             if($nova_senha != $nova_senha_confirm){
-                echo "<script>javascript:window.alert('Senhas diferentes.');window.location='../../painel/pages/admin/alterar_senha.php';</script>";
+                echo "<script>javascript:window.alert('Senhas diferentes.');window.location='../../pages/admin/alterar_senha.php';</script>";
             }else{
                 $mysql = new MySQL();
         
                 try{
-                    // $mysql->where('cpf', $cpf)->update('usuario', array('password' => $nova_senha));
                     $mysql->where('cpf', $cpf)->update('usuario', array('password' => md5($nova_senha)));
+                    //$mysql = mysqli_query($mysqli, "UPDATE usuario SET password=md5('$nova_senha') WHERE cpf='$cpf'");
                     
-                    echo "<script>javascript:window.alert('Redefinição de senha realizada com sucesso.\\nNa proxima vez que iniciar sua sessão, já poderá usar sua nova senha.');window.location='../../pages/admin/alterar_senha_admin.php';</script>";
+                    echo "<script>javascript:window.alert('Redefinição de senha realizada com sucesso.\\nNa proxima vez que iniciar sua sessão, já poderá usar sua nova senha.');window.location='../../pages/admin/alterar_senha.php';</script>";
                     // header('location: ../painel/pages/alterar_senha.php');
                 }catch(Exception $e){
                     echo 'Caught exception: ', $e->getMessage();
@@ -214,6 +246,5 @@
             }
         }
     }
-
 ?>
 

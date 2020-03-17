@@ -77,7 +77,7 @@
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="../../dist/img/logo01.png" class="img-square" alt="User Image">
+                <img src="../../../../login/painel/dist/img/PackingLight.png" class="img-square" alt="User Image">
                 
                 <p>
                     <?php
@@ -92,10 +92,14 @@
               <!-- Menu funcionalidades-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="alterar_admin.php" class="btn btn-default btn-flat">Editar dados</a>
+                  <?php if($_SESSION["check"] == 0) { ?>
+                  <a href="../../../../login/painel/pages/admin/alterar_usuario.php" class="btn btn-default btn-flat">Editar dados</a>
+                  <?php }else{ ?>
+                  <a href="../../../../login/painel/pages/admin/alterar_admin.php" class="btn btn-default btn-flat">Editar dados</a>
+                  <?php } ?>                
                 </div>
                 <div class="pull-right">
-                  <a href="../../../lib/logout.php" class="btn btn-default btn-flat">Sair</a>
+                    <a href="../../../../login/lib/logout.php" class="btn btn-default btn-flat">Sair</a>
                 </div>
               </li>
             </ul>
@@ -113,15 +117,6 @@
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Painel usuario - superior esquerdo -->
-      <div class="user-panel">
-        <div class="pull-left image">
-          <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-        </div>
-        <div class="pull-left info">
-          <p><?php echo $_SESSION["admin"][0]; ?></p>
-                    
-        </div>
-      </div>
       
       <!-- /.search form -->
       <!-- MENU DE NAVEGAÇÃO PRINCIPAL -->
@@ -137,12 +132,11 @@
             </span>
           </a>
           <ul class="treeview-menu">
-              <li class="active"><a href="cadastro_usuarios.php"><i class="fa fa-plus-square-o"></i> Cadastrar usuário</a></li>
-              <li><a href="listar_usuarios.php"><i class="fa fa-search"></i> Listar usuários</a></li>
-
+              <li class="active"><a href="painel/pages/user/cadastrar_objeto.php"><i class="fa fa-plus-square-o"></i> Cadastrar objeto</a></li>
+              <li><a href="painel/pages/user/buscar_objeto.php"><i class="fa fa-search"></i> Buscar objeto</a></li>
           </ul>
         </li>
-
+       
       </ul>
     </section>
     <!-- /.sidebar -->

@@ -126,10 +126,6 @@
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
-          <ul class="treeview-menu">
-              <li><a href="cadastro_usuarios.php"><i class="fa fa-plus-square-o"></i> Cadastrar usuário</a></li>
-              <li><a href="listar_usuarios.php"><i class="fa fa-search"></i> Listar usuários</a></li>
-          </ul>
         </li>
       </ul>
     </section>
@@ -153,27 +149,27 @@
         <form method="post">
             <div class="form-group has-feedback">
               <label>Código</label>
-                <input type="text" class="form-control" placeholder="Código" name="cod_usu" value="<?php echo $_SESSION["usuario_admin"][3]; ?>" readonly="" required>
+                <input type="text" class="form-control" placeholder="Código" name="cod_usu" value="<?php if($_SESSION["check"] == 0) {echo $_SESSION["usuario"][3]; }else{echo $_SESSION["admin"][3]; }?>" readonly="" required>
                 <span class="glyphicon glyphicon-tag form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
               <label>Nome Completo</label>
-                <input type="text" class="form-control" placeholder="Nome Completo" name="nome1" value="<?php echo $_SESSION["usuario_admin"][0]; ?>" required>
+                <input type="text" class="form-control" placeholder="Nome Completo" name="nome1" value="<?php if($_SESSION["check"] == 0) {echo $_SESSION["usuario"][0]; }else{echo $_SESSION["admin"][0]; }?>" required>
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
               <label>Endereço</label>
-                <input type="text" class="form-control" placeholder="Endereço" name="endereco1" value="<?php echo $_SESSION["usuario_admin"][2]; ?>" required>
+                <input type="text" class="form-control" placeholder="Endereço" name="endereco1" value="<?php if($_SESSION["check"] == 0) {echo $_SESSION["usuario"][2]; }else{echo $_SESSION["admin"][2]; }?>" required>
                 <span class="glyphicon glyphicon-home form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
               <label>Email</label>
-                <input type="email" class="form-control" placeholder="Email" name="email1" value="<?php echo $_SESSION["usuario_admin"][1]; ?>" required>
+                <input type="email" class="form-control" placeholder="Email" name="email1" value="<?php if($_SESSION["check"] == 0) {echo $_SESSION["usuario"][1]; }else{echo $_SESSION["admin"][1]; }?>" required>
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
               <label>CPF sem pontos ou traços</label>
-                <input type="text" class="form-control" placeholder="CPF sem pontos ou traços" maxlength="14" OnKeyPress="formatar('###.###.###-##', this)" name="cpf1" value="<?php echo $_SESSION["usuario_admin"][4]; ?>" required>
+                <input type="text" class="form-control" placeholder="CPF sem pontos ou traços" maxlength="14" OnKeyPress="formatar('###.###.###-##', this)" name="cpf1" value="<?php if($_SESSION["check"] == 0) {echo $_SESSION["usuario"][5]; }else{echo $_SESSION["admin"][5]; }?>" required>
                 <span class="glyphicon glyphicon-tag form-control-feedback"></span>
             </div>
              <!--  <div class="form-group has-feedback">

@@ -92,7 +92,7 @@
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="../login/painel/dist/img/PackingLight.png" class="img-square" alt="User Image">
+                <img src="../../../../login/painel/dist/img/PackingLight.png" class="img-square" alt="User Image">
                 
                 <p>
                     <?php
@@ -108,13 +108,13 @@
               <li class="user-footer">
                 <div class="pull-left">
                   <?php if($_SESSION["check"] == 0) { ?>
-                  <a href="../login/painel/pages/admin/alterar_usuario.php" class="btn btn-default btn-flat">Editar dados</a>
+                  <a href="../../../../login/painel/pages/admin/alterar_usuario.php" class="btn btn-default btn-flat">Editar dados</a>
                   <?php }else{ ?>
-                  <a href="../login/painel/pages/admin/alterar_admin.php" class="btn btn-default btn-flat">Editar dados</a>
+                  <a href="../../../../login/painel/pages/admin/alterar_admin.php" class="btn btn-default btn-flat">Editar dados</a>
                   <?php } ?>                
                 </div>
                 <div class="pull-right">
-                    <a href="../login/lib/logout.php" class="btn btn-default btn-flat">Sair</a>
+                    <a href="../../../../login/lib/logout.php" class="btn btn-default btn-flat">Sair</a>
                 </div>
               </li>
             </ul>
@@ -131,12 +131,13 @@
   <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
+      <!-- Painel usuario - superior esquerdo -->
       
       <!-- /.search form -->
       <!-- MENU DE NAVEGAÇÃO PRINCIPAL -->
       <ul class="sidebar-menu" data-widget="tree">
-<!--         <li class="header">NAVEGAÇÃO PRINCIPAL</li>
- -->        
+        <li class="header">NAVEGAÇÃO PRINCIPAL</li>
+        
         <!--FUNCIONALIDADES DO USUÁRIO-->        
         <li class="active treeview">
           <a href="#">
@@ -146,23 +147,11 @@
             </span>
           </a>
           <ul class="treeview-menu">
+              <li><a href="cadastrar_objeto.php"><i class="fa fa-plus-square-o"></i> Cadastrar objeto</a></li>
+              <li class="active"><a href="buscar_objeto.php"><i class="fa fa-search"></i> Buscar objeto</a></li>
           </ul>
         </li>
-        <li>
-          <a href="#">
-              <i class="fa fa-map-maker">
-              </i>
-            <span>Buscar Objeto</span>
-          </a>
-        </li>
-        <li>
-          <a href="cadastrar_objeto.php">
-              <i class="fa fa-map-maker">
-              </i>
-            <span>Cadastrar Objeto</span>
-          </a>
-        </li>
-
+       
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -170,19 +159,6 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-
-      <ol class="breadcrumb">
-        <?php if($_SESSION["check"] == 0) { ?>
-        <li><a href="../login/painel/pages/admin/main.php"><i class="fa fa-home"></i> Home</a></li>
-        <?php }else{ ?>
-        <li><a href="../login/painel/pages/admin/main_admin.php"><i class="fa fa-home"></i> Home</a></li>
-        <?php } ?>
-
-
-      </ol>
-    </section>
 
     <!-- Main content -->
     <section class="content">
