@@ -112,17 +112,7 @@
     
     // }
     
-    if ($codigo != "") {
-        $mysql = new MySQL();
-        $result = $mysql->where('codigo', $codigo)->get('usuario');
-        while($resultado = mysqli_fetch_array($result)){
-        $_SESSION["usuario_admin"] = array($resultado['nome'],
-            $resultado['email'],
-            $resultado['endereco'],
-            $resultado['codigo'],
-            $resultado['cpf']);
-        }
-    }
+
 
         
         // if($codigo == $_SESSION["admin"][3]){
@@ -143,8 +133,20 @@
         
 
     if($cpf != "" && $nome != "" && $endereco != "" && $email != ""){
+
         
         $mysql = new MySQL();
+
+        // if ($codigo != "") {
+        //     $result = $mysql->where('codigo', $codigo)->get('usuario');
+        //     while($resultado = mysqli_fetch_array($result)){
+        //     $_SESSION["usuario_admin"] = array($resultado['nome'],
+        //         $resultado['email'],
+        //         $resultado['endereco'],
+        //         $resultado['codigo'],
+        //         $resultado['cpf']);
+        //     }
+        // }
         
         try{
                 $mysql->where('codigo', $cod_form2)->update('usuario', array('cpf' => $cpf, 'nome' => $nome, 'email' => $email, 'endereco' => $endereco));
@@ -169,8 +171,8 @@
             $mysql->where('codigo', $cod_usu)->update('usuario', array('cpf' => $cpf1,'nome' => $nome1, 'email' => $email1, 'endereco' => $endereco1));
             //$query = mysqli_query($mysqli, "UPDATE usuario SET cpf='$cpf1', nome='$nome1', email='$email1', endereco='$endereco1', data_cadastro='$data_cadastro1', hora_cadastro='$hora_cadastro1' WHERE codigo=$cod_usu");
                // mysqli_close($mysqli);
-            echo "<script>javascript:window.alert('Alteração de usuário realizada com sucesso.');</script>";
-            echo "<script>window.location.replace('listar_usuarios.php');</script>";
+            echo "<script>javascript:window.alert('Alteração de usuário realizada com sucesso.\\nOs dados serão atualizados quando entrar com nova sessão.');</script>";
+            echo "<script>window.location.replace('main.php');</script>";
         // mysqli_close($mysqli);
         // }catch(Exception $e){
         //     echo 'Caught exception: ', $e->getMessage();
@@ -223,7 +225,7 @@
     
     if($cpf != "" && $nova_senha != "" && $nova_senha_confirm != ""){
         
-        if($cpf != $_SESSION["admin"][5]){
+        if($cpf != $_SESSION["usuario"][5]){
             echo "<script>javascript:window.alert('Cpf inválido.');window.location='../../pages/admin/alterar_senha.php';</script>";
         }else{
             if($nova_senha != $nova_senha_confirm){

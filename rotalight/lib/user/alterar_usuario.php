@@ -2,7 +2,7 @@
 
     session_start();
     //include_once("conexao.php");
-    include_once('mysql.php');
+    include_once('../../../../login/lib/mysql.php');
     header('Content-Type: text/html; charset=utf-8');
 
     $codigo = "";
@@ -112,16 +112,16 @@
     
     // }
     
-    if ($codigo != "") {
-        $mysql = new MySQL();
-        $result = $mysql->where('codigo', $codigo)->get('usuario');
-        while($resultado = mysqli_fetch_array($result)){
-        $_SESSION["usuario_admin"] = array($resultado['nome'],
-            $resultado['email'],
-            $resultado['endereco'],
-            $resultado['cpf']);
-        }
-    }
+    // if ($codigo != "") {
+    //     $mysql = new MySQL();
+    //     $result = $mysql->where('codigo', $codigo)->get('usuario');
+    //     while($resultado = mysqli_fetch_array($result)){
+    //     $_SESSION["usuario_admin"] = array($resultado['nome'],
+    //         $resultado['email'],
+    //         $resultado['endereco'],
+    //         $resultado['cpf']);
+    //     }
+    // }
         
 
     if($cpf != "" && $nome != "" && $endereco != "" && $email != "" && $data_cadastro != "" && $hora_cadastro != ""){
@@ -151,7 +151,7 @@
             $mysql->where('codigo', $cod_usu)->update('usuario', array('cpf' => $cpf1,'nome' => $nome1, 'email' => $email1, 'endereco' => $endereco1,'data_cadastro' => $data_cadastro1,'hora_cadastro' => $hora_cadastro1));
             //$query = mysqli_query($mysqli, "UPDATE usuario SET cpf='$cpf1', nome='$nome1', email='$email1', endereco='$endereco1', data_cadastro='$data_cadastro1', hora_cadastro='$hora_cadastro1' WHERE codigo=$cod_usu");
                // mysqli_close($mysqli);
-            echo "<script>javascript:window.alert('Alteração de usuário realizada com sucesso.');</script>";
+            echo "<script>javascript:window.alert('Alteração de usuário realizada com sucesso.\\nOs dados serão atualizados quando entrar com nova sessão.');</script>";
         // mysqli_close($mysqli);
         // }catch(Exception $e){
         //     echo 'Caught exception: ', $e->getMessage();

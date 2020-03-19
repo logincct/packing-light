@@ -19,3 +19,13 @@
 - Mostrar quantidade de itens no pallet; (Jamille)
 
 - Criar logomarca LOGIN (Everybody);
+
+- alteração nos links do sidebar
+
+- manutenção no alterar_usuario do rotalight - ok
+
+- alterar cadastro do rotalight
+
+- cadastro de clientes no sistema packinglight
+
+- mudar para um ano dinamico em todas as paginas do sistema (campelo)

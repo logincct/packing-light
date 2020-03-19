@@ -186,7 +186,7 @@
       <div class="row">
         <div class="col-xs-8">
           <div class="checkbox icheck">
-              <a href="alterar_senha.php">Redefinir minha senha</a>
+              <a href="alterar_senha_admin.php">Redefinir minha senha</a>
           </div>
         </div>
         <!-- /.col -->

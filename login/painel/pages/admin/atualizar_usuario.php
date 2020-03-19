@@ -1,11 +1,11 @@
-<?php require_once("../../../lib/admin/listar_usuarios.php"); ?>
+<?php require_once("../../../lib/admin/atualizar_usuario.php"); ?>
 
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>LOGIN | Listar usuários</title>
+  <title>LOGIN | Alterar dados</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -33,6 +33,18 @@
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <script>
+    function formatar(mascara, documento){
+        var i = documento.value.length;
+        var saida = mascara.substring(1,2);
+        var texto = mascara.substring(i)
+  
+        if (texto.substring(0,1) != saida){
+            documento.value += texto.substring(0,1);
+        }
+  
+    }
+  </script>      
 </head>
 <body class="hold-transition skin-blue fixed sidebar-mini">
 <div class="wrapper">
@@ -41,7 +53,7 @@
     <!-- Logo -->
     <a href="main_admin.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>L</b>in</span>
+      <span class="logo-mini"><b>L</b>IN</span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b>LOGIN</b></span>
     </a>
@@ -100,25 +112,20 @@
   <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
-      <!-- Painel usuario - superior esquerdo -->
+      <!-- Painel usuario - superior esquerdo -->      
       <!-- /.search form -->
       <!-- MENU DE NAVEGAÇÃO PRINCIPAL -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">NAVEGAÇÃO PRINCIPAL</li>
         
         <!--FUNCIONALIDADES DO USUÁRIO-->        
-        <li class="active treeview menu-open">
+        <li class="active treeview">
           <a href="#">
             <i class="fa fa-user"></i> <span>Menu do usuário</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
-          <ul class="treeview-menu">
-            
-              <li><a href="cadastro_usuarios.php"><i class="fa fa-plus-square-o"></i> Cadastrar usuário</a></li>
-              <li class="active"><a href="listar_usuarios.php"><i class="fa fa-search"></i> Listar usuários</a></li>
-          </ul>
         </li>
       </ul>
     </section>
@@ -128,106 +135,70 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
+    </section>
+
     <!-- Main content -->
     <section class="content">
-        
-    <div class="row">
-        <div class="col-xs-12">
-          <div class="box">
-            <div class="box-header">
-              <h3 class="box-title"><b>Listagem de usuários</b></h3>
-              
-              <div class="espacoradios" style="float: right; padding-right: 20%">
-                
-                <div class="radio"  style="display: inline">
-                    <label>
-                      <input type="radio" name="optionsRadios" id="escolha" value="0">
-                      Código
-                    </label>
-                </div>
-                <div class="radio"   style="display: inline">
-                    <label>
-                      <input type="radio" name="optionsRadios" id="escolha1" value="1" checked>
-                      Nome
-                    </label>
-                </div>
-                <div class="radio" style="display: inline">
-                    <label>
-                      <input type="radio" name="optionsRadios" id="escolha3" value="4">
-                      Email
-                    </label>
-                </div>
-                <div class="radio" style="display: inline">
-                    <label>
-                      <input type="radio" name="optionsRadios" id="escolha2" value="2">
-                      Endereço
-                    </label>
-                </div>
-              
-              </div>
-              
-              <div class="box-tools">
-                <div class="input-group input-group-sm" style="width: 200px;">
-                  <input type="text" name="table_search" id="myInput" onkeyup="myFunction()" class="form-control pull-right" placeholder="Buscar">
-                </div>
-              </div>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body table-responsive no-padding">
-              <table class="table table-hover" id="myTable1">
-                <tr>
-                    <th>CÓD.</th>                    
-                    <th>NOME</th>
-                    <th>EMAIL</th>
-                    <th>ENDEREÇO</th>
-                    <th>CPF</th>
-                    <th>DATA</th>
-                    <th>HORA</th>
-                    <th>ALTERAR</th>
-                </tr>
-                
-                <?php while ($table = mysqli_fetch_assoc($listar)) { ?>
-                <tr><td><?php echo $table ['codigo']."   ";?></td> <td><?php echo $table['nome']."   ";?></td> <td><?php echo $table['email']."   ";?></td> <td><?php echo $table['endereco']."   ";?></td> <td><?php echo $table['cpf']."   ";?></td>   <td><?php echo $table['data_cadastro']."   ";?></td> <td><?php echo $table['hora_cadastro'];?></td> <td align="center"> <?php echo "<a title='Editar' href=\"atualizar_usuario.php?codigo=$table[codigo]\"><i class='fa fa-edit'></i></a> | <a title='Excluir' href=\"../../../lib/admin/excluir_usuario.php?codigo=$table[codigo]\" onClick=\"return confirm('Certeza de que quer excluir?')\"><i class='fa fa-times'></i></a></td>" ;?></td> </tr><?php } ?>
-              </table>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-        </div>
-    </div>
+    
+   
+  <div class="register-box"  style="width: 700px">
+    <!-- <div class="register-box">-->
+    <div class="register-box-body">
+        <p class="login-box-msg" style="font-size: large"><b>Alterar dados do usuário</b></p>
 
-    <script>
-        function myFunction() {
-        // Declare variables
-        var input, filter, table, tr, td, i, txtValue,escolha;
-        input = document.getElementById("myInput");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("myTable1");
-        tr = table.getElementsByTagName("tr");
-         
-        if(document.getElementById("escolha").checked){
-            escolha = document.getElementById("escolha").value;
-        }else if(document.getElementById("escolha1").checked){
-            escolha = document.getElementById("escolha1").value;
-        }else if(document.getElementById("escolha2").checked){
-            escolha = document.getElementById("escolha2").value;
-        }else{
-            escolha = document.getElementById("escolha3").value;
-        }
-        // Loop through all table rows, and hide those who don't match the search query
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[escolha];
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-        }
-    </script>
+        <form method="post">
+            <div class="form-group has-feedback">
+              <label>Código</label>
+                <input type="text" class="form-control" placeholder="Código" name="cod_usu" value="<?php echo $_SESSION["usuario_admin"][3]; ?>" readonly="" required>
+                <span class="glyphicon glyphicon-tag form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+              <label>Nome Completo</label>
+                <input type="text" class="form-control" placeholder="Nome Completo" name="nome1" value="<?php echo $_SESSION["usuario_admin"][0]; ?>" required>
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+              <label>Endereço</label>
+                <input type="text" class="form-control" placeholder="Endereço" name="endereco1" value="<?php echo $_SESSION["usuario_admin"][2]; ?>" required>
+                <span class="glyphicon glyphicon-home form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+              <label>Email</label>
+                <input type="email" class="form-control" placeholder="Email" name="email1" value="<?php echo $_SESSION["usuario_admin"][1]; ?>" required>
+                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+              <label>CPF sem pontos ou traços</label>
+                <input type="text" class="form-control" placeholder="CPF sem pontos ou traços" maxlength="14" OnKeyPress="formatar('###.###.###-##', this)" name="cpf1" value="<?php echo $_SESSION["usuario_admin"][4]; ?>" required>
+                <span class="glyphicon glyphicon-tag form-control-feedback"></span>
+            </div>
+             <!--  <div class="form-group has-feedback">
+                <input type="hidden" class="form-control"  name="data_cadastro1" value="<?php //date_default_timezone_set('America/Fortaleza'); //echo date('Y/m/d');?>" readonly="" required>
+                <span class="glyphicon glyphicon-calendar form-control-feedback"></span> 
+            </div>
+            <div class="form-group has-feedback">
+                <input type="hidden" class="form-control"  name="hora_cadastro1" value="<?php //date_default_timezone_set('America/Fortaleza'); e//cho date('H:i:s');?>" readonly="" required>
+                <span class="glyphicon glyphicon-time form-control-feedback"></span>
+            </div> -->
+      <div class="row">
+        <div class="col-xs-8">
+          <div class="checkbox icheck">
+              <a href="alterar_senha.php">Redefinir minha senha</a>
+          </div>
+        </div>
+        <!-- /.col -->
+        <div class="col-xs-4" style="width: 20%;float:right">
+          <button type="submit" name="update1" class="btn btn-primary btn-block btn-flat">Alterar</button>
+        </div>
+        <!-- /.col -->
+      </div>
+    </form>    
+    </div>
+  </div>
+  <!-- /.form-box -->
+<!--</div>-->
+    <!-- COLOCAR FORM CADASTRO-->    
+      
     </section>
     <!-- /.content -->
   </div>
