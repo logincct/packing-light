@@ -51,9 +51,9 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="main_admin.php" class="logo">
+    <a href="main.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>L</b>in</span>
+      <span class="logo-mini"><b>L</b>IN</span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b>LOGIN</b></span>
     </a>
@@ -92,7 +92,7 @@
               <!-- Menu funcionalidades-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="alterar.php" class="btn btn-default btn-flat">Editar dados</a>
+                  <a href="alterar_usuario.php" class="btn btn-default btn-flat">Editar dados</a>
                 </div>
                 <div class="pull-right">
                   <a href="../../../lib/logout.php" class="btn btn-default btn-flat">Sair</a>

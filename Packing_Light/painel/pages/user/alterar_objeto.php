@@ -1,27 +1,27 @@
-<?php require_once("../../../lib/admin/alterar_admin.php"); ?>
+<?php require_once("../../../lib/alterar_objeto.php"); ?>
 
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>LOGIN | Redefinir senha</title>
+  <title>PackingLight | Alterar objeto</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../login/painel/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../login/painel/bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="../../bower_components/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="../../../../login/painel/bower_components/Ionicons/css/ionicons.min.css">
   <!-- fullCalendar -->
-  <link rel="stylesheet" href="../../bower_components/fullcalendar/dist/fullcalendar.min.css">
-  <link rel="stylesheet" href="../../bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
+  <link rel="stylesheet" href="../../../../login/painel/bower_components/fullcalendar/dist/fullcalendar.min.css">
+  <link rel="stylesheet" href="../../../../login/painel/bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="../../../../login/painel/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="../../../../login/painel/dist/css/skins/_all-skins.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -51,7 +51,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="main_admin.php" class="logo">
+      <a href="<?php if($_SESSION["check"] == 0) {echo '../../../../login/painel/pages/admin/main.php';}else{echo '../../../../login/painel/pages/admin/main_admin.php'; }?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>L</b>IN</span>
       <!-- logo for regular state and mobile devices -->
@@ -77,7 +77,7 @@
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="../../dist/img/logo01.png" class="img-square" alt="User Image">
+                <img src="../../../../login/painel/dist/img/logo01.png" class="img-square" alt="User Image">
                 
                 <p>
                     <?php
@@ -92,10 +92,10 @@
               <!-- Menu funcionalidades-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="alterar_admin.php" class="btn btn-default btn-flat">Editar dados</a>
+                  <a href="<?php if($_SESSION["check"] == 0) {echo '../../../../login/painel/pages/admin/alterar_usuario.php';}else{echo '../../../../login/painel/pages/admin/alterar_admin.php'; }?>" class="btn btn-default btn-flat">Editar dados</a>
                 </div>
                 <div class="pull-right">
-                  <a href="../../../lib/logout.php" class="btn btn-default btn-flat">Sair</a>
+                  <a href="../../../../login/lib/logout.php" class="btn btn-default btn-flat">Sair</a>
                 </div>
               </li>
             </ul>
@@ -109,10 +109,11 @@
     </nav>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
-  <aside class="main-sidebar">
+ <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Painel usuario - superior esquerdo -->
+      
       <!-- /.search form -->
       <!-- MENU DE NAVEGAÇÃO PRINCIPAL -->
       <ul class="sidebar-menu" data-widget="tree">
@@ -127,9 +128,14 @@
             </span>
           </a>
           <ul class="treeview-menu">
-              <li><a href="cadastro_usuarios.php"><i class="fa fa-plus-square-o"></i> Cadastrar usuário</a></li>
-              <li><a href="listar_usuarios.php"><i class="fa fa-search"></i> Listar usuários</a></li>
+              <li><a href="cadastrar_objeto.php"><i class="fa fa-plus-square-o"></i> Cadastrar objeto</a></li>
+              <li class="active"><a href="listar_objeto.php"><i class="fa fa-search"></i> Listar objeto</a></li>
           </ul>
+        </li>
+        <li>
+            <a href="buscar_objeto.php">
+            <i class="fa fa-dropbox"></i> <span>Gerar objeto</span>
+          </a>
         </li>
       </ul>
     </section>
@@ -138,8 +144,10 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1><a href="../../../index.php">PackingLight</a></h1>
     </section>
+    <!-- Content Header (Page header) -->
 
     <!-- Main content -->
     <section class="content">
@@ -147,31 +155,50 @@
    
   <div class="register-box"  style="width: 700px">
     <!-- <div class="register-box">-->
+    
     <div class="register-box-body">
-        <p class="login-box-msg" style="font-size: large"><b>Redefinir senha</b></p>
-
-        <form method="post">
-            <div class="form-group has-feedback">
-                <input type="text" class="form-control" placeholder="CPF sem pontos ou traços" maxlength="14" OnKeyPress="formatar('###.###.###-##', this)" name="cpf" required>
-                <span class="glyphicon glyphicon-tag form-control-feedback"></span>
+        <p class="login-box-msg" style="font-size: large">Alterar objeto</p>
+        <!-- <form method="post">
+            <div class="row" style="padding-bottom: 5%">
+                <div class="col-xs-81">
+                    <div class="checkbox icheck" style="width: 20%;float:left;margin-left:15px ">
+                        <input type="text" class="form-control" placeholder="Código cliente" name="codigo_cliente" required>
+                    </div>
+                </div>
+                
+                <div class="col-xs-41" style="width: 10%;float:left;padding-top: 10px;margin-left: 15px">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">Buscar</button>
+                </div>
+                
             </div>
-            <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="Nova senha" name="nova_senha" required>
-                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        </form> -->    
+        <form id="2" method="post">
+            
+            <div class="form-group has-feedback" style="text-align: center;">
+              <label style="position: absolute;">Código do objeto</label>
+              <input style="position: relative; margin-left: 200px;" type = "text" name = "codigo" value="<?php if($codigo_objeto != ""){echo $resultado1['codigo'];}?>"  readonly=""><br>
             </div>
-            <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="Confirme a nova senha" name="nova_senha_confirm" required>
-                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            <div class="form-group has-feedback" style="text-align: center;">
+              <label style="position: absolute;">Nome do objeto</label>
+              <input style="position: relative; margin-left: 200px;" type = "text" name = "nome" value="<?php if($codigo_objeto != ""){echo $resultado1['nome'];}?>" required ><br>
+            </div>
+            <div class="form-group has-feedback" style="text-align: center;">
+              <label style="position: absolute;">Largura do objeto</label>
+              <input style="position: relative; margin-left: 200px;" type = "number" name = "largura" value="<?php if($codigo_objeto != ""){echo $resultado1['largura'];}?>" required ><br>
+            </div>
+            <div class="form-group has-feedback" style="text-align: center;">
+              <label style="position: absolute;">Comprimento do objeto</label>
+              <input style="position: relative; margin-left: 200px;" type = "number" name = "comprimento" value="<?php if($codigo_objeto != ""){echo $resultado1['comprimento'];}?>" required><br>
             </div>
             <div class="row">
                 <div class="col-xs-8">
                     <div class="checkbox icheck">
-                        <a href="javascript:history.go(-1)">Voltar</a>
+            
                     </div>
                 </div>
                 <!-- /.col -->
                 <div class="col-xs-4" style="width: 20%;float:right">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">Redefinir</button>
+                    <button type="submit" name="update" class="btn btn-primary btn-block btn-flat">Alterar</button>
                 </div>
                 <!-- /.col -->
             </div>
@@ -390,22 +417,22 @@
 <!-- ./wrapper -->
 
 <!-- jQuery 3 -->
-<script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../../../../login/painel/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../../../../login/painel/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="../../bower_components/jquery-ui/jquery-ui.min.js"></script>
+<script src="../../../../login/painel/bower_components/jquery-ui/jquery-ui.min.js"></script>
 <!-- Slimscroll -->
-<script src="../../bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="../../../../login/painel/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
-<script src="../../bower_components/fastclick/lib/fastclick.js"></script>
+<script src="../../../../login/painel/bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
+<script src="../../../../login/painel/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
+<script src="../../../../login/painel/dist/js/demo.js"></script>
 <!-- fullCalendar -->
-<script src="../../bower_components/moment/moment.js"></script>
-<script src="../../bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+<script src="../../../../login/painel/bower_components/moment/moment.js"></script>
+<script src="../../../../login/painel/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
 <!-- Page specific script -->
 <script>
   $(function () {
