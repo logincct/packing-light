@@ -92,7 +92,7 @@
               <!-- Menu funcionalidades-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="alterar_admin.php" class="btn btn-default btn-flat">Editar dados</a>
+                  <a href="<?php if($_SESSION["check"] == 0) {echo '../../../../login/painel/pages/admin/alterar_usuario.php';}else{echo '../../../../login/painel/pages/admin/alterar_admin.php'; }?>" class="btn btn-default btn-flat">Editar dados</a>
                 </div>
                 <div class="pull-right">
                   <a href="../../../lib/logout.php" class="btn btn-default btn-flat">Sair</a>

@@ -51,7 +51,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="main_admin.php" class="logo">
+      <a href="<?php if($_SESSION["check"] == 0) {echo '../../../painel/pages/admin/main.php';}else{echo '../../../painel/pages/admin/main_admin.php'; }?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>L</b>IN</span>
       <!-- logo for regular state and mobile devices -->
@@ -92,7 +92,7 @@
               <!-- Menu funcionalidades-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="alterar_admin.php" class="btn btn-default btn-flat">Editar dados</a>
+                  <a href="<?php if($_SESSION["check"] == 0) {echo '../../../../login/painel/pages/admin/alterar_usuario.php';}else{echo '../../../../login/painel/pages/admin/alterar_admin.php'; }?>" class="btn btn-default btn-flat">Editar dados</a>
                 </div>
                 <div class="pull-right">
                   <a href="../../../lib/logout.php" class="btn btn-default btn-flat">Sair</a>

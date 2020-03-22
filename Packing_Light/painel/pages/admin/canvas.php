@@ -14,26 +14,26 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../login/painel/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../login/painel/bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="../../bower_components/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="../../../../login/painel/bower_components/Ionicons/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="../../../../login/painel/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="../../../../login/painel/dist/css/skins/_all-skins.min.css">
   <!-- Morris chart -->
-  <link rel="stylesheet" href="../../bower_components/morris.js/morris.css">
+  <link rel="stylesheet" href="../../../../login/painel/bower_components/morris.js/morris.css">
   <!-- jvectormap -->
-  <link rel="stylesheet" href="../../bower_components/jvectormap/jquery-jvectormap.css">
+  <link rel="stylesheet" href="../../../../login/painel/bower_components/jvectormap/jquery-jvectormap.css">
   <!-- Date Picker -->
-  <link rel="stylesheet" href="../../bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+  <link rel="stylesheet" href="../../../../login/painel/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
   <!-- Daterange picker -->
-  <link rel="stylesheet" href="../../bower_components/bootstrap-daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" href="../../../../login/painel/bower_components/bootstrap-daterangepicker/daterangepicker.css">
   <!-- bootstrap wysihtml5 - text editor -->
-  <link rel="stylesheet" href="../../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+  <link rel="stylesheet" href="../../../../login/painel/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   <script src="../script.js"></script>
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -50,11 +50,11 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="../../../index.php" class="logo">
+      <a href="<?php if($_SESSION["check"] == 0) {echo '../../../../login/painel/pages/admin/main.php';}else{echo '../../../../login/painel/pages/admin/main_admin.php'; }?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>P</b>LI</span>
+      <span class="logo-mini"><b>L</b>IN</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Packing</b>Light</span>
+      <span class="logo-lg"><b>LOGIN</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -115,14 +115,15 @@
   <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
+      <!-- Painel usuario - superior esquerdo -->
       
       <!-- /.search form -->
       <!-- MENU DE NAVEGAÇÃO PRINCIPAL -->
       <ul class="sidebar-menu" data-widget="tree">
-<!--         <li class="header">NAVEGAÇÃO PRINCIPAL</li>
- -->        
+        <li class="header">NAVEGAÇÃO PRINCIPAL</li>
+        
         <!--FUNCIONALIDADES DO USUÁRIO-->        
-        <li class="active treeview">
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-user"></i> <span>Menu do usuário</span>
             <span class="pull-right-container">
@@ -130,23 +131,15 @@
             </span>
           </a>
           <ul class="treeview-menu">
+              <li class="active"><a href="../user/cadastrar_objeto.php"><i class="fa fa-plus-square-o"></i> Cadastrar objeto</a></li>
+              <li class="active"><a href="../user/listar_objeto.php"><i class="fa fa-search"></i> Listar objeto</a></li>
           </ul>
         </li>
-        <li>
-          <a href="../user/buscar_objeto.php">
-              <i class="fa fa-map-maker">
-              </i>
-            <span>Buscar Objeto</span>
+        <li class="active">
+          <a href="buscar_objeto.php">
+          <i class="fa fa-dropbox"></i> <span>Gerar objeto</span>
           </a>
         </li>
-        <li>
-          <a href="../user/cadastrar_objeto.php">
-              <i class="fa fa-map-maker">
-              </i>
-            <span>Cadastrar Objeto</span>
-          </a>
-        </li>
-
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -156,135 +149,130 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>
-        PackingLight
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-      </ol>
+      <h1><a href="../../../index.php">PackingLight</a></h1>
     </section>
 
     <!-- Painel para COLOCAR O MAPA QUANDO ESTIVER PRONTO -->
     <section class="content">
       <!-- Small boxes (Stat box) -->
-  <div class="register-box" style="width: 700px">
-    <div class="register-box-body" style="text-align: center;">
+      <div class="register-box" style="width: 700px">
+        <div class="register-box-body" style="text-align: center;">
 
-      <div id="canvas-field">
-        <h2>Apresentando resultado dos cálculos:</h2>
-        <canvas id="Pallet" width=" <?php echo $_SESSION['larguraPallet']; ?> " height=" <?php echo $_SESSION['comprimentoPallet']; ?> " style="border:1px solid #000000;"></canvas>
-      </div>
-
-      <div class="row">
-        <div class="col-xs-8">
-          <div class="checkbox icheck">
-            
+          <div id="canvas-field">
+            <h2>Apresentando resultado dos cálculos:</h2>
+            <canvas id="Pallet" width=" <?php echo $_SESSION['larguraPallet']; ?> " height=" <?php echo $_SESSION['comprimentoPallet']; ?> " style="border:1px solid #000000;"></canvas>
           </div>
+
+          <div class="row">
+            <div class="col-xs-8">
+              <div class="checkbox icheck">
+                
+              </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-xs-4" style="width: 20%;float:right">
+              <a href="../../../lib/cadastra_objetos.php" class="btn btn-primary btn-block btn-flat">Salvar objeto</a>
+              <a href="../../../index.php"><button type="submit" class="btn btn-primary btn-block btn-flat">Voltar</button></a>
+            </div>
+            <!-- /.col -->
+            </div>
+          </form>    
         </div>
-        <!-- /.col -->
-        <div class="col-xs-4" style="width: 20%;float:right">
-          <a href="../../../lib/cadastra_objetos.php" class="btn btn-primary btn-block btn-flat">Salvar objeto</a>
-          <a href="../../../index.php"><button type="submit" class="btn btn-primary btn-block btn-flat">Voltar</button></a>
-        </div>
-        <!-- /.col -->
-        </div>
-      </form>    
-    </div>
-  </div>
-      <!-- /.row -->
+      </div>
+          <!-- /.row -->
 
-		<script>
-			color = "#3c8dbc";
+  		<script>
+  			color = "#3c8dbc";
 
-			var myCanvas = document.getElementById("Pallet");  //Select canvas element in the page
-			var ctx1 = myCanvas.getContext("2d");  //Built-in object
+  			var myCanvas = document.getElementById("Pallet");  //Select canvas element in the page
+  			var ctx1 = myCanvas.getContext("2d");  //Built-in object
 
-			var numeroItens = <?php echo $_SESSION['numeroItens']?>;
-      var larguraPallet = <?php echo $_SESSION['larguraPallet']; ?>;
-      var comprimentoPallet = <?php echo $_SESSION['comprimentoPallet']; ?>;
-			var larguraItem = <?php echo $_SESSION['larguraItem']; ?>;  //larguraItem é a largura do objeto
-			var comprimentoItem = <?php echo $_SESSION['comprimentoItem']; ?>;  //comprimentoItem é o comprimento do objeto
+  			var numeroItens = <?php echo $_SESSION['numeroItens']?>;
+        var larguraPallet = <?php echo $_SESSION['larguraPallet']; ?>;
+        var comprimentoPallet = <?php echo $_SESSION['comprimentoPallet']; ?>;
+  			var larguraItem = <?php echo $_SESSION['larguraItem']; ?>;  //larguraItem é a largura do objeto
+  			var comprimentoItem = <?php echo $_SESSION['comprimentoItem']; ?>;  //comprimentoItem é o comprimento do objeto
 
-      var x = 0;
-			var y = 0;
-			
-      var cont = 1; //Contador para quantidade de caixas colocadas do pallet
-			var temp;
-			var contador = 1;
+        var x = 0;
+  			var y = 0;
+  			
+        var cont = 1; //Contador para quantidade de caixas colocadas do pallet
+  			var temp;
+  			var contador = 1;
 
-			//Enquanto o número de caixas colocadas for menor que o número de objetos
-			while ( cont <= <?php echo $_SESSION['res']; ?> && cont <= <?php echo $_SESSION['numeroItens']; ?> ) {
+  			//Enquanto o número de caixas colocadas for menor que o número de objetos
+  			while ( cont <= <?php echo $_SESSION['res']; ?> && cont <= <?php echo $_SESSION['numeroItens']; ?> ) {
 
-				//Desenhar as caixas
-				ctx1.fillStyle = color;  //Fill the color 
-				ctx1.fillRect(x, y, larguraItem , comprimentoItem);  //Create box
-				ctx1.beginPath();
-				ctx1.lineWidth = "1";
-				ctx1.rect(x, y, larguraItem , comprimentoItem);
-				ctx1.stroke();
+  				//Desenhar as caixas
+  				ctx1.fillStyle = color;  //Fill the color 
+  				ctx1.fillRect(x, y, larguraItem , comprimentoItem);  //Create box
+  				ctx1.beginPath();
+  				ctx1.lineWidth = "1";
+  				ctx1.rect(x, y, larguraItem , comprimentoItem);
+  				ctx1.stroke();
 
-				//Verifica se a caixa cabe e muda o X e o Y que não as coordenadas para as próximas caixas
-				if ( ((x + larguraItem) <= larguraPallet) && (y + comprimentoItem <= comprimentoPallet )) {
-					x += larguraItem;
-				}
+  				//Verifica se a caixa cabe e muda o X e o Y que não as coordenadas para as próximas caixas
+  				if ( ((x + larguraItem) <= larguraPallet) && (y + comprimentoItem <= comprimentoPallet )) {
+  					x += larguraItem;
+  				}
 
-				if ( (x + larguraItem) > larguraPallet && (y + comprimentoItem) <= comprimentoPallet ) {
-					x = 0;
-					y += comprimentoItem;				
-				}
-				if( (y + comprimentoItem) > comprimentoPallet ){
-					break;
-				}
+  				if ( (x + larguraItem) > larguraPallet && (y + comprimentoItem) <= comprimentoPallet ) {
+  					x = 0;
+  					y += comprimentoItem;				
+  				}
+  				if( (y + comprimentoItem) > comprimentoPallet ){
+  					break;
+  				}
 
 
-				cont = cont + 1;
-				numeroItens -= 1;
+  				cont = cont + 1;
+  				numeroItens -= 1;
 
-			}
+  			}
 
-			if(<?php echo $_SESSION['espaçoCaixaLargura'];?> == 1){
+  			if(<?php echo $_SESSION['espaçoCaixaLargura'];?> == 1){
 
-				x = <?php echo $_SESSION['larguraPallet'] - $_SESSION['larguraRestantePallet']; ?>;
-				y = 0;
-			}else if(<?php echo $_SESSION['espaçoCaixaComprimento'];?> == 1){
-				x = 0;
-				y = <?php echo $_SESSION['comprimentoPallet'] - $_SESSION['comprimentoRestantePallet']; ?>;
+  				x = <?php echo $_SESSION['larguraPallet'] - $_SESSION['larguraRestantePallet']; ?>;
+  				y = 0;
+  			}else if(<?php echo $_SESSION['espaçoCaixaComprimento'];?> == 1){
+  				x = 0;
+  				y = <?php echo $_SESSION['comprimentoPallet'] - $_SESSION['comprimentoRestantePallet']; ?>;
 
-			}else{
+  			}else{
 
-			}
+  			}
 
-			temp = comprimentoItem;
-			comprimentoItem = larguraItem;
-			larguraItem = temp;
-			
-			
-			while (<?php echo $_SESSION['espaçoRestante']; ?> ==1 && ((cont+1) <= (contador + <?php echo $_SESSION['res']; ?>) && ((cont+1) <= <?php echo $_SESSION['numeroItens']; ?>))) {
-				//Desenhar as caixas
-				ctx1.fillStyle = color;  //Fill the color 
-				ctx1.fillRect(x, y, larguraItem , comprimentoItem);  //Create box
-				ctx1.beginPath();
-				ctx1.lineWidth = "1";
-				ctx1.rect(x, y, larguraItem , comprimentoItem);
-				ctx1.stroke();
+  			temp = comprimentoItem;
+  			comprimentoItem = larguraItem;
+  			larguraItem = temp;
+  			
+  			
+  			while (<?php echo $_SESSION['espaçoRestante']; ?> ==1 && ((cont+1) <= (contador + <?php echo $_SESSION['res']; ?>) && ((cont+1) <= <?php echo $_SESSION['numeroItens']; ?>))) {
+  				//Desenhar as caixas
+  				ctx1.fillStyle = color;  //Fill the color 
+  				ctx1.fillRect(x, y, larguraItem , comprimentoItem);  //Create box
+  				ctx1.beginPath();
+  				ctx1.lineWidth = "1";
+  				ctx1.rect(x, y, larguraItem , comprimentoItem);
+  				ctx1.stroke();
 
-				//Verifica se a caixa cabe e muda o X e o Y que não as coordenadas para as próximas caixas
-				if ( ((x + larguraItem) <= larguraPallet) && (y + comprimentoItem <= comprimentoPallet )) {
-					x += larguraItem;
-				}
+  				//Verifica se a caixa cabe e muda o X e o Y que não as coordenadas para as próximas caixas
+  				if ( ((x + larguraItem) <= larguraPallet) && (y + comprimentoItem <= comprimentoPallet )) {
+  					x += larguraItem;
+  				}
 
-				if ( (x + larguraItem) > larguraPallet && (y + comprimentoItem) <= comprimentoPallet ) {
-					x = <?php echo $_SESSION['larguraPallet'] - $_SESSION['larguraRestantePallet'] ?>;
-					y += comprimentoItem;				
-				}
-				if( (y + comprimentoItem) > comprimentoPallet ){
-					break;
-				}
-				cont = cont + 1;
-				contador = contador + 1;
-		  }
-		
-		</script>
+  				if ( (x + larguraItem) > larguraPallet && (y + comprimentoItem) <= comprimentoPallet ) {
+  					x = <?php echo $_SESSION['larguraPallet'] - $_SESSION['larguraRestantePallet'] ?>;
+  					y += comprimentoItem;				
+  				}
+  				if( (y + comprimentoItem) > comprimentoPallet ){
+  					break;
+  				}
+  				cont = cont + 1;
+  				contador = contador + 1;
+  		  }
+  		
+  		</script>
 
     </section>
     <!-- /.content -->
@@ -493,42 +481,42 @@
 <!-- ./wrapper -->
 
 <!-- jQuery 3 -->
-<script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../../../../login/painel/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="../../bower_components/jquery-ui/jquery-ui.min.js"></script>
+<script src="../../../../login/painel/bower_components/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button);
 </script>
 <!-- Bootstrap 3.3.7 -->
-<script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../../../../login/painel/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Morris.js charts -->
-<script src="../../bower_components/raphael/raphael.min.js"></script>
-<script src="../../bower_components/morris.js/morris.min.js"></script>
+<script src="../../../../login/painel/bower_components/raphael/raphael.min.js"></script>
+<script src="../../../../login/painel/bower_components/morris.js/morris.min.js"></script>
 <!-- Sparkline -->
-<script src="../../bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+<script src="../../../../login/painel/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
 <!-- jvectormap -->
-<script src="../../plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-<script src="../../plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<script src="../../../../login/painel/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="../../../../login/painel/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
 <!-- jQuery Knob Chart -->
-<script src="../../bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
+<script src="../../../../login/painel/bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
 <!-- daterangepicker -->
-<script src="../../bower_components/moment/min/moment.min.js"></script>
-<script src="../../bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script src="../../../../login/painel/bower_components/moment/min/moment.min.js"></script>
+<script src="../../../../login/painel/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
 <!-- datepicker -->
-<script src="../../bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="../../../../login/painel/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <!-- Bootstrap WYSIHTML5 -->
-<script src="../../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<script src="../../../../login/painel/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
 <!-- Slimscroll -->
-<script src="../../bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="../../../../login/painel/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
-<script src="../../bower_components/fastclick/lib/fastclick.js"></script>
+<script src="../../../../login/painel/bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
+<script src="../../../../login/painel/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="../../dist/js/pages/dashboard.js"></script>
+<script src="../../../../login/painel/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
+<script src="../../../../login/painel/dist/js/demo.js"></script>
 </body>
 </html>
 

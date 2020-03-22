@@ -1,42 +1,27 @@
-<?php 
-
-  session_start();
-
-  require_once("../../../lib/back.php");
-  if($_SESSION["check"]==0){
-      include_once("../../../../login/lib/admin/check.php"); 
-  }else{
-      include_once("../../../../login/lib/admin/check_admin.php"); 
-  }
-
-  $connect = mysqli_connect("localhost", "root", '', 'objetos');
-  $listar = mysqli_query($connect, "SELECT nome FROM busca_objetos"); 
-
-  ?>
-
+<?php require_once("../../../lib/listar_objeto.php"); ?>
 
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>PackingLight</title>
+  <title>PackingLight | Cadastrar objetos</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="../../../../rotalight/painel/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../login/painel/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../../../rotalight/painel/bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../login/painel/bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="../../../../rotalight/painel/bower_components/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="../../../../login/painel/bower_components/Ionicons/css/ionicons.min.css">
   <!-- fullCalendar -->
-  <link rel="stylesheet" href="../../../../rotalight/painel/bower_components/fullcalendar/dist/fullcalendar.min.css">
-  <link rel="stylesheet" href="../../../../rotalight/painel/bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
+  <link rel="stylesheet" href="../../../../login/painel/bower_components/fullcalendar/dist/fullcalendar.min.css">
+  <link rel="stylesheet" href="../../../../login/painel/bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../../../../rotalight/painel/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="../../../../login/painel/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="../../../../rotalight/painel/dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="../../../../login/painel/dist/css/skins/_all-skins.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -48,29 +33,17 @@
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-  <script>
-    function formatar(mascara, documento){
-        var i = documento.value.length;
-        var saida = mascara.substring(1,2);
-        var texto = mascara.substring(i)
-  
-        if (texto.substring(0,1) != saida){
-            documento.value += texto.substring(0,1);
-        }
-  
-    }
-  </script>
 </head>
 <body class="hold-transition skin-blue fixed sidebar-mini">
 <div class="wrapper">
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="../../../index.php" class="logo">
+      <a href="<?php if($_SESSION["check"] == 0) {echo '../../../../login/painel/pages/admin/main.php';}else{echo '../../../../login/painel/pages/admin/main_admin.php'; }?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>P</b>LI</span>
+      <span class="logo-mini"><b>L</b>IN</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Packing</b>Light</span>
+      <span class="logo-lg"><b>LOGIN</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -92,7 +65,7 @@
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="../../../../login/painel/dist/img/PackingLight.png" class="img-square" alt="User Image">
+                <img src="../../../../login/painel/dist/img/logo01.png" class="img-square" alt="User Image">
                 
                 <p>
                     <?php
@@ -107,14 +80,10 @@
               <!-- Menu funcionalidades-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <?php if($_SESSION["check"] == 0) { ?>
-                  <a href="../../../../login/painel/pages/admin/alterar_usuario.php" class="btn btn-default btn-flat">Editar dados</a>
-                  <?php }else{ ?>
-                  <a href="../../../../login/painel/pages/admin/alterar_admin.php" class="btn btn-default btn-flat">Editar dados</a>
-                  <?php } ?>                
+                  <a href="<?php if($_SESSION["check"] == 0) {echo '../../../../login/painel/pages/admin/alterar_usuario.php';}else{echo '../../../../login/painel/pages/admin/alterar_admin.php'; }?>" class="btn btn-default btn-flat">Editar dados</a>
                 </div>
                 <div class="pull-right">
-                    <a href="../../../../login/lib/logout.php" class="btn btn-default btn-flat">Sair</a>
+                  <a href="../../../../login/lib/logout.php" class="btn btn-default btn-flat">Sair</a>
                 </div>
               </li>
             </ul>
@@ -128,7 +97,7 @@
     </nav>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
-  <aside class="main-sidebar">
+<aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Painel usuario - superior esquerdo -->
@@ -139,7 +108,7 @@
         <li class="header">NAVEGAÇÃO PRINCIPAL</li>
         
         <!--FUNCIONALIDADES DO USUÁRIO-->        
-        <li class="active treeview">
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-user"></i> <span>Menu do usuário</span>
             <span class="pull-right-container">
@@ -147,11 +116,15 @@
             </span>
           </a>
           <ul class="treeview-menu">
-              <li class="active"><a href="cadastrar_objeto.php"><i class="fa fa-plus-square-o"></i> Cadastrar objeto</a></li>
-              <li><a href="buscar_objeto.php"><i class="fa fa-search"></i> Buscar objeto</a></li>
+              <li><a href="cadastrar_objeto.php"><i class="fa fa-plus-square-o"></i> Cadastrar objeto</a></li>
+              <li><a href="listar_objeto.php"><i class="fa fa-search"></i> Listar objeto</a></li>
           </ul>
         </li>
-       
+        <li class="active">
+            <a href="buscar_objeto.php">
+            <i class="fa fa-dropbox"></i> <span>Gerar objeto</span>
+          </a>
+        </li>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -159,51 +132,50 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
+    <section class="content-header">
+      <h1><a href="../../../index.php">PackingLight</a></h1>
+    </section>
+    <!-- Content Header (Page header) -->
 
     <!-- Main content -->
     <section class="content">
-    
-   
-  <div class="register-box"  style="width: 700px">
-    <!-- <div class="register-box">-->
-    <div class="register-box-body">
-      <p class="login-box-msg" style="font-size: large">Digite as informações da carga</p>
+      <div class="register-box"  style="width: 700px">
+        <!-- <div class="register-box">-->
+        <div class="register-box-body">
+          <p class="login-box-msg" style="font-size: large">Digite as informações da carga</p>
 
-      <!-- Formulário PackingLight. -->
-      <form action="../../../lib/cadastra_objetos.php" method="post">
+          <!-- Formulário PackingLight. -->
+          <form action="../../../lib/cadastra_objetos.php" method="post">
 
-          <input id = "n_obj" type = "hidden" name = "n_obj" value = "100">
+              <input id = "n_obj" type = "hidden" name = "n_obj" value = "100">
 
-        <div class="form-group has-feedback" style="text-align: center;">
-          <label style="position: absolute;" for="reg_largura">Largura dos objetos</label>
-          <input style="position: relative; margin-left: 200px;" id = "reg_largura" type = "number" name = "reg_largura" value = "50" required ><br>
-          <!-- <span class="glyphicon glyphicon-tag form-control-feedback"></span> -->
-        </div>
-        <div class="form-group has-feedback" style="text-align: center;">
-          <label style="position: absolute;" for="reg_comprimento">Comprimento dos objetos</label>
-          <input style="position: relative; margin-left: 200px;" id = "reg_comprimento" type = "number" name = "reg_comprimento" value = "30" required><br>
-          <!-- <span class="glyphicon glyphicon-lock form-control-feedback"></span> -->
-        </div>
-          
-        <div class="row">
-          <div class="col-xs-8">
-            <div class="checkbox icheck">
-              
+            <div class="form-group has-feedback" style="text-align: center;">
+              <label style="position: absolute;" for="reg_largura">Largura dos objetos</label>
+              <input style="position: relative; margin-left: 200px;" id = "reg_largura" type = "number" name = "reg_largura" value = "50" required ><br>
+              <!-- <span class="glyphicon glyphicon-tag form-control-feedback"></span> -->
             </div>
-          </div>
-          <!-- /.col -->
-          <div class="col-xs-4" style=" width: 20%;float:right;">
-            <button type="submit" name="cadastrar" class="btn btn-primary btn-block btn-flat">Salvar</button>
-          </div>
-          <!-- /.col -->
+            <div class="form-group has-feedback" style="text-align: center;">
+              <label style="position: absolute;" for="reg_comprimento">Comprimento dos objetos</label>
+              <input style="position: relative; margin-left: 200px;" id = "reg_comprimento" type = "number" name = "reg_comprimento" value = "30" required><br>
+              <!-- <span class="glyphicon glyphicon-lock form-control-feedback"></span> -->
+            </div>
+              
+            <div class="row">
+              <div class="col-xs-8">
+                <div class="checkbox icheck">
+                  
+                </div>
+              </div>
+              <!-- /.col -->
+              <div class="col-xs-4" style=" width: 20%;float:right;">
+                <button type="submit" name="cadastrar" class="btn btn-primary btn-block btn-flat">Salvar</button>
+              </div>
+              <!-- /.col -->
+            </div>
+          </form>    
         </div>
-      </form>    
-    </div>
-  </div>
-  <!-- /.form-box -->
-<!--</div>-->
-    <!-- COLOCAR FORM CADASTRO-->    
-      
+      </div>
+    
     </section>
     <!-- /.content -->
   </div>
@@ -213,7 +185,7 @@
     <div class="pull-right hidden-xs">
       <b>Versão</b> 1.0
     </div>
-    <strong>Copyright &copy; 2018.</strong> Todos Os Direitos Reservados
+    <strong>Copyright &copy; <?php echo date('Y'); ?>.</strong> Todos Os Direitos Reservados
   </footer>
 
   <!-- Control Sidebar -->
@@ -412,22 +384,183 @@
 <!-- ./wrapper -->
 
 <!-- jQuery 3 -->
-<script src="painel/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../../../../login/painel/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="painel/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../../../../login/painel/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="painel/bower_components/jquery-ui/jquery-ui.min.js"></script>
+<script src="../../../../login/painel/bower_components/jquery-ui/jquery-ui.min.js"></script>
 <!-- Slimscroll -->
-<script src="painel/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="../../../../login/painel/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
-<script src="painel/bower_components/fastclick/lib/fastclick.js"></script>
+<script src="../../../../login/painel/bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
-<script src="painel/dist/js/adminlte.min.js"></script>
+<script src="../../../../login/painel/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="painel/dist/js/demo.js"></script>
+<script src="../../../../login/painel/dist/js/demo.js"></script>
 <!-- fullCalendar -->
-<script src="painel/bower_components/moment/moment.js"></script>
-<script src="painel/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+<script src="../../../../login/painel/bower_components/moment/moment.js"></script>
+<script src="../../../../login/painel/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
 <!-- Page specific script -->
+<script>
+  $(function () {
+
+    /* initialize the external events
+     -----------------------------------------------------------------*/
+    function init_events(ele) {
+      ele.each(function () {
+
+        // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
+        // it doesn't need to have a start or end
+        var eventObject = {
+          title: $.trim($(this).text()) // use the element's text as the event title
+        }
+
+        // store the Event Object in the DOM element so we can get to it later
+        $(this).data('eventObject', eventObject)
+
+        // make the event draggable using jQuery UI
+        $(this).draggable({
+          zIndex        : 1070,
+          revert        : true, // will cause the event to go back to its
+          revertDuration: 0  //  original position after the drag
+        })
+
+      })
+    }
+
+    init_events($('#external-events div.external-event'))
+
+    /* initialize the calendar
+     -----------------------------------------------------------------*/
+    //Date for the calendar events (dummy data)
+    var date = new Date()
+    var d    = date.getDate(),
+        m    = date.getMonth(),
+        y    = date.getFullYear()
+    $('#calendar').fullCalendar({
+      header    : {
+        left  : 'prev,next today',
+        center: 'title',
+        right : 'month,agendaWeek,agendaDay'
+      },
+      buttonText: {
+        today: 'today',
+        month: 'month',
+        week : 'week',
+        day  : 'day'
+      },
+      //Random default events
+      events    : [
+        {
+          title          : 'All Day Event',
+          start          : new Date(y, m, 1),
+          backgroundColor: '#f56954', //red
+          borderColor    : '#f56954' //red
+        },
+        {
+          title          : 'Long Event',
+          start          : new Date(y, m, d - 5),
+          end            : new Date(y, m, d - 2),
+          backgroundColor: '#f39c12', //yellow
+          borderColor    : '#f39c12' //yellow
+        },
+        {
+          title          : 'Meeting',
+          start          : new Date(y, m, d, 10, 30),
+          allDay         : false,
+          backgroundColor: '#0073b7', //Blue
+          borderColor    : '#0073b7' //Blue
+        },
+        {
+          title          : 'Lunch',
+          start          : new Date(y, m, d, 12, 0),
+          end            : new Date(y, m, d, 14, 0),
+          allDay         : false,
+          backgroundColor: '#00c0ef', //Info (aqua)
+          borderColor    : '#00c0ef' //Info (aqua)
+        },
+        {
+          title          : 'Birthday Party',
+          start          : new Date(y, m, d + 1, 19, 0),
+          end            : new Date(y, m, d + 1, 22, 30),
+          allDay         : false,
+          backgroundColor: '#00a65a', //Success (green)
+          borderColor    : '#00a65a' //Success (green)
+        },
+        {
+          title          : 'Click for Google',
+          start          : new Date(y, m, 28),
+          end            : new Date(y, m, 29),
+          url            : 'http://google.com/',
+          backgroundColor: '#3c8dbc', //Primary (light-blue)
+          borderColor    : '#3c8dbc' //Primary (light-blue)
+        }
+      ],
+      editable  : true,
+      droppable : true, // this allows things to be dropped onto the calendar !!!
+      drop      : function (date, allDay) { // this function is called when something is dropped
+
+        // retrieve the dropped element's stored Event Object
+        var originalEventObject = $(this).data('eventObject')
+
+        // we need to copy it, so that multiple events don't have a reference to the same object
+        var copiedEventObject = $.extend({}, originalEventObject)
+
+        // assign it the date that was reported
+        copiedEventObject.start           = date
+        copiedEventObject.allDay          = allDay
+        copiedEventObject.backgroundColor = $(this).css('background-color')
+        copiedEventObject.borderColor     = $(this).css('border-color')
+
+        // render the event on the calendar
+        // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
+        $('#calendar').fullCalendar('renderEvent', copiedEventObject, true)
+
+        // is the "remove after drop" checkbox checked?
+        if ($('#drop-remove').is(':checked')) {
+          // if so, remove the element from the "Draggable Events" list
+          $(this).remove()
+        }
+
+      }
+    })
+
+    /* ADDING EVENTS */
+    var currColor = '#3c8dbc' //Red by default
+    //Color chooser button
+    var colorChooser = $('#color-chooser-btn')
+    $('#color-chooser > li > a').click(function (e) {
+      e.preventDefault()
+      //Save color
+      currColor = $(this).css('color')
+      //Add color effect to button
+      $('#add-new-event').css({ 'background-color': currColor, 'border-color': currColor })
+    })
+    $('#add-new-event').click(function (e) {
+      e.preventDefault()
+      //Get value and make sure it is not null
+      var val = $('#new-event').val()
+      if (val.length == 0) {
+        return
+      }
+
+      //Create events
+      var event = $('<div />')
+      event.css({
+        'background-color': currColor,
+        'border-color'    : currColor,
+        'color'           : '#fff'
+      }).addClass('external-event')
+      event.html(val)
+      $('#external-events').prepend(event)
+
+      //Add draggable funtionality
+      init_events(event)
+
+      //Remove event from text input
+      $('#new-event').val('')
+    })
+  })
+</script>
 </body>
 </html>

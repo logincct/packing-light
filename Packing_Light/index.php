@@ -8,11 +8,7 @@
   }else{
       include_once("../login/lib/admin/check_admin.php"); 
   }
-
-  $connect = mysqli_connect("localhost", "root", '', 'objetos');
-  $listar = mysqli_query($connect, "SELECT nome FROM busca_objetos"); 
-
-  ?>
+?>
 
 
 <!DOCTYPE html>
@@ -24,19 +20,19 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="painel/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../login/painel/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="painel/bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../login/painel/bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="painel/bower_components/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="../login/painel/bower_components/Ionicons/css/ionicons.min.css">
   <!-- fullCalendar -->
-  <link rel="stylesheet" href="painel/bower_components/fullcalendar/dist/fullcalendar.min.css">
-  <link rel="stylesheet" href="painel/bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
+  <link rel="stylesheet" href="../login/painel/bower_components/fullcalendar/dist/fullcalendar.min.css">
+  <link rel="stylesheet" href="../login/painel/bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
   <!-- Theme style -->
-  <link rel="stylesheet" href="painel/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="../login/painel/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="painel/dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="../login/painel/dist/css/skins/_all-skins.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -66,11 +62,11 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="#" class="logo">
+      <a href="<?php if($_SESSION["check"] == 0) {echo '../../../../login/painel/pages/admin/main.php';}else{echo '../login/painel/pages/admin/main_admin.php'; }?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>P</b>LI</span>
+      <span class="logo-mini"><b>L</b>IN</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Packing</b>Light</span>
+      <span class="logo-lg"><b>LOGIN</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -148,10 +144,14 @@
           </a>
           <ul class="treeview-menu">
               <li class="active"><a href="painel/pages/user/cadastrar_objeto.php"><i class="fa fa-plus-square-o"></i> Cadastrar objeto</a></li>
-              <li><a href="painel/pages/user/buscar_objeto.php"><i class="fa fa-search"></i> Buscar objeto</a></li>
+              <li><a href="painel/pages/user/listar_objeto.php"><i class="fa fa-search"></i> Listar objeto</a></li>
           </ul>
         </li>
-       
+        <li>
+            <a href="painel/pages/user/buscar_objeto.php">
+            <i class="fa fa-dropbox"></i> <span>Gerar objeto</span>
+          </a>
+        </li>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -160,6 +160,9 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Main content -->
+    <section class="content-header">
+      <h1><a href="index.php">PackingLight</a></h1>
+    </section>
     <section class="content">
     
    
@@ -222,7 +225,7 @@
     <div class="pull-right hidden-xs">
       <b>Versão</b> 1.0
     </div>
-    <strong>Copyright &copy; 2018.</strong> Todos Os Direitos Reservados
+    <strong>Copyright &copy; <?php echo date('Y'); ?>.</strong> Todos Os Direitos Reservados
   </footer>
 
   <!-- Control Sidebar -->
@@ -421,22 +424,22 @@
 <!-- ./wrapper -->
 
 <!-- jQuery 3 -->
-<script src="painel/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../login/painel/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="painel/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../login/painel/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="painel/bower_components/jquery-ui/jquery-ui.min.js"></script>
+<script src="../login/painel/bower_components/jquery-ui/jquery-ui.min.js"></script>
 <!-- Slimscroll -->
-<script src="painel/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="../login/painel/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
-<script src="painel/bower_components/fastclick/lib/fastclick.js"></script>
+<script src="../login/painel/bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
-<script src="painel/dist/js/adminlte.min.js"></script>
+<script src="../login/painel/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="painel/dist/js/demo.js"></script>
+<script src="../login/painel/dist/js/demo.js"></script>
 <!-- fullCalendar -->
-<script src="painel/bower_components/moment/moment.js"></script>
-<script src="painel/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+<script src="../login/painel/bower_components/moment/moment.js"></script>
+<script src="../login/painel/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
 <!-- Page specific script -->
 </body>
 </html>
