@@ -133,7 +133,7 @@
 			$_SESSION['comprimentoRestantePallet'] = $_SESSION['comprimentoPallet'];// Comprimento é o comprimento do pallet.
 
 
-			$quantidadeObjetos = intdiv( $_SESSION['comprimentoRestantePallet'] , $_SESSION['larguraItem'] );
+			$quantidadeObjetos += intdiv( $_SESSION['comprimentoRestantePallet'] , $_SESSION['larguraItem'] );
 
 		}
 		elseif( $comprimentoRestantePallet >= $larguraItem ){ // Se o comprimento restante for maior ou igual à largura do objeto...
@@ -152,7 +152,7 @@
 			$_SESSION['comprimentoRestantePallet'] = $comprimentoRestantePallet;  // Aramzeno na $_SESSION.
 			$_SESSION['larguraRestantePallet'] = $_SESSION['larguraPallet'];  // Largura é a largura do pallet.
 
-			$quantidadeObjetos = intdiv( $_SESSION['larguraRestantePallet'] , $_SESSION['comprimentoItem'] );
+			$quantidadeObjetos += intdiv( $_SESSION['larguraRestantePallet'] , $_SESSION['comprimentoItem'] );
 
 		}
 		else{// Se nem uma for satisfeita...
@@ -161,7 +161,17 @@
 		
 		$_SESSION['quantidadeObjetos'] = $quantidadeObjetos;
 
+		$_SESSION['res'] += $quantidadeObjetos; //Número final de objetos colocados
+
 		$_SESSION['reg_resultado'] = "100%"; // Guardar resultado em porcentagem para cadastrar objeto
+
+		$areaPallet = $larguraPallet * $comprimentoPallet;
+		$areaObjeto = $larguraItem * $comprimentoItem * $_SESSION['res'];
+
+		$porcentagem = ($areaObjeto * 100)/$areaPallet;
+
+		$_SESSION['reg_resultado'] = round($porcentagem);
+
 
 		header('Location: ../painel/pages/admin/canvas.php');  //Cria a Canvas	
 	}
