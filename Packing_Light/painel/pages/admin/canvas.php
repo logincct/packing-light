@@ -160,26 +160,28 @@
 
           <div id="canvas-field">
             <h2>Apresentando resultado dos cálculos:</h2>
-            <canvas id="Pallet" width=" <?php echo $_SESSION['larguraPallet']; ?> " height=" <?php echo $_SESSION['comprimentoPallet']; ?> " style="border:1px solid #000000;"></canvas>
+            <canvas id="Pallet" width=" <?php echo $_SESSION['larguraPallet']; ?> " height=" <?php echo $_SESSION['comprimentoPallet']; ?> " style="border:1px solid #000000; margin: 2%;"></canvas>
           </div>
 
-          <div class="row">
-            <div class="col-xs-8">
-              <div class="checkbox icheck">
-                
-              </div>
-            </div>
-            <!-- /.col -->
-            <div class="col-xs-4" style="width: 20%;float:right">
-              <a href="../../../lib/cadastra_objetos.php" class="btn btn-primary btn-block btn-flat">Salvar objeto</a>
-              <a href="../../../index.php"><button type="submit" class="btn btn-primary btn-block btn-flat">Voltar</button></a>
-            </div>
-            <!-- /.col -->
-            </div>
-          </form>    
+          <div align="center" class="canvas-info" style=" padding-top: 4%; padding-bottom: 4% ;padding-left: 13%; padding-right: 13% ;text-align: left; ">
+            <p>Podem ser colocadas <?php echo $_SESSION['res'] ?> caixas.</p>
+            <p>As caixas ocupam aproximadamente <?php echo $_SESSION['reg_resultado'] ?>% da área do pallet.</p>
+          </div>
+
+          <div  style=" position: relative; text-align: right;  /* margin-left: 1% ;margin-right: 1% ;*/ ">
+              <a class="btn btn-primary btn-flat" >Comparar resultado</a>
+              
+              
+              <a class="btn btn-primary btn-flat" href="../../../lib/cadastra_objetos.php" >Salvar objeto</a>
+
+              <a class="btn btn-primary btn-flat" href="../../../index.php" >Voltar</a>
+
+          </div>
+
+        </div> 
         </div>
-      </div>
-          <!-- /.row -->
+    </section>
+  </div>
 
   		<script>
   			color = "#3c8dbc";
