@@ -164,19 +164,21 @@
           </div>
 
           <div align="center" class="canvas-info" style=" padding-top: 4%; padding-bottom: 4% ;padding-left: 13%; padding-right: 13% ;text-align: left; ">
-            <p>Podem ser colocadas <?php echo $_SESSION['res'] ?> caixas.</p>
+            <p>Podem ser colocadas <?php echo $_SESSION['res']; ?> caixas.</p>
             <p>As caixas ocupam aproximadamente <?php echo $_SESSION['reg_resultado'] ?>% da área do pallet.</p>
           </div>
 
-          <div  style=" position: relative; text-align: right;  /* margin-left: 1% ;margin-right: 1% ;*/ ">
-              <a class="btn btn-primary btn-flat" >Comparar resultado</a>
-              
-              
-              <a class="btn btn-primary btn-flat" href="../../../lib/cadastra_objetos.php" >Salvar objeto</a>
+          <form method="POST" action="../../../lib/cadastra_objetos.php">
+            <div  style=" position: relative; text-align: right;  /* margin-left: 1% ;margin-right: 1% ;*/ ">
+                <a class="btn btn-primary btn-flat" >Comparar resultado</a>
+                
+                
+                <button class="btn btn-primary btn-flat" type="submit" name="salva_objeto" >Salvar objeto</button>
 
-              <a class="btn btn-primary btn-flat" href="../../../index.php" >Voltar</a>
+                <a class="btn btn-primary btn-flat" href="../../../index.php" >Voltar</a>
 
-          </div>
+            </div>
+          </form>
 
         </div> 
         </div>
