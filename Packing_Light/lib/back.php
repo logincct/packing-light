@@ -16,11 +16,16 @@
 		$numeroItens = $_POST["n_obj"]; //Número de objetos
 		$larguraItem = $_POST["lag_obj"]; //Largura do objeto
 		$comprimentoItem = $_POST["comp_obj"]; //Comprimento do objeto
+		$alturaItem = $_POST['alt_obj'];
 		$espaco_rest = array(); // Array de espaços restantes em cada nível
 		$comprimentoNivel = array(); // Array de comprimetos de nives
 		
 		$_SESSION['reg_largura'] = $larguraItem; // Em caso de ser necessário cadastrar o objeto.
 		$_SESSION['reg_comprimento'] = $comprimentoItem;
+		$_SESSION['reg_altura'] = $alturaItem;
+
+		$_SESSION['lag_palt'] = $larguraPallet;
+		$_SESSION['comp_palt'] = $comprimentoPallet;
 
 		$objetos = array();  //array de tamanho de objetos
 
@@ -163,15 +168,12 @@
 
 		$_SESSION['res'] += $quantidadeObjetos; //Número final de objetos colocados
 
-		$_SESSION['reg_resultado'] = "100%"; // Guardar resultado em porcentagem para cadastrar objeto
-
 		$areaPallet = $larguraPallet * $comprimentoPallet;
 		$areaObjeto = $larguraItem * $comprimentoItem * $_SESSION['res'];
 
 		$porcentagem = ($areaObjeto * 100)/$areaPallet;
 
-		$_SESSION['reg_resultado'] = round($porcentagem);
-
+		$_SESSION['reg_resultado'] = round($porcentagem).'%';
 
 		header('Location: ../painel/pages/admin/canvas.php');  //Cria a Canvas	
 	}

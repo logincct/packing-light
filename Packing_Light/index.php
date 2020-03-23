@@ -196,6 +196,11 @@
           <input style="position: relative; margin-left: 200px;" id = "comp_obj" type = "number" name = "comp_obj" value = "30" required><br>
           <!-- <span class="glyphicon glyphicon-lock form-control-feedback"></span> -->
         </div>
+        <div class="form-group has-feedback" style="text-align: center;">
+          <label style="position: absolute;" for="alt_obj">Altura dos objetos</label>
+          <input style="position: relative; margin-left: 200px;" id = "alt_obj" type = "number" name = "alt_obj" value = "0" required ><br>
+          <!-- <span class="glyphicon glyphicon-tag form-control-feedback"></span> -->
+        </div>
           
         <div class="row">
           <div class="col-xs-8">
