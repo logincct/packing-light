@@ -164,13 +164,8 @@
               <!-- <span class="glyphicon glyphicon-lock form-control-feedback"></span> -->
             </div>
             <div class="form-group has-feedback" style="text-align: center;">
-<<<<<<< HEAD
-              <label style="position: absolute;" for="reg_comprimento">Altura dos objetos</label>
-              <input style="position: relative; margin-left: 200px;" id = "reg_comprimento" type = "number" name = "reg_altura" value = "0" required><br>
-=======
               <label style="position: absolute;" for="reg_altura">Altura dos objetos</label>
               <input style="position: relative; margin-left: 200px;" id = "reg_altura" type = "number" name = "reg_altura" value = "30" required><br>
->>>>>>> temp_rebeca
               <!-- <span class="glyphicon glyphicon-lock form-control-feedback"></span> -->
             </div>
               

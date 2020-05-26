@@ -11,6 +11,7 @@
 	{
 
 		$_SESSION['alter'] = 1;
+		$nomeObj = $_POST["nome_obj"]; //Nome do objeto
 		$larguraPallet = $_POST["l_palt"];  //Largura do pallet
 		$comprimentoPallet = $_POST["c_palt"]; //Compriemnto do pallet
 		$numeroItens = $_POST["n_obj"]; //Número de objetos
@@ -20,6 +21,7 @@
 		$espaco_rest = array(); // Array de espaços restantes em cada nível
 		$comprimentoNivel = array(); // Array de comprimetos de nives
 		
+		$_SESSION['reg_nome'] = $nomeObj;
 		$_SESSION['reg_largura'] = $larguraItem; // Em caso de ser necessário cadastrar o objeto.
 		$_SESSION['reg_comprimento'] = $comprimentoItem;
 		$_SESSION['reg_altura'] = $alturaItem;
