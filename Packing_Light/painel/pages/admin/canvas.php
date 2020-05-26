@@ -172,11 +172,22 @@
             <div  style=" position: relative; text-align: right;  /* margin-left: 1% ;margin-right: 1% ;*/ ">
                 <a class="btn btn-primary btn-flat" >Comparar resultado</a>
                 
+<<<<<<< HEAD
                 
                 <button class="btn btn-primary btn-flat" type="submit" name="salva_objeto" >Salvar objeto</button>
 
                 <a class="btn btn-primary btn-flat" href="../../../index.php" >Voltar</a>
 
+=======
+              </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-xs-4" style="width: 20%;float:right">
+              <a href="../../../lib/cadastra_objetos.php" class="btn btn-primary btn-block btn-flat">Salvar objeto</a>
+              <a href="../user/buscar_objeto.php"><button type="submit" class="btn btn-primary btn-block btn-flat">Voltar</button></a>
+            </div>
+            <!-- /.col -->
+>>>>>>> temp_rebeca
             </div>
           </form>
 
