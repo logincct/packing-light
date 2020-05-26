@@ -172,7 +172,7 @@
             <!-- /.col -->
             <div class="col-xs-4" style="width: 20%;float:right">
               <a href="../../../lib/cadastra_objetos.php" class="btn btn-primary btn-block btn-flat">Salvar objeto</a>
-              <a href="../../../index.php"><button type="submit" class="btn btn-primary btn-block btn-flat">Voltar</button></a>
+              <a href="../user/buscar_objeto.php"><button type="submit" class="btn btn-primary btn-block btn-flat">Voltar</button></a>
             </div>
             <!-- /.col -->
             </div>

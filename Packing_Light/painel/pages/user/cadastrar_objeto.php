@@ -147,8 +147,12 @@
           <!-- Formulário PackingLight. -->
           <form action="../../../lib/cadastra_objetos.php" method="post">
 
-              <input id = "n_obj" type = "hidden" name = "n_obj" value = "100">
-
+            <input id = "n_obj" type = "hidden" name = "n_obj" value = "100">
+            <div class="form-group has-feedback" style="text-align: center;">
+              <label style="position: absolute;" for="reg_nome">Nome dos objetos</label>
+              <input style="position: relative; margin-left: 200px;" id = "reg_nome" type = "text" name = "reg_nome" required ><br>
+              <!-- <span class="glyphicon glyphicon-tag form-control-feedback"></span> -->
+            </div>
             <div class="form-group has-feedback" style="text-align: center;">
               <label style="position: absolute;" for="reg_largura">Largura dos objetos</label>
               <input style="position: relative; margin-left: 200px;" id = "reg_largura" type = "number" name = "reg_largura" value = "50" required ><br>
@@ -157,6 +161,11 @@
             <div class="form-group has-feedback" style="text-align: center;">
               <label style="position: absolute;" for="reg_comprimento">Comprimento dos objetos</label>
               <input style="position: relative; margin-left: 200px;" id = "reg_comprimento" type = "number" name = "reg_comprimento" value = "30" required><br>
+              <!-- <span class="glyphicon glyphicon-lock form-control-feedback"></span> -->
+            </div>
+            <div class="form-group has-feedback" style="text-align: center;">
+              <label style="position: absolute;" for="reg_altura">Altura dos objetos</label>
+              <input style="position: relative; margin-left: 200px;" id = "reg_altura" type = "number" name = "reg_altura" value = "30" required><br>
               <!-- <span class="glyphicon glyphicon-lock form-control-feedback"></span> -->
             </div>
               
