@@ -17,7 +17,12 @@
 		$numeroItens = $_POST["n_obj"]; //Número de objetos
 		$larguraItem = $_POST["lag_obj"]; //Largura do objeto
 		$comprimentoItem = $_POST["comp_obj"]; //Comprimento do objeto
-		$alturaItem = $_POST['alt_obj'];
+		if( !isset( $_POST['alt_obj'] ) ){
+			$alturaItem = 0;
+		}
+		else{
+			$alturaItem = $_POST['alt_obj'];
+		}
 		$espaco_rest = array(); // Array de espaços restantes em cada nível
 		$comprimentoNivel = array(); // Array de comprimetos de nives
 		
