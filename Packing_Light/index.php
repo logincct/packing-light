@@ -161,62 +161,35 @@
   <div class="content-wrapper">
     <!-- Main content -->
     <section class="content-header">
-      <h1><a href="index.php">PackingLight</a></h1>
+      <h1><a href="#">PackingLight</a></h1>
     </section>
     <section class="content">
+
+    <section class="content">
+      <!-- Small boxes (Stat box) -->
+      
+      <!-- /.row -->
+      <div class="register-box">
+        <div class="register-box-body" style=" text-align: center;">
+          <h4 class="login-box-msg">Escolha o tipo de representação:</h4>
+          <form style=" display: inline;" action="painel\pages\user\2D.php">
+            <input type="hidden" name="sistema" value="11">
+            <button style=" height: 120px; width: 120px; " type="submit" name="submit" class="btn-main" ><h1>2D</h1></button>
+          </form>
+          <form style=" display: inline;" action="">
+            <input type="hidden" name="sistema" value="12">
+            <button style=" height: 120px; width: 120px; " type="submit" name="submit_pack" class="btn-main"><h1>3D</h1></button>
+          </form>
+        </div>
+      </div>
+      <!-- Main row -->
+      
+      <!-- /.row (main row) -->
+
+    </section>
     
    
-  <div class="register-box"  style="width: 700px">
-    <!-- <div class="register-box">-->
-    <div class="register-box-body">
-      <p class="login-box-msg" style="font-size: large">Digite as informações da carga</p>
-
-      <!-- Formulário PackingLight. -->
-      <form action="lib/back.php" method="post">
-        <div class="form-group has-feedback" style="text-align: center;">
-          <label style="position: absolute;" for="l_palt">Largura do pallet</label>
-          <input style="position: relative; margin-left: 200px;" id = "l_palt" type = "number" name = "l_palt" value = "130" required ></br>
-          <!-- <span class="glyphicon glyphicon-user form-control-feedback"></span> ícones-->
-        </div>
-        <div class="form-group has-feedback" style="text-align: center;">
-          <label style="position: absolute;" for="c_palt">Comprimento do pallet</label>
-          <input style="position: relative; margin-left: 200px;" id = "c_palt" type = "number" name = "c_palt" value = "130" required></br>
-          <!-- <span class="glyphicon glyphicon-home form-control-feedback"></span> -->
-        </div>
-
-          <input id = "n_obj" type = "hidden" name = "n_obj" value = "100">
-
-        <div class="form-group has-feedback" style="text-align: center;">
-          <label style="position: absolute;" for="lag_obj">Largura dos objetos</label>
-          <input style="position: relative; margin-left: 200px;" id = "lag_obj" type = "number" name = "lag_obj" value = "50" required ><br>
-          <!-- <span class="glyphicon glyphicon-tag form-control-feedback"></span> -->
-        </div>
-        <div class="form-group has-feedback" style="text-align: center;">
-          <label style="position: absolute;" for="comp_obj">Comprimento dos objetos</label>
-          <input style="position: relative; margin-left: 200px;" id = "comp_obj" type = "number" name = "comp_obj" value = "30" required><br>
-          <!-- <span class="glyphicon glyphicon-lock form-control-feedback"></span> -->
-        </div>
-        <div class="form-group has-feedback" style="text-align: center;">
-          <label style="position: absolute;" for="alt_obj">Altura dos objetos</label>
-          <input style="position: relative; margin-left: 200px;" id = "alt_obj" type = "number" name = "alt_obj" value = "0" required ><br>
-          <!-- <span class="glyphicon glyphicon-tag form-control-feedback"></span> -->
-        </div>
-          
-        <div class="row">
-          <div class="col-xs-8">
-            <div class="checkbox icheck">
-              
-            </div>
-          </div>
-          <!-- /.col -->
-          <div class="col-xs-4" style=" width: 20%;float:right;">
-            <button type="submit" name="calcula" class="btn btn-primary btn-block btn-flat">Calcular</button>
-          </div>
-          <!-- /.col -->
-        </div>
-      </form>    
-    </div>
-  </div>
+  
   <!-- /.form-box -->
 <!--</div>-->
     <!-- COLOCAR FORM CADASTRO-->    

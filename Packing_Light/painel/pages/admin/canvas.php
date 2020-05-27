@@ -149,7 +149,8 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1><a href="../../../index.php">PackingLight</a></h1>
+      <h1 style="display: inline-block;"><a href="../../../index.php">PackingLight -</a></h1>
+      <h1 style="display: inline-block;"><a href="../user/2D.php">2D</a></h1>
     </section>
 
     <!-- Painel para COLOCAR O MAPA QUANDO ESTIVER PRONTO -->
