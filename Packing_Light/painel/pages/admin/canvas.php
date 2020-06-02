@@ -171,7 +171,6 @@
 
           <form method="POST" action="../../../lib/cadastra_objetos.php">
             <div  style=" position: relative; text-align: right;  /* margin-left: 1% ;margin-right: 1% ;*/ ">
-                <a class="btn btn-primary btn-flat" >Comparar resultado</a>
                 
                 
                 <button class="btn btn-primary btn-flat" type="submit" name="salva_objeto" >Salvar objeto</button>

@@ -190,6 +190,10 @@
               <label style="position: absolute;">Comprimento do objeto</label>
               <input style="position: relative; margin-left: 200px;" type = "number" name = "comprimento" value="<?php if($codigo_objeto != ""){echo $resultado1['comprimento'];}?>" required><br>
             </div>
+            <div class="form-group has-feedback" style="text-align: center;">
+              <label style="position: absolute;">Altura do objeto</label>
+              <input style="position: relative; margin-left: 200px;" type = "number" name = "altura" value="<?php if($codigo_objeto != ""){echo $resultado1['altura'];}?>" required><br>
+            </div>
             <div class="row">
                 <div class="col-xs-8">
                     <div class="checkbox icheck">

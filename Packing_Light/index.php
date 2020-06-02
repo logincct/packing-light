@@ -147,11 +147,11 @@
               <li><a href="painel/pages/user/listar_objeto.php"><i class="fa fa-search"></i> Listar objeto</a></li>
           </ul>
         </li>
-        <li>
+<!--         <li>
             <a href="painel/pages/user/buscar_objeto.php">
             <i class="fa fa-dropbox"></i> <span>Gerar objeto</span>
           </a>
-        </li>
+        </li> -->
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -172,7 +172,7 @@
       <div class="register-box">
         <div class="register-box-body" style=" text-align: center;">
           <h4 class="login-box-msg">Escolha o tipo de representação:</h4>
-          <form style=" display: inline;" action="painel\pages\user\2D.php">
+          <form style=" display: inline;" action="painel\pages\user\buscar_objeto.php">
             <input type="hidden" name="sistema" value="11">
             <button style=" height: 120px; width: 120px; " type="submit" name="submit" class="btn-main" ><h1>2D</h1></button>
           </form>

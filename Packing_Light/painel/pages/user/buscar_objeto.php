@@ -133,7 +133,8 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <section class="content-header">
-      <h1><a href="../../../index.php">PackingLight</a></h1>
+      <h1 style="display: inline-block;"><a href="../../../index.php">PackingLight -</a></h1>
+      <h1 style="display: inline-block;"><a href="#">2D</a></h1>
     </section>
     <!-- Content Header (Page header) -->
 

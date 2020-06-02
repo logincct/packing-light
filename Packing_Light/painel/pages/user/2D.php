@@ -1,5 +1,5 @@
 <?php 
-
+//////////////// PAGINA NAO ESTA SENDO USADA TEMPORARIAMENTE
   session_start();
 
   require_once("../../../lib/back.php");

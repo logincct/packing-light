@@ -182,7 +182,7 @@
                 </tr>
                 
                 <?php while ($table = mysqli_fetch_assoc($listar)) { ?>
-                <tr><td> 000 <?php $table['codigo'] = '000';echo $table['codigo']."   ";?></td> <td><?php echo $table['nome']."   ";?></td> <td><?php echo $table['largura']."   ";?></td> <td><?php echo $table['comprimento']."   ";?></td> <td><?php echo $table['altura']."   ";?></td> <td><?php echo $table['resultado']."   ";?></td> <td align="center"> <?php echo "<a title='Editar' href=\"alterar_objeto.php?codigo=$table[codigo]\"><i class='fa fa-edit'></i></a> | <a title='Excluir' href=\"../../../lib/excluir_objeto.php?codigo=$table[codigo]\" onClick=\"return confirm('Certeza de que quer excluir?')\"><i class='fa fa-times'></i></a></td>" ;?></td> </tr><?php } ?>
+                <tr><td> <?php echo $table['codigo']."   ";?></td> <td><?php echo $table['nome']."   ";?></td> <td><?php echo $table['largura']."   ";?></td> <td><?php echo $table['comprimento']."   ";?></td> <td><?php echo $table['altura']."   ";?></td> <td><?php echo $table['resultado']."   ";?></td> <td align="center"> <?php echo "<a title='Editar' href=\"alterar_objeto.php?codigo=$table[codigo]\"><i class='fa fa-edit'></i></a> | <a title='Excluir' href=\"../../../lib/excluir_objeto.php?codigo=$table[codigo]\" onClick=\"return confirm('Certeza de que quer excluir?')\"><i class='fa fa-times'></i></a></td>" ;?></td> </tr><?php } ?>
            
               </table>
             </div>
