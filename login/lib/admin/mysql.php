@@ -17,9 +17,9 @@
 		function __construct(){
 			$url = parse_url(getenv("CLEARDB_RED_URL"));
 
-			$server = $url["host"];
-			$username = $url["user"];
-			$password = $url["pass"];
+			$host = $url["host"];
+			$user = $url["user"];
+			$pass = $url["pass"];
 			$db = substr($url["path"], 1);
 
 			self::$connection_info = array('host' => $host, 'user' => $user, 'pass' => $pass, 'db' => $db);
