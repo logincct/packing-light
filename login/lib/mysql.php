@@ -15,10 +15,19 @@
 		static private $order;
 		
 		function __construct(){
-			$host = "localhost";
-			$user = "root";
-			$pass = "";
-			$db = "login";
+			
+			$url = parse_url(getenv("CLEARDB_RED_URL"));
+
+			$server = $url["host"];
+			$username = $url["user"];
+			$password = $url["pass"];
+			$db = substr($url["path"], 1);
+
+
+			// $host = $url["us-cdbr-east-05.cleardb.net"];
+			// $user = $url["bbb54df3e142d4"];
+			// $pass = $url["fde6cb60b39cfab"];
+			// $db = substr($url["young-reaches-96950"], 1);
 			self::$connection_info = array('host' => $host, 'user' => $user, 'pass' => $pass, 'db' => $db);
 		}
 		

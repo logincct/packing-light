@@ -15,10 +15,13 @@
 		static private $order;
 		
 		function __construct(){
-			$host = "localhost";
-			$user = "root";
-			$pass = "";
-			$db = "login";
+			$url = parse_url(getenv("CLEARDB_RED_URL"));
+
+			$server = $url["host"];
+			$username = $url["user"];
+			$password = $url["pass"];
+			$db = substr($url["path"], 1);
+
 			self::$connection_info = array('host' => $host, 'user' => $user, 'pass' => $pass, 'db' => $db);
 		}
 		
