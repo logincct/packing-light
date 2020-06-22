@@ -16,7 +16,7 @@
 		
 		function __construct(){
 			
-			$url = parse_url(getenv("mysql://b32a123ad227fe:5426c7da@us-cdbr-east-05.cleardb.net/heroku_0762b6896b82648?reconnect=true"));
+			$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
 			$host = $url["host"];
 			$user = $url["user"];
