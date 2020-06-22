@@ -16,7 +16,7 @@
 		
 		function __construct(){
 			
-			$url = parse_url(getenv("CLEARDB_RED_URL"));
+			$url = parse_url(getenv("us-cdbr-east-05.cleardb.net"));
 
 			$host = $url["host"];
 			$user = $url["user"];
