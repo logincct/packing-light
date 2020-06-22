@@ -63,6 +63,14 @@
 					self::$link = $link;
 					mysqli_set_charset($link,'utf8');
 				}else{
+					echo $hosth
+					echo " "
+					echo $user
+					echo " "
+					echo $pass
+					echo " "
+					echo $path
+					echo " "
 					throw new Exception('Could not connect to MySQL database.');
 				}
 			}

@@ -23,15 +23,6 @@
 			$pass = $url["pass"];
 			$db = substr($url["path"], 1);
 
-			echo $hosth
-			echo " "
-			echo $user
-			echo " "
-			echo $pass
-			echo " "
-			echo $path
-			echo " "
-
 
 			// $host = $url["us-cdbr-east-05.cleardb.net"];
 			// $user = $url["bbb54df3e142d4"];
@@ -78,6 +69,14 @@
 					self::$link = $link;
 					mysqli_set_charset($link,'utf8');
 				}else{
+					echo $hosth
+					echo " "
+					echo $user
+					echo " "
+					echo $pass
+					echo " "
+					echo $path
+					echo " "
 					throw new Exception('Could not connect to MySQL database.');
 				}
 			}
