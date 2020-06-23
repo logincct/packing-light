@@ -15,10 +15,13 @@
 		static private $order;
 		
 		function __construct(){
-			$host = "localhost";
-			$user = "root";
-			$pass = "";
-			$db = "objetos";
+			$url = parse_url(getenv("mysql://b9c3d79957d76a:fd8c7677@us-cdbr-east-05.cleardb.net/heroku_bc4ca01ac2c449a?reconnect=true"));
+
+			$host = $url["host"];
+			$user = $url["user"];
+			$pass = $url["pass"];
+			$db = substr($url["path"], 1);
+
 			self::$connection_info = array('host' => $host, 'user' => $user, 'pass' => $pass, 'db' => $db);
 		}
 		
