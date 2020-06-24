@@ -15,7 +15,7 @@
 		static private $order;
 		
 		function __construct(){
-			$url = parse_url(getenv("mysql://bb051a80418e9e:ebd81f00@us-cdbr-east-05.cleardb.net/heroku_3eadf16302034c3?reconnect=true"));
+			//$url = parse_url(getenv("mysql://bb051a80418e9e:ebd81f00@us-cdbr-east-05.cleardb.net/heroku_3eadf16302034c3?reconnect=true"));
 
 			$host = $url["host"];
 			$user = $url["user"];
