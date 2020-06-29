@@ -15,10 +15,13 @@
 		static private $order;
 		
 		function __construct(){
-			$host = "localhost";
-			$user = "root";
-			$pass = "";
-			$db = "rotalight";
+			$url = parse_url(getenv("CLEARDB_PURPLE_URL"));
+
+			$host = $url["host"];
+			$user = $url["user"];
+			$pass = $url["pass"];
+			$db = substr($url["path"], 1);
+
 			self::$connection_info = array('host' => $host, 'user' => $user, 'pass' => $pass, 'db' => $db);
 		}
 		
