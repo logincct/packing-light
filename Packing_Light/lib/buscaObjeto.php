@@ -1,6 +1,6 @@
 <?php
 
-	$connect = mysqli_connect("us-cdbr-east-05.cleardb.net", "b329f212ae6eff", 'c8697197', 'heroku_b0427babc84f96e');
+	$connect = mysqli_connect("localhost", "root", '', 'objetos');
   	$listar = mysqli_query($connect, "SELECT nome,largura,comprimento FROM busca_objetos");
 
 	$nome = $_POST['nome_obj'];
