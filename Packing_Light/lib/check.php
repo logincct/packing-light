@@ -8,7 +8,7 @@
 
 	    if ($nivel != 1) {
 	    	session_destroy();
-	    	echo "<script>javascript:window.location.replace('../../index.php');</script>";
+	    	echo "<script>javascript:window.location.replace('../index.php');</script>";
 	    }
    	}
 

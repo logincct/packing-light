@@ -1,6 +1,6 @@
 <?php
 	session_start();
-    include_once('mysql.php');
+    include_once('../../login/lib/admin/mysql.php');
     if( isset($_POST['cadastrar']) or isset($_POST['salva_objeto'])){
 
 
@@ -56,16 +56,16 @@
 
 		    echo "<script>javascript:window.alert('Usuário cadastrado com sucesso!');</script>";
 		    if(isset($_POST['cadastrar'])){
-		    	echo "<script>javascript:window.location.replace('../painel/pages/user/cadastrar_objeto.php');</script>";
+		    	echo "<script>javascript:window.location.replace('../pages/cadastrar_objeto.php');</script>";
 		    	//header('Location: ../painel/pages/user/cadastrar_objeto.php');
 		    }
 		    else if(isset($_POST['salva_objeto'])){
-		    	echo "<script>javascript:window.location.replace('../painel/pages/admin/canvas.php');</script>";
+		    	echo "<script>javascript:window.location.replace('../pages/canvas.php');</script>";
 		    	//header('Location: ../painel/pages/admin/canvas.php');
 		    }
 	    }
     }
     else{
-		echo "<script>javascript:window.location.replace('../painel/pages/admin/canvas.php');</script>";    }
+		echo "<script>javascript:window.location.replace('../pages/canvas.php');</script>";    }
 
 ?>

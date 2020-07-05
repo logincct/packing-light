@@ -11,7 +11,7 @@
     $mysql = new MySQL();
     
         try{
-            $listar = $mysql->order_by('nome','ASC')->get('busca_objetos');
+            $listar = $mysql->order_by('nome','ASC')->get('clientes');
 		
 	}catch(Exception $e){
 		echo 'Caught exception: ', $e->getMessage();

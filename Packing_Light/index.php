@@ -62,7 +62,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-      <a href="<?php if($_SESSION["check"] == 0) {echo '../../../../login/painel/pages/admin/main.php';}else{echo '../login/painel/pages/admin/main_admin.php'; }?>" class="logo">
+      <a href="<?php if($_SESSION["check"] == 0) {echo '../login/painel/pages/admin/main.php';}else{echo '../login/painel/pages/admin/main_admin.php'; }?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>L</b>IN</span>
       <!-- logo for regular state and mobile devices -->
@@ -143,8 +143,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-              <li class="active"><a href="painel/pages/user/cadastrar_objeto.php"><i class="fa fa-plus-square-o"></i> Cadastrar objeto</a></li>
-              <li><a href="painel/pages/user/listar_objeto.php"><i class="fa fa-search"></i> Listar objeto</a></li>
+              <li class="active"><a href="pages/cadastrar_objeto.php"><i class="fa fa-plus-square-o"></i> Cadastrar objeto</a></li>
+              <li><a href="pages/listar_objeto.php"><i class="fa fa-search"></i> Listar objeto</a></li>
           </ul>
         </li>
 <!--         <li>
@@ -172,7 +172,7 @@
       <div class="register-box">
         <div class="register-box-body" style=" text-align: center;">
           <h4 class="login-box-msg">Escolha o tipo de representação:</h4>
-          <form style=" display: inline;" action="painel\pages\user\buscar_objeto.php">
+          <form style=" display: inline;" action="pages\buscar_objeto.php">
             <input type="hidden" name="sistema" value="11">
             <button style=" height: 120px; width: 120px; " type="submit" name="submit" class="btn-main" ><h1>2D</h1></button>
           </form>
