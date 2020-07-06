@@ -19,6 +19,7 @@ $codigo = $_GET['codigo'];
              }else{
              	$mysql->where('codigo', $_SESSION["objeto"][0])->delete('busca_objetos');
              	header("Location:../pages/listar_objeto.php");
+                echo "<script>javascript:window.alert('Alteração de objeto realizada com sucesso.');</script>";
              	
              }
 	}catch(Exception $e){

@@ -54,7 +54,7 @@
 
 	    	$insert = $mysql->insert('busca_objetos', array('nome' => $nome,'largura' => $largura, 'comprimento' => $comprimento, 'altura' => $altura ,'resultado' => $resultado));	     
 
-		    echo "<script>javascript:window.alert('Usuário cadastrado com sucesso!');</script>";
+		    echo "<script>javascript:window.alert('Objeto cadastrado com sucesso!');</script>";
 		    if(isset($_POST['cadastrar'])){
 		    	echo "<script>javascript:window.location.replace('../pages/cadastrar_objeto.php');</script>";
 		    	//header('Location: ../painel/pages/user/cadastrar_objeto.php');
