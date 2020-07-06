@@ -1,35 +1,38 @@
 <?php
     session_start();
-    $sistema = "";
-    $nivel = "";
-    $_SESSION["check"] = 1;
-    if(isset($_POST["submit"])){
 
-        if(isset($_POST["sistema"])){
-        $sistema = $_POST["sistema"];
-        }
+    echo "<script>javascript:window.location.replace('../../../rotalight/index.php');</script>";
+    
+    // $sistema = "";
+    // $nivel = "";
+    // $_SESSION["check"] = 1;
+    // if(isset($_POST["submit"])){
 
-        $session = $_SESSION["admin"];
+    //     if(isset($_POST["sistema"])){
+    //     $sistema = $_POST["sistema"];
+    //     }
 
-        if (isset($session)) {
+    //     $session = $_SESSION["admin"];
 
-            echo "<script>javascript:window.location.replace('../../../rotalight/index.php');</script>";
+    //     if (isset($session)) {
 
-        }
-    }
-    if(isset($_POST["submit_pack"])){
+    //         echo "<script>javascript:window.location.replace('../../../rotalight/index.php');</script>";
 
-        if(isset($_POST["sistema"])){
-            $sistema = $_POST["sistema"];
-        }
+    //     }
+    // }
+    // if(isset($_POST["submit_pack"])){
 
-        $session = $_SESSION["admin"];
+    //     if(isset($_POST["sistema"])){
+    //         $sistema = $_POST["sistema"];
+    //     }
 
-        if (isset($session)) {
+    //     $session = $_SESSION["admin"];
 
-            echo "<script>javascript:window.location.replace('../../../Packing_Light/index.php');</script>";
+    //     if (isset($session)) {
 
-        }
-    }
+    //         echo "<script>javascript:window.location.replace('../../../Packing_Light/index.php');</script>";
+
+    //     }
+    // }
 
 ?>
