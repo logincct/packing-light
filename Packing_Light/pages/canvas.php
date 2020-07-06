@@ -131,12 +131,12 @@
             </span>
           </a>
           <ul class="treeview-menu">
-              <li class="active"><a href="../user/cadastrar_objeto.php"><i class="fa fa-plus-square-o"></i> Cadastrar objeto</a></li>
-              <li class="active"><a href="../user/listar_objeto.php"><i class="fa fa-search"></i> Listar objeto</a></li>
+              <li class="active"><a href="../pages/cadastrar_objeto.php"><i class="fa fa-plus-square-o"></i> Cadastrar objeto</a></li>
+              <li class="active"><a href="../pages/listar_objeto.php"><i class="fa fa-search"></i> Listar objeto</a></li>
           </ul>
         </li>
         <li class="active">
-          <a href="../user/buscar_objeto.php">
+          <a href="../pages/buscar_objeto.php">
           <i class="fa fa-dropbox"></i> <span>Gerar objeto</span>
           </a>
         </li>
