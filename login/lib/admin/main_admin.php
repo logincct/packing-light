@@ -13,7 +13,7 @@
 
         if (isset($session)) {
 
-            echo "<script>javascript:window.location.replace('../../../rotalight/painel/pages/user/painel.php');</script>";
+            echo "<script>javascript:window.location.replace('../../../rotalight/index.php');</script>";
 
         }
     }

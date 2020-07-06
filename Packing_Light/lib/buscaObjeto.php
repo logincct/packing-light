@@ -1,6 +1,13 @@
 <?php
+	
+	$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
-	$connect = mysqli_connect("localhost", "root", '', 'objetos');
+	$host = $url["host"];
+	$user = $url["user"];
+	$pass = $url["pass"];
+	$db = substr($url["path"], 1);
+
+	$connect = mysqli_connect($host, $user, $pass, $db);
   	$listar = mysqli_query($connect, "SELECT nome,largura,comprimento FROM busca_objetos");
 
 	$nome = $_POST['nome_obj'];

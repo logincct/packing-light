@@ -2,7 +2,7 @@
 
     session_start();
     //include_once("conexao.php");
-    include_once('mysql.php');
+    include_once('../../login/lib/admin/mysql.php');
     header('Content-Type: text/html; charset=utf-8');
 
     $codigo_objeto = "";

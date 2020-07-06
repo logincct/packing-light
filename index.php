@@ -78,11 +78,11 @@
 <!-- /.login-box -->
 
 <!-- jQuery 3 -->
-<script src="../../login/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="login/painel/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="../../login/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="login/painel/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- iCheck -->
-<script src="../../login/plugins/iCheck/icheck.min.js"></script>
+<script src="login/painel/plugins/iCheck/icheck.min.js"></script>
 <script>
   $(function () {
     $('input').iCheck({

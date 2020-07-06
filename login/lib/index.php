@@ -2,7 +2,7 @@
     
     session_start();
     
-    include_once('mysql.php');
+    include_once('admin/mysql.php');
     //include_once("conexao.php");  
     //require_once("mysql/Repositorio.php");  
         

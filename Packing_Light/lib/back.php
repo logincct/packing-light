@@ -182,7 +182,7 @@
 
 		$_SESSION['reg_resultado'] = round($porcentagem).'%';
 
-		header('Location: ../painel/pages/admin/canvas.php');  //Cria a Canvas	
+		header('Location: ../pages/canvas.php');  //Cria a Canvas	
 	}
 
 ?>

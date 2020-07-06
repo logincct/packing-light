@@ -17,7 +17,7 @@
         $nivel = $_SESSION["usuario"][6];
 
             if ($sistema == $nivel) {
-                echo "<script>javascript:window.location.replace('../../../rotalight/painel/pages/user/painel.php');</script>";
+                echo "<script>javascript:window.location.replace('../../../rotalight/index.php');</script>";
             }else{
                 echo "<script>javascript:window.location.replace('../../../login/painel/pages/admin/main.php');</script>";
             }
