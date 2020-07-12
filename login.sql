@@ -1,7 +1,7 @@
 -- phpMyAdmin SQL Dump
 -- version 5.0.1
 -- https://www.phpmyadmin.net/
---
+-- 
 -- Host: 127.0.0.1
 -- Tempo de geração: 05-Jul-2020 às 21:54
 -- Versão do servidor: 10.4.11-MariaDB
@@ -2280,11 +2280,13 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`codigo`, `cpf`, `password`, `nome`, `email`, `endereco`, `data_cadastro`, `hora_cadastro`, `nivel`) VALUES
-(2, 'aa', '81dc9bdb52d04dc20036dbd8313ed055', 'camila', 'camilacamposcolares@gmail.com', 'BORGES DE MELO 820 BAIRRO DE FATIMA ', '2019-02-12', '45:00:00', 0),
-(3, 'aa', '81dc9bdb52d04dc20036dbd8313ed055', 'prof valdisio', 'valdisio.viana@uece.br', 'Universidade Estadual do Ceara Campus Itaperi', '2019-02-12', '18:00:00', 0),
-(4, 'aa', '81dc9bdb52d04dc20036dbd8313ed055', 'prof ana luiza', 'analuizabpb@gmail.com', 'Rua Rodrigues Junior 996', '2019-03-18', '11:24:39', 0),
-(5, '079.278.493-60', '708a65c007259f302db570f607cfa897', 'rebs', 'rebeca_ts2000@outlook.com', 'Universidade Estadual do Ceara Campus Itaperi', '2019-03-11', '07:42:18', 1),
-(20, 'aa', '81dc9bdb52d04dc20036dbd8313ed055', 'prof clecio', 'clecio@larces.uece.br', 'Universidade Estadual do Ceara Campus Itaperi	', '2019-03-12', '19:26:05', 1);
+(2, 'aa', '81dc9bdb52d04dc20036dbd8313ed055', 'camila', 'camilacamposcolares@gmail.com', 'BORGES DE MELO 820 BAIRRO DE FATIMA ', '2019-02-12', '45:00:00', 1),
+(3, 'aa', '81dc9bdb52d04dc20036dbd8313ed055', 'prof valdisio', 'valdisio.viana@uece.br', 'Universidade Estadual do Ceara Campus Itaperi', '2019-02-12', '18:00:00', 1),
+(4, 'aa', '81dc9bdb52d04dc20036dbd8313ed055', 'prof ana luiza', 'analuizabpb@gmail.com', 'Rua Rodrigues Junior 996', '2019-03-18', '11:24:39', 1),
+(8, '079.278.493-60', '81dc9bdb52d04dc20036dbd8313ed055', 'rebs', 'rebeca_ts2000@outlook.com', 'Universidade Estadual do Ceara Campus Itaperi', '2019-03-11', '07:42:18', 1),
+(6, 'aa', '81dc9bdb52d04dc20036dbd8313ed055', 'campelo', 'lucas.campelo@aluno.uece.br', 'Universidade Estadual do Ceara Campus Itaperi ', '2019-03-12', '19:26:05', 1),
+(7, 'aa', '81dc9bdb52d04dc20036dbd8313ed055', 'jamille', 'jamille.peres@aluno.uece.br', 'Universidade Estadual do Ceara Campus Itaperi ', '2019-03-12', '19:26:05', 1),
+(9, 'aa', '81dc9bdb52d04dc20036dbd8313ed055', 'prof clecio', 'clecio@larces.uece.br', 'Universidade Estadual do Ceara Campus Itaperi	', '2019-03-12', '19:26:05', 1);
 
 --
 -- Índices para tabelas despejadas
