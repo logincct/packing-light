@@ -176,7 +176,7 @@
             <input type="hidden" name="sistema" value="11">
             <button style=" height: 120px; width: 120px; " type="submit" name="submit" class="btn-main" ><h1>2D</h1></button>
           </form>
-          <form style=" display: inline;" action="">
+          <form style=" display: inline;" action="pages\buscar_objeto_3d.php">
             <input type="hidden" name="sistema" value="12">
             <button style=" height: 120px; width: 120px; " type="submit" name="submit_pack" class="btn-main"><h1>3D</h1></button>
           </form>
