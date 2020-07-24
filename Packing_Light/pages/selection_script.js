@@ -7,6 +7,7 @@ const createField = () => {
     let field = document.createElement("select");
     let label = document.createElement("label");
     let option = document.createElement("option");
+    let option1 = document.createElement("option");
     let img = document.createElement("img");
 
     // Preencher div.
@@ -23,11 +24,17 @@ const createField = () => {
     // Preencher campo Select.
     field.setAttribute("name", "nome_obj");
     field.setAttribute("style", "position: ralative; margin-left: 45px;")
+    field.innerHTML = "<?php while ($row = mysqli_fetch_assoc($listar)) { ?>"
+
     // ---
 
     // Preencher option.
     option.setAttribute("name", "nome_obj");
     option.setAttribute("value", "");
+
+    option1.setAttribute("value", "<?php echo $row['nome'];?>");
+    option1.innerHTML = "<?php echo $row['nome']."    ";?>"
+
     // ---
 
     // Preencher imagem.
@@ -40,6 +47,7 @@ const createField = () => {
     div.appendChild(label);
     div.appendChild(field);
     field.appendChild(option);
+    field.appendChild(option1);
     
     appDiv.appendChild(div); // div final.
 
