@@ -5,14 +5,10 @@ const createField = () => {
 
     let div = document.createElement("div");
     let field = document.createElement("select");
-
     //let span = document.createElement("span");
     //let span1 = document.createElement("span");
-
-
     let label = document.createElement("label");
     let option = document.createElement("option");
-    // let option1 = document.createElement("option");
     let img = document.createElement("img");
 
     // Preencher div.
@@ -44,7 +40,7 @@ const createField = () => {
     option.setAttribute("value", "<?php echo $row['nome'];?>");
 
     // option1.setAttribute("value", "<?php echo $row['nome'];?>");
-    // option1.innerHTML = "<?php echo $row['nome']."    ";?>"
+    option.innerHTML = "<?php echo $row['nome']."    ";?>"
 
     // ---
 
@@ -59,8 +55,6 @@ const createField = () => {
     div.appendChild(field);
     //field.appendChild(span);
     field.appendChild(option);
-    //field.appendChild(span1);
-
     // field.appendChild(option1);
     
     appDiv.appendChild(div); // div final.
