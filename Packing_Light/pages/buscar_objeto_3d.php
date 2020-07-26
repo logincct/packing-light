@@ -160,12 +160,12 @@
               <input style="position: relative; margin-left: 200px;" id = "c_palt" type = "number" name = "c_palt" value = "130" required></br>
             </div>
             <div class="form-group has-feedback" style="text-align: center;">
-              <label style="position: absolute;" for="c_palt">Altura do pallet</label>
-              <input style="position: relative; margin-left: 200px;" id = "c_palt" type = "number" name = "c_palt" value = "130" required></br>
+              <label style="position: absolute;" for="h_palt">Altura do pallet</label>
+              <input style="position: relative; margin-left: 200px;" id = "h_palt" type = "number" name = "h_palt" value = "130" required></br>
             </div>
             <div class="form-group has-feedback" style="text-align: center;">
-              <label style="position: absolute;" for="c_palt">Carga máxima do veículo</label>
-              <input style="position: relative; margin-left: 200px;" id = "c_palt" type = "number" name = "c_palt" value = "130" required></br>
+              <label style="position: absolute;" for="carga_palt">Carga máxima do veículo</label>
+              <input style="position: relative; margin-left: 200px;" id = "carga_palt" type = "number" name = "carga_palt" value = "130" required></br>
             </div></br>
             
 

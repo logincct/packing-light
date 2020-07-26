@@ -28,8 +28,8 @@ const createField = () => {
     field.setAttribute("style", "position: ralative; margin-left: 45px;")
 
     //Preenchendo o span
-    span.innerHTML = "<?php while ($row = mysqli_fetch_assoc($listar)) { ?>"
-    span1.innerHTML = "<?php echo $row['nome']."    "; } ?>"
+    span = "<?php while ($row = mysqli_fetch_assoc($listar)) { ?>"
+    span1 = "<?php echo $row['nome']."    "; } ?>"
 
     // ---
 
