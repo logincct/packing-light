@@ -5,8 +5,11 @@ const createField = () => {
 
     let div = document.createElement("div");
     let field = document.createElement("select");
+
     //let span = document.createElement("span");
     //let span1 = document.createElement("span");
+
+
     let label = document.createElement("label");
     let option = document.createElement("option");
     // let option1 = document.createElement("option");
@@ -28,10 +31,9 @@ const createField = () => {
     field.setAttribute("style", "position: ralative; margin-left: 45px;")
 
     //Preenchendo o span
+
     //span = "<?php while ($row = mysqli_fetch_assoc($listar)) { ?>"
     //span1 = "<?php echo $row['nome']."    "; } ?>"
-
-    // ---
 
     // Preencher option.
 
