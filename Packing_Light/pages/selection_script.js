@@ -5,7 +5,8 @@ const createField = () => {
 
     let div = document.createElement("div");
     let field = document.createElement("select");
-    let field1 = document.createElement("select");
+    let span = document.createElement("span");
+    let span1 = document.createElement("span");
     let label = document.createElement("label");
     let option = document.createElement("option");
     // let option1 = document.createElement("option");
@@ -25,12 +26,17 @@ const createField = () => {
     // Preencher campo Select.
     field.setAttribute("name", "nome_obj");
     field.setAttribute("style", "position: ralative; margin-left: 45px;")
-    field.innerHTML = "<?php while ($row = mysqli_fetch_assoc($listar)) { ?>"
-    field.innerHTML = "<?php echo $row['nome']."    ";?>"
+
+    //Preenchendo o span
+    span.innerHTML = "<?php while ($row = mysqli_fetch_assoc($listar)) { ?>"
+    span1.innerHTML = "<?php echo $row['nome']."    "; } ?>"
 
     // ---
 
     // Preencher option.
+
+    option.setAttribute("name", "nome_obj");
+    option.setAttribute("value", "");
 
     option.setAttribute("name", "nome_obj");
     option.setAttribute("value", "<?php echo $row['nome'];?>");
@@ -49,7 +55,10 @@ const createField = () => {
     div.appendChild(img);
     div.appendChild(label);
     div.appendChild(field);
+    field.appendChild(span);
     field.appendChild(option);
+    field.appendChild(span1);
+
     // field.appendChild(option1);
     
     appDiv.appendChild(div); // div final.
