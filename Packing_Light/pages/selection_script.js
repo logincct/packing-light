@@ -9,7 +9,7 @@ const createField = () => {
     //let span1 = document.createElement("span");
     let label = document.createElement("label");
     let option = document.createElement("option");
-    let option1 = innerHTML("<?php echo $row['nome']."    ";?></option>");
+    let option1 = document.write("<?php echo $row['nome']."    ";?></option>");
 
     let img = document.createElement("img");
 
