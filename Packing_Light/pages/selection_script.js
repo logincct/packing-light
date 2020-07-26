@@ -56,7 +56,7 @@ const createField = () => {
     div.appendChild(field);
     //field.appendChild(span);
     field.appendChild(option);
-    field.appendChild(option1);
+    //field.appendChild(option1);
     
     appDiv.appendChild(div); // div final.
 
