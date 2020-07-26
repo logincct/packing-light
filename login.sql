@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
 -- version 5.0.1
 -- https://www.phpmyadmin.net/
--- 
+--
 -- Host: 127.0.0.1
--- Tempo de geração: 05-Jul-2020 às 21:54
+-- Tempo de geração: 22-Jul-2020 às 21:09
 -- Versão do servidor: 10.4.11-MariaDB
 -- versão do PHP: 7.4.3
 
@@ -34,32 +34,33 @@ CREATE TABLE `busca_objetos` (
   `largura` int(225) NOT NULL,
   `comprimento` int(225) NOT NULL,
   `altura` int(225) NOT NULL,
-  `resultado` varchar(100) NOT NULL
+  `resultado` varchar(100) NOT NULL,
+  `peso` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `busca_objetos`
 --
 
-INSERT INTO `busca_objetos` (`codigo`, `nome`, `largura`, `comprimento`, `altura`, `resultado`) VALUES
-(1, '50x30x50', 50, 30, 50, '100%'),
-(3, '50x30x0', 50, 30, 0, ''),
-(4, '50x30x0', 50, 30, 0, ''),
-(5, '50x30x0', 50, 30, 0, ''),
-(6, '50x30x0', 50, 30, 0, ''),
-(7, '50x30x0', 50, 30, 0, ''),
-(8, '50x30x0', 50, 30, 0, ''),
-(9, '50x30x0', 50, 30, 0, ''),
-(10, '50x30x0', 50, 30, 0, ''),
-(11, '50x80x0', 50, 80, 0, ''),
-(12, '80x90x0', 80, 90, 0, ''),
-(13, '50x30x0', 50, 30, 0, ''),
-(25, 'oi', 50, 30, 30, 'Não calculado'),
-(41, 'oi', 50, 30, 30, 'Não calculado'),
-(44, 'rebeca', 50, 30, 30, 'Não calculado'),
-(52, 'alp', 50, 30, 30, 'Não calculado'),
-(54, 'hoje', 50, 30, 30, 'Não calculado'),
-(55, 'alp', 50, 30, 0, '89%  Pallet: 130x130x0');
+INSERT INTO `busca_objetos` (`codigo`, `nome`, `largura`, `comprimento`, `altura`, `resultado`, `peso`) VALUES
+(1, '50x30x50', 50, 30, 50, '100%', 0),
+(3, '50x30x0', 50, 30, 0, '', 0),
+(4, '50x30x0', 50, 30, 0, '', 0),
+(5, '50x30x0', 50, 30, 0, '', 0),
+(6, '50x30x0', 50, 30, 0, '', 0),
+(7, '50x30x0', 50, 30, 0, '', 0),
+(8, '50x30x0', 50, 30, 0, '', 0),
+(9, '50x30x0', 50, 30, 0, '', 0),
+(10, '50x30x0', 50, 30, 0, '', 0),
+(11, '50x80x0', 50, 80, 0, '', 0),
+(12, '80x90x0', 80, 90, 0, '', 0),
+(13, '50x30x0', 50, 30, 0, '', 0),
+(25, 'oi', 50, 30, 30, 'Não calculado', 0),
+(41, 'oi', 50, 30, 30, 'Não calculado', 0),
+(44, 'rebeca', 50, 30, 30, 'Não calculado', 0),
+(52, 'alp', 50, 30, 30, 'Não calculado', 0),
+(54, 'hoje', 50, 30, 30, 'Não calculado', 0),
+(55, 'alp', 50, 30, 0, '89%  Pallet: 130x130x0', 0);
 
 -- --------------------------------------------------------
 
@@ -2283,9 +2284,9 @@ INSERT INTO `usuario` (`codigo`, `cpf`, `password`, `nome`, `email`, `endereco`,
 (2, 'aa', '81dc9bdb52d04dc20036dbd8313ed055', 'camila', 'camilacamposcolares@gmail.com', 'BORGES DE MELO 820 BAIRRO DE FATIMA ', '2019-02-12', '45:00:00', 1),
 (3, 'aa', '81dc9bdb52d04dc20036dbd8313ed055', 'prof valdisio', 'valdisio.viana@uece.br', 'Universidade Estadual do Ceara Campus Itaperi', '2019-02-12', '18:00:00', 1),
 (4, 'aa', '81dc9bdb52d04dc20036dbd8313ed055', 'prof ana luiza', 'analuizabpb@gmail.com', 'Rua Rodrigues Junior 996', '2019-03-18', '11:24:39', 1),
-(8, '079.278.493-60', '81dc9bdb52d04dc20036dbd8313ed055', 'rebs', 'rebeca_ts2000@outlook.com', 'Universidade Estadual do Ceara Campus Itaperi', '2019-03-11', '07:42:18', 1),
 (6, 'aa', '81dc9bdb52d04dc20036dbd8313ed055', 'campelo', 'lucas.campelo@aluno.uece.br', 'Universidade Estadual do Ceara Campus Itaperi ', '2019-03-12', '19:26:05', 1),
 (7, 'aa', '81dc9bdb52d04dc20036dbd8313ed055', 'jamille', 'jamille.peres@aluno.uece.br', 'Universidade Estadual do Ceara Campus Itaperi ', '2019-03-12', '19:26:05', 1),
+(8, '079.278.493-60', '81dc9bdb52d04dc20036dbd8313ed055', 'rebs', 'rebeca_ts2000@outlook.com', 'Universidade Estadual do Ceara Campus Itaperi', '2019-03-11', '07:42:18', 1),
 (9, 'aa', '81dc9bdb52d04dc20036dbd8313ed055', 'prof clecio', 'clecio@larces.uece.br', 'Universidade Estadual do Ceara Campus Itaperi	', '2019-03-12', '19:26:05', 1);
 
 --

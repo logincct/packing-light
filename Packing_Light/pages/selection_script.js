@@ -5,9 +5,10 @@ const createField = () => {
 
     let div = document.createElement("div");
     let field = document.createElement("select");
+    let field1 = document.createElement("select");
     let label = document.createElement("label");
     let option = document.createElement("option");
-    let option1 = document.createElement("option");
+    // let option1 = document.createElement("option");
     let img = document.createElement("img");
 
     // Preencher div.
@@ -25,15 +26,17 @@ const createField = () => {
     field.setAttribute("name", "nome_obj");
     field.setAttribute("style", "position: ralative; margin-left: 45px;")
     field.innerHTML = "<?php while ($row = mysqli_fetch_assoc($listar)) { ?>"
+    field.innerHTML = "<?php echo $row['nome']."    ";?>"
 
     // ---
 
     // Preencher option.
-    option.setAttribute("name", "nome_obj");
-    option.setAttribute("value", "");
 
-    option1.setAttribute("value", "<?php echo $row['nome'];?>");
-    option1.innerHTML = "<?php echo $row['nome']."    ";?>"
+    option.setAttribute("name", "nome_obj");
+    option.setAttribute("value", "<?php echo $row['nome'];?>");
+
+    // option1.setAttribute("value", "<?php echo $row['nome'];?>");
+    // option1.innerHTML = "<?php echo $row['nome']."    ";?>"
 
     // ---
 
@@ -47,7 +50,7 @@ const createField = () => {
     div.appendChild(label);
     div.appendChild(field);
     field.appendChild(option);
-    field.appendChild(option1);
+    // field.appendChild(option1);
     
     appDiv.appendChild(div); // div final.
 

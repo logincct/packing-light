@@ -175,7 +175,9 @@
                 <label for = "setect_obj" style="position: absolute" >Selecione um produto</label>
                 <select required name = "nome_obj" id = "setect_obj" style="position: relative; margin:  0 0 4px 180px;">
                   <option name ="nome_obj" value=''></option>
-                  <?php while ($row = mysqli_fetch_assoc($listar)) { ?><option value='<?php echo $row['nome'];?>'><?php echo $row['nome']."    ";?></option><?php } ?>
+                  <span><?php while ($row = mysqli_fetch_assoc($listar)) { ?></span>
+                  <option value='<?php echo $row['nome'];?>'><span><?php echo $row['nome']."    ";?></span></option>
+                  <span><?php } ?></span>
                 </select>
               </div>
 
