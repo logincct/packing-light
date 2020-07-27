@@ -2,15 +2,11 @@ let idCounting = 2;
 
 const createField = () => {
     let appDiv = document.getElementById("custom-div");
-
     let div = document.createElement("div");
     let field = document.createElement("select");
-    //let span = document.createElement("span");
-    //let span1 = document.createElement("span");
     let label = document.createElement("label");
     let option = document.createElement("option");
-    let option1 = document.write("<?php echo $row['nome']."    ";?></option>");
-
+    let number = document.createElement("input");
     let img = document.createElement("img");
 
     // Preencher div.
@@ -28,21 +24,17 @@ const createField = () => {
     field.setAttribute("name", "nome_obj");
     field.setAttribute("style", "position: ralative; margin-left: 45px;")
 
-    //Preenchendo o span
-
-    //span = "<?php while ($row = mysqli_fetch_assoc($listar)) { ?>"
-    //span1 = "<?php echo $row['nome']."    "; } ?>"
 
     // Preencher option.
-
     option.setAttribute("name", "nome_obj");
     option.setAttribute("value", "");
+    // ---
 
-    option.setAttribute("name", "nome_obj");
-    option.setAttribute("value", "<?php echo $row['nome'];?>");
-
-    // option1.setAttribute("value", "<?php echo $row['nome'];?>");
-
+    // Preencher number.
+    number.setAttribute("type", "number");
+    number.setAttribute("min", "0");
+    number.setAttribute("max", "100");
+    number.setAttribute("style", "margin: 0 0 0 2px; height: 22px; width: 45px;");
     // ---
 
     // Preencher imagem.
@@ -54,9 +46,8 @@ const createField = () => {
     div.appendChild(img);
     div.appendChild(label);
     div.appendChild(field);
-    //field.appendChild(span);
+    div.appendChild(number);
     field.appendChild(option);
-    //field.appendChild(option1);
     
     appDiv.appendChild(div); // div final.
 
