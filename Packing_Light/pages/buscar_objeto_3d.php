@@ -148,7 +148,7 @@
           <p class="login-box-msg" style="font-size: large">Buscar carga já calculada</p>
 
           <!-- Formulário PackingLight. -->
-          <form action="../lib/buscaObjeto.php" method="post">
+          <form action="" method="post">
 
             <div style="text-align: center;" class="form-group has-feedback">  
             <label style="position: absolute;" for="l_palt">Largura do pallet</label>
@@ -175,10 +175,11 @@
                 <label for = "setect_obj" style="position: absolute" >Selecione um produto</label>
                 <select required name = "nome_obj" id = "setect_obj" style="position: relative; margin:  0 0 4px 180px;">
                   <option name ="nome_obj" value=''></option>
-                  <span><?php while ($row = mysqli_fetch_assoc($listar)) { ?></span>
-                  <option value='<?php echo $row['nome'];?>'><span><?php echo $row['nome']."    ";?></span></option>
-                  <span><?php } ?></span>
+                  <?php while ($row = mysqli_fetch_assoc($listar)) { ?>
+                  <option value='<?php echo $row['nome'];?>'><?php echo $row['nome']."    ";?></option>
+                  <?php } unset($listar); $listar = $mysql->order_by('nome','ASC')->get('busca_objetos'); ?>
                 </select>
+                <input type="number" min="0" max="100" style="height: 22px; width: 45px;">
               </div>
 
             </div>
@@ -192,7 +193,7 @@
               </div>
               <!-- /.col -->
               <div class="col-xs-4" style=" width: 20%;float:right;">
-                <button onclick="createField()" name="calcula" class="btn btn-primary btn-block btn-flat">Adicionar</button>
+                <button onclick="createField()" name="adc" class="btn btn-primary btn-block btn-flat">Adicionar</button>
                 <button type="submit" name="calcula" class="btn btn-primary btn-block btn-flat">Calcular</button>
               </div>
               <!-- /.col -->
