@@ -164,8 +164,8 @@
               <input style="position: relative; margin-left: 200px;" id = "h_palt" type = "number" name = "h_palt" value = "130" required></br>
             </div>
             <div class="form-group has-feedback" style="text-align: center;">
-              <label style="position: absolute;" for="carga_palt">Carga máxima do veículo</label>
-              <input style="position: relative; margin-left: 200px;" id = "carga_palt" type = "number" name = "carga_palt" value = "130" required></br>
+              <label style="position: absolute;" for="carga">Carga máxima do veículo</label>
+              <input style="position: relative; margin-left: 200px;" id = "carga" type = "number" name = "carga" value = "130" required></br>
             </div></br>
             
 

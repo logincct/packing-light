@@ -9,9 +9,9 @@ const createField = () => {
     //let span1 = document.createElement("span");
     let label = document.createElement("label");
     let option = document.createElement("option");
-    let option1 = document.write("<?php echo $row['nome']."    ";?></option>");
-
+    // let option1 = innerHTML("<?php echo $row['nome']."    ";?></option>");
     let img = document.createElement("img");
+    let input = document.createElement("number");
 
     // Preencher div.
     div.setAttribute("id", `select${idCounting}`);
@@ -26,7 +26,7 @@ const createField = () => {
 
     // Preencher campo Select.
     field.setAttribute("name", "nome_obj");
-    field.setAttribute("style", "position: ralative; margin-left: 45px;")
+    field.setAttribute("style", "margin-left: 45px;")
 
     //Preenchendo o span
 
@@ -40,6 +40,11 @@ const createField = () => {
 
     option.setAttribute("name", "nome_obj");
     option.setAttribute("value", "<?php echo $row['nome'];?>");
+
+    //Adicionado input da quantidade de produtos
+    input.setAttribute("name", "qtd_obj");
+    //input.setAttribute("type", "number");
+    //field.innerHTML = "<?php echo $row['nome']."    ";?></option>";
 
     // option1.setAttribute("value", "<?php echo $row['nome'];?>");
 
@@ -56,8 +61,8 @@ const createField = () => {
     div.appendChild(field);
     //field.appendChild(span);
     field.appendChild(option);
+    field.appendChild(input);
     //field.appendChild(option1);
-    
     appDiv.appendChild(div); // div final.
 
     // Incrementar contador de ID.
