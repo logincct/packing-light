@@ -7,7 +7,9 @@
     	if( isset($_POST['salva_objeto']) ){
     		$nome = $_SESSION['reg_nome'];
     		$largura = $_SESSION['reg_largura'];
+    		//$largura = $larg/0.026458333333333;
 			$comprimento = $_SESSION['reg_comprimento'];
+			//$comprimento = $comp/0.026458333333333;
 			$altura = $_SESSION['reg_altura'];
 			$resultado = $_SESSION['reg_resultado']."  Pallet: ".$_SESSION['lag_palt']."x".$_SESSION['comp_palt']."x".$_SESSION['reg_altura'];
     	}
@@ -66,6 +68,6 @@
 	    }
     }
     else{
-		echo "<script>javascript:window.location.replace('../pages/canvas.php');</script>";    }
+		echo "<script>javascript:window.location.replace('../pages/busca_objeto.php');</script>";    }
 
 ?>

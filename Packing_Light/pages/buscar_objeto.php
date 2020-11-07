@@ -147,16 +147,15 @@
 
           <!-- Formulário PackingLight. -->
           <form action="../lib/buscaObjeto.php" method="post">
-
-            <div style="text-align: center;" class="form-group has-feedback">  
-            <label style="position: absolute;" for="l_palt">Largura do pallet</label>
-              <input style="position: relative; margin-left: 200px;" id = "l_palt" type = "number" name = "l_palt" value = "130" required ></br>
-              <!-- <span class="glyphicon glyphicon-user form-control-feedback"></span> ícones-->
-            </div>
             <div class="form-group has-feedback" style="text-align: center;">
               <label style="position: absolute;" for="c_palt">Comprimento do pallet</label>
-              <input style="position: relative; margin-left: 200px;" id = "c_palt" type = "number" name = "c_palt" value = "130" required></br>
-            </div></br>
+              <input style="position: relative; margin-left: 200px;" id = "c_palt" type = "double" name = "c_palt" value = "" required>
+            </div>
+            <div style="text-align: center;" class="form-group has-feedback">  
+            <label style="position: absolute;" for="l_palt">Largura do pallet</label>
+              <input style="position: relative; margin-left: 200px;" id = "l_palt" type = "double" name = "l_palt" value = "" required ></br>
+              <!-- <span class="glyphicon glyphicon-user form-control-feedback"></span> ícones-->
+            </div>
             <div class="form-group has-feedback" style="text-align: center;">
               <label for = "setect_obj" style="position: absolute" >Selecione um produto</label>
               <select required name = "nome_obj" id = "setect_obj" style="position: relative; margin-left: 180px;">
