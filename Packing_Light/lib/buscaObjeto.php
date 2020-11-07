@@ -1,5 +1,6 @@
 <?php
 	session_start();
+
 	$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
 	$host = $url["host"];
