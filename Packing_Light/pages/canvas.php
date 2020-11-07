@@ -160,7 +160,7 @@
         <div class="register-box-body" style="text-align: center;">
 
           <div id="canvas-field">
-            <h2>Apresentando resultado dos cálculos:</h2>
+            <h4>Apresentando resultado dos cálculos do produto <?php echo $_SESSION["nome_obj"]; ?>:</h4>
             <canvas id="Pallet" width=" <?php echo $_SESSION['larguraPallet']; ?> " height=" <?php echo $_SESSION['comprimentoPallet']; ?> " style="border:1px solid #000000; margin: 2%;"></canvas>
           </div>
 
