@@ -1,15 +1,15 @@
 <?php
 	session_start();
-	// $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+	$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
-	// $host = $url["host"];
-	// $user = $url["user"];
-	// $pass = $url["pass"];
-	// $db = substr($url["path"], 1);
-	$host = "localhost";
-	$user = "root";
-	$pass = "";
-	$db = "login";
+	$host = $url["host"];
+	$user = $url["user"];
+	$pass = $url["pass"];
+	$db = substr($url["path"], 1);
+	// $host = "localhost";
+	// $user = "root";
+	// $pass = "";
+	// $db = "login";
 
 	$connect = mysqli_connect($host, $user, $pass, $db);
   	$listar = mysqli_query($connect, "SELECT nome,largura,comprimento FROM busca_objetos");
