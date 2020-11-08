@@ -205,7 +205,9 @@
         var comprimentoPallet = <?php echo $_SESSION['comprimentoPallet']; ?>;
   			var larguraItem = <?php echo $_SESSION['larguraItem']; ?>;  //larguraItem é a largura do objeto
   			var comprimentoItem = <?php echo $_SESSION['comprimentoItem']; ?>;  //comprimentoItem é o comprimento do objeto
-
+        console.log(larguraItem);
+        console.log(comprimentoItem);
+        console.log("AA");
         var x = 0;
   			var y = 0;
   			

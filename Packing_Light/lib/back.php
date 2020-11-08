@@ -66,8 +66,8 @@
 
 			$_SESSION['res'] = $segundaChamada;        //Resposta do FirstFit
 
-	        $_SESSION['larguraItem'] = $objetos[0]->largura;
-			$_SESSION['comprimentoItem'] = $objetos[0]->comprimento;
+	        $_SESSION['larguraItem'] = $objetos[0]->comprimento;
+			$_SESSION['comprimentoItem'] = $objetos[0]->largura;
 			$_SESSION['alter'] = 0;
 
 		} else {  //Se não, retorna $primeiraChamada, mas gira os objetos de novo (para printar a canva certa)
@@ -180,7 +180,7 @@
 
 		$porcentagem = ($areaObjeto * 100)/$areaPallet;
 
-		$_SESSION['reg_resultado'] = round($porcentagem).'%';
+		$_SESSION['reg_resultado'] = round($porcentagem).'';
 
 		header('Location: ../pages/canvas.php');  //Cria a Canvas	
 	}
