@@ -19,7 +19,7 @@
         $senha = md5($senha_md5);
     }    
         
-
+    shell_exec("admin/main.php", $retorno);
     
     /*if($email != ""){
         echo "<script>javascript:window.alert('{$email}');</script>";

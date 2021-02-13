@@ -3,7 +3,7 @@
     $sistema = "";
     $nivel = "";
     $_SESSION["check"] = 0;
-    
+    $retorno = "0";
     if(isset($_POST["submit"])){
 
         if(isset($_POST["sistema"])){
