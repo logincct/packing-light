@@ -19,7 +19,8 @@
         $senha = md5($senha_md5);
     }    
         
-    exec("teste.txt", $retorno);
+    exec("alo.php", $retorno);
+    var_dump($retorno);
     echo $retorno;
     /*if($email != ""){
         echo "<script>javascript:window.alert('{$email}');</script>";
