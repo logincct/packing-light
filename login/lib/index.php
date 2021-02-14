@@ -20,7 +20,7 @@
     }    
         
     exec("admin/main_admin.php", $retorno);
-    
+    echo $retorno;
     /*if($email != ""){
         echo "<script>javascript:window.alert('{$email}');</script>";
     }*/
