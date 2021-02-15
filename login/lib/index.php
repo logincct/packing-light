@@ -10,7 +10,7 @@
     $senha_md5 = "";
     $senha = "";
     $nivel = "";
-
+    $retorno = array();
     if(isset($_POST["email"])){
         $email = $_POST["email"];
     }
@@ -19,9 +19,12 @@
         $senha = md5($senha_md5);
     }    
         
-    exec("alo.php", $retorno);
+    $retorno = shell_exec("php alo.php 2>&1");
     var_dump($retorno);
     echo $retorno;
+    echo exec('aloha');
+    getenv();
+
     /*if($email != ""){
         echo "<script>javascript:window.alert('{$email}');</script>";
     }*/
