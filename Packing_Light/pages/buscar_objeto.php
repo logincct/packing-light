@@ -158,7 +158,7 @@
             </div>
             <div class="form-group has-feedback" style="text-align: center;">
               <label for = "setect_obj" style="position: absolute" >Selecione um produto</label>
-              <select required name = "nome_obj" id = "setect_obj" style="position: relative; margin-left: 180px;">
+              <select required name = "nome_obj" id = "" style="position: relative; margin-left: 180px;">
                 <option name ="nome_obj" value=''></option>
                 <?php while ($row = mysqli_fetch_assoc($listar)) { ?><option value='<?php echo $row['nome'];?>'><?php echo $row['nome']."    ";?></option><?php } ?>
               </select>

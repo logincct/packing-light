@@ -148,7 +148,7 @@
           <p class="login-box-msg" style="font-size: large">Buscar carga já calculada</p>
 
           <!-- Formulário PackingLight. -->
-          <form action="" method="post">
+          <form action="../lib/buscaObjeto3D.php" method="post">
 
             <div style="text-align: center;" class="form-group has-feedback">  
             <label style="position: absolute;" for="l_palt">Largura do pallet</label>
@@ -179,7 +179,7 @@
                   <option value='<?php echo $row['nome'];?>'><?php echo $row['nome']."    ";?></option>
                   <?php } unset($listar); $listar = $mysql->order_by('nome','ASC')->get('busca_objetos'); ?>
                 </select>
-                <input type="number" min="0" max="100" style="height: 22px; width: 45px;">
+                <input type="number" min="0" max="100" style="height: 22px; width: 45px;" value="0">
               </div>
 
             </div>
@@ -193,12 +193,20 @@
               </div>
               <!-- /.col -->
               <div class="col-xs-4" style=" width: 20%;float:right;">
-                <button onclick="createField()" name="adc" class="btn btn-primary btn-block btn-flat">Adicionar</button>
-                <button type="submit" name="calcula" class="btn btn-primary btn-block btn-flat">Calcular</button>
+                <button name="adiciona" class="btn btn-primary btn-block btn-flat">Adicionar</button>
+               <!--  <button type="submit" name="calcula_pallet" class="btn btn-primary btn-block btn-flat">Calcular</button> -->
               </div>
               <!-- /.col -->
             </div>
           </form>    
+          <form action="../lib/buscaObjeto3D.php" name="" method="post">
+            <div class="row">
+              <div class="col-xs-4" style=" width: 20%;float:right;">
+                <button name="calculo" class="btn btn-primary btn-block btn-flat">Calcular</button>
+               <!--  <button type="submit" name="calcula_pallet" class="btn btn-primary btn-block btn-flat">Calcular</button> -->
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     

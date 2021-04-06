@@ -16,17 +16,17 @@
 		
 		function __construct(){
 
-			 $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+			// $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
-			 $host = $url["host"];
-			 $user = $url["user"];
-			 $pass = $url["pass"];
-			 $db = substr($url["path"], 1);
+			// $host = $url["host"];
+			// $user = $url["user"];
+			// $pass = $url["pass"];
+			// $db = substr($url["path"], 1);
 
-			// $host = "localhost";
-			// $user = "root";
-			// $pass = "";
-			// $db = "login";
+			 $host = "localhost";
+			 $user = "root";
+			 $pass = "";
+			 $db = "login";
 
 			self::$connection_info = array('host' => $host, 'user' => $user, 'pass' => $pass, 'db' => $db);
 		}
