@@ -21,11 +21,6 @@
 		$_SESSION['c_palt'] = $_POST['c_palt'];
 		$_SESSION['h_palt'] = $_POST['h_palt'];
 		$_SESSION['carga'] = $_POST['carga'];
-		//$array[]=$_SESSION['nome'];
-		$lista1 = array();
-		$lista2 = array();
-		$lista3 = array();
-		//$_SESSION['lista2'] = array();
 
 
 		while ($row = mysqli_fetch_assoc($listar)){
@@ -36,46 +31,36 @@
 				$_SESSION['comp_obj'] = $row['comprimento'];
 				$_SESSION['alt_obj'] = $row['altura'];
 				$_SESSION['peso_obj'] = $row['peso'];
-				array_push($lista3, $_SESSION['cod_obj'], $_SESSION['nome_obj'], $_SESSION['larg_obj'], $_SESSION['comp_obj'], $_SESSION['alt_obj'], $_SESSION['peso_obj']);
+				//array_push($lista3, $_SESSION['cod_obj'], $_SESSION['nome_obj'], $_SESSION['larg_obj'], $_SESSION['comp_obj'], $_SESSION['alt_obj'], $_SESSION['peso_obj']);
 			//$lista2 .= $lista3 . "";
 			}
 		}
-	//echo $lista3[0];
-		//$lista1 é a lista para array de pallet
-		//$lista2 é a lista para array de produtos/objetos
 
-		$lista2["nome"][] = $_SESSION['nome'];
-		
+
 		$arquivo = 'texto.json';
-		$conteudo = "Inicio";
+		$conteudo = "";
 		$fp = fopen($arquivo, 'w');
+
 		fwrite($fp, $conteudo);
 		fclose($fp);
 
-		for ($i=0; $i < count($lista2["nome"]); $i++) { 
 		
-			// $lista1["l_palt"] = $_SESSION['l_palt'];
-			// $lista1["c_palt"] = $_SESSION['c_palt'];
-			// $lista1["h_palt"] = $_SESSION['h_palt'];
-			// $lista1["carga"] = $_SESSION['carga'];
 			//$_SESSION["lista1"] = array('Pallets' => array("l_palt" => $_SESSION["l_palt"]), array("c_palt" => $_SESSION["c_palt"]), array("h_palt" => $_SESSION["h_palt"]), array("carga" => $_SESSION["carga"]));
-		$_SESSION["lista1"][] = [["l_palt"=>$_SESSION["l_palt"], "c_palt"=>$_SESSION["c_palt"]]];
+			$_SESSION["lista1"][] =  array('nome'=>$_SESSION["l_palt"], 'c_palt'=>$_SESSION["c_palt"]);
+			//session_destroy();
+			//echo $_SESSION["lista1"]['nome'];
+		
 			$conteudo1 = json_encode($_SESSION["lista1"]);
+			echo $conteudo1;
 
-			//$conteudo2 = json_encode($lista2);
-
-			//$conteudo1 = $lista2;
-			
-			//var_dump($string);
 			$fp1 = fopen($arquivo, 'a+');
-			//var_dump($fp1);
+
 			fwrite($fp1, print_r($conteudo1, true));
 			//fwrite($fp1, print_r($conteudo2, true));
 			fclose($fp1);
 			$string = file_get_contents("texto.json");
-			break;
-		}
-		//session_destroy();
+
+
 		//echo "<script>javascript:window.location.replace('../pages/buscar_objeto_3d.php');</script>";
 
 

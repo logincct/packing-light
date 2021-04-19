@@ -3,7 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"encoding/json"
+
 	"os"
 )
 func lerTexto(caminhoDoArquivo string) ([]string) {
@@ -33,9 +33,8 @@ func main() {
 	conteudo = nil
 	conteudo = lerTexto("../../Packing_Light/lib/texto.json")
 
-	fmt.Println(json.Decoder(conteudo))
+
 	for indice, linha := range conteudo {
-		linha1 = linha
-		fmt.Println(indice, linha)
+		fmt.Println(indice, linha[0])
 	}
 }
